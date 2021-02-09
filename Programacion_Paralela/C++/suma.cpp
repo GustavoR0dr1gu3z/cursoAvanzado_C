@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     c = atoi(argv[3]);
     suma = a+b+c;
 
-    cout<<"La suma de los: " <<argc-1<<" sumandos es: "<<endl;
+    cout<<"La suma de los " <<argc-1<<" sumandos es: "<<endl;
     cout<<suma<<endl;    
     
     return 0;
