@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
 
-    int digito = 5, num = 0;
+    int digito = 10, num = 0;
 
     cout<<"Digite un numero para comparar: "; cin>>num;
 
