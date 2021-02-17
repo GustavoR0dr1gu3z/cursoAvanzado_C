@@ -104,7 +104,7 @@ int main(){
     struct print_phrase t3_args;
     struct random_number t4_args;
 
-
+    t1_args.fraseR = 'Leyendoooooo';
     t1_args.countR = 10000;
     pthread_create(&t1,NULL,&leer_archivo,&t1_args);
 
@@ -112,10 +112,11 @@ int main(){
     t2_args.countW = 10000;
     pthread_create(&t2,NULL,&escribir_archivo,&t2_args);
 
+// Listo
     t3_args.fraseP = 'Hola Hilos ';
     t3_args.countP = 10000;
     pthread_create(&t3,NULL,&imprime_terminal,&t3_args);
-
+// Listo
     t4_args.numerosN = numero;
     t4_args.countN = 10000;
     pthread_create(&t4,NULL,&numeros_aleatorios,&t4_args);
