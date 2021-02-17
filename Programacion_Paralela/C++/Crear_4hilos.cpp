@@ -104,19 +104,34 @@ int main(){
     struct print_phrase t3_args;
     struct random_number t4_args;
 
-    t1_args.fraseR = 'Leyendoooooo';
-    t1_args.countR = 10000;
-    pthread_create(&t1,NULL,&leer_archivo,&t1_args);
 
+//---------------------------HILO 1, leer archivo----------------------------------
+    char a[128];
+    ifstream file;
+    file.open("file.txt");
+        
+    while(!file.eof()){
+        file >> a;
+        t1_args.fraseR = a;
+        t1_args.countR = 10000;
+        pthread_create(&t1,NULL,&leer_archivo,&t1_args);
+    }
+    file.close();
+
+
+//---------------------------HILO 2, escribir archivo----------------------------------
     t2_args.fraseW = 'Escribiendoooo ';
     t2_args.countW = 10000;
     pthread_create(&t2,NULL,&escribir_archivo,&t2_args);
 
-// Listo
+
+//---------------------------HILO 3, imprime terminal----------------------------------
     t3_args.fraseP = 'Hola Hilos ';
     t3_args.countP = 10000;
     pthread_create(&t3,NULL,&imprime_terminal,&t3_args);
-// Listo
+
+
+//---------------------------HILO 4, numeros aleatorios----------------------------------
     t4_args.numerosN = numero;
     t4_args.countN = 10000;
     pthread_create(&t4,NULL,&numeros_aleatorios,&t4_args);
