@@ -120,10 +120,22 @@ int main(){
 
 
 //---------------------------HILO 2, escribir archivo----------------------------------
-    t2_args.fraseW = 'Escribiendoooo ';
-    t2_args.countW = 10000;
-    pthread_create(&t2,NULL,&escribir_archivo,&t2_args);
 
+
+    string filename("file2.txt");
+    fstream archivo_salida;
+    archivo_salida.open(filename);
+
+    if(!archivo_salida.is_open()){
+        cout<<"No se puede abrir el archivo "<<filename<<endl;        
+    }else{
+        archivo_salida<<"Archivo "<<endl;                
+        t2_args.fraseW = 'Escribiendo en archivo ';
+        t2_args.countW = 10000;
+        pthread_create(&t2,NULL,&escribir_archivo,&t2_args);
+
+    }
+    archivo_salida.close();
 
 //---------------------------HILO 3, imprime terminal----------------------------------
     t3_args.fraseP = 'Hola Hilos ';
