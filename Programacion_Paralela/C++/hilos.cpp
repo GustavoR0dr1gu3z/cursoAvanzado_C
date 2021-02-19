@@ -25,6 +25,5 @@ int main(){
         cout<<"0";
     return 0;
 
-        pthread_exit(NULL);
 
 }
