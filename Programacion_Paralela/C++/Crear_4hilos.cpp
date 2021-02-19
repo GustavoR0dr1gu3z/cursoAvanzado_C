@@ -39,7 +39,7 @@ void* leer_archivo(void* parametros){
 struct read_file* r = (struct read_file*) parametros;
     
     int i;    
-    for(i=0; i<r->countR;i++)
+    for(i=0; i<(r->countR); i++)
         {
             cout<<r->fraseR;
         }  
@@ -93,7 +93,7 @@ int main(){
     int contador = 100;
     srand(time(NULL));
 
-    numero = 1+rand()%(11-1);
+    numero = 1+rand()%(101-1);
 
     pthread_t t1;
     pthread_t t2;    
@@ -107,7 +107,7 @@ int main(){
 
 
 //---------------------------HILO 1, leer archivo----------------------------------
-    char a[255];
+    string a;
     ifstream file;
     file.open("leer.txt");
         
@@ -117,6 +117,8 @@ int main(){
         t1_args.countR = contador;
         pthread_create(&t1,NULL,&leer_archivo,&t1_args);
     }
+
+        
     file.close();
 
 
