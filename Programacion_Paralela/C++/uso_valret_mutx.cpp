@@ -54,12 +54,14 @@ void* fun(void *parameters){
     struct parms* p = (struct parms*) parameters; //Casting para la funcion de hacer suma
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER; // MUTEX es una forma de inicializarlo
         int x,y,c,i;
-        x = p->a;
+        x = p->a; // Se teclean estas variables, para contener la suma parcial
         y = p->b;
         c = 0;
-        for(i=x; i<=y;i++){
-            c +=i;
+        for(i=x; i<=y;i++){ 
+            c +=i; // Se incrementa el valor
         }
+        pthread_mutex_lock(&mtx); //Bloquea el manejador del MUTEX
+            z = z+c;
 
         pthread_mutex_unlock(&mtx);
     
