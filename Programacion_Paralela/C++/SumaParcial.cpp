@@ -63,8 +63,5 @@ void* fun(void *parameters){
         pthread_mutex_lock(&mtx); //Bloquea el manejador del MUTEX
             z = z+c;
 
-        pthread_mutex_unlock(&mtx);
-    
-
-
+        pthread_mutex_unlock(&mtx); //Desbloque el MUTEX para que otro hilo que estaba esperando, pueda entrar y hacer su suma parcial
 }
