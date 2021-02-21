@@ -1,3 +1,6 @@
+// Se compila de esta manera: g++ -std=c++11 -o SumaParcialCompilado SumaParcial.cpp -lpthread
+// Se ejecuta de esta manera: ./SumaParcialCompilado
+
 #include <iostream>
 #include <pthread.h>
 #include <mutex>
@@ -64,4 +67,5 @@ void* fun(void *parameters){
             z = z+c;
 
         pthread_mutex_unlock(&mtx); //Desbloque el MUTEX para que otro hilo que estaba esperando, pueda entrar y hacer su suma parcial
+    return NULL;
 }
