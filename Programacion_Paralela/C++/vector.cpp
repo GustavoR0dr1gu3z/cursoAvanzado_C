@@ -1,3 +1,7 @@
+//Caracteristicas: lscpu | egrep -i 'core.*:|socket'
+//Se ejecuta: 
+//Se compila:
+
 #include <iostream>
 #include <fstream>
 #include <pthread.h>
