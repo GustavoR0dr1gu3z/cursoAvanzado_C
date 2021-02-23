@@ -29,8 +29,8 @@ int main(){
     struct parms hilos_arg[4];
     clock_t start, stop;
 
-    char nvect1[10] = "vectU.txt"; 
-    char nvect2[10] = "vectV.txt";
+    char nvect1[10] = "vectU.dat"; 
+    char nvect2[10] = "vectV.dat";
 
     V = new float[m];
     U = new float[m];
