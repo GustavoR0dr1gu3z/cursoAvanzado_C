@@ -69,3 +69,6 @@ void* suma(void *parameters){
         pthread_mutex_unlock(&mtx); //Desbloque el MUTEX para que otro hilo que estaba esperando, pueda entrar y hacer su suma parcial
     return NULL;
 }
+
+
+// TAREA: AÑADIR FUNCION PARA MULTIPLICAR VECTOR POR VECTOR
