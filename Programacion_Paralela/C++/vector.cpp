@@ -104,7 +104,8 @@ void* producto(void* parameters){
         c+= C[i] * D[i];
     }
 
-    pthread_mutex_unlock(&mtx);}
+    pthread_mutex_unlock(&mtx);
+}
 
     float* lee_vec(char *nom_arch, int m){
         float *W;

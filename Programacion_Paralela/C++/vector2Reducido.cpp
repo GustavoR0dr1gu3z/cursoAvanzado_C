@@ -49,16 +49,16 @@ int main(int argc, char *argv[]){
     stop = clock();
 
     // CLOCKS_PER_SECOND
-tm = stop-start;
+    tm = stop-start;
 
-cout<<"El producto es: "<<z<<endl;
-cout<<"Tiempo de ejecucion: "<<tm<<endl;
-return 0;
+    cout<<"El producto es: "<<z<<endl;
+    cout<<"Tiempo de ejecucion: "<<tm<<"ticks"<<endl;
+    return 0;
 }
 
 
 
-void* producto(void* parameters){
+void* prod(void* parameters){
 
     struct parms* p = (struct parms*) parameters;
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
@@ -69,7 +69,11 @@ void* producto(void* parameters){
     y = p->b;
     c=0;
 
-    pthread_mutex_unlock(&mtx);}
+    for(i=x;i<=y;i++){
+        c+= U[i] * V[i];
+    }
+}
+
 
     float* lee_vec(char *nom_arch, int m){
         float *W;
