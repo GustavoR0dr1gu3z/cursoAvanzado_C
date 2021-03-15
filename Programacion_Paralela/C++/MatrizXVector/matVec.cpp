@@ -37,7 +37,7 @@ cout<<endl;
 for (i = 0; i < ren; i++){
         hi = i%4;
         hilos_args[hi].w1 = A[i];
-        hilos_args[hi].w2 = v;
+        hilos_args[hi].w2 = V;
         hilos_args[hi].cols = col;
         hilos_args[hi].inic = i;
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
