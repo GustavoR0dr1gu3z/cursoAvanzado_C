@@ -1,11 +1,16 @@
 #include <iostream>
+#include <fstream>
+#include <pthread.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
 #include "gauss_fun212.h"
+
 
 using namespace std;
 
 float *X, **Au, **W, tm;
-
-
+int ren,col,m; 
 struct parms{
     int a,b,c;
     float *w1, *w2, **M;
@@ -15,17 +20,17 @@ int main(int argc, char *argv[]){
     int i,j,ren,col,hi;
     unsigned start, stop;
 
-    ren = atoi(argc[1]);
+    ren = atoi(argv[1]);
     col = atoi(argv[2]);
     pthread_t hilos[4];
 
-    struct patms hilos_arg[4];
+    struct parms hilos_arg[4];
 
     char nvect[10] = "vecV.dat";
     char nmat[10] = "matV.dat";
     char nmatsol[12] = "matXsol.dat";
 
-    X = crea_vect(ren,col);
+    X = crea_vect(ren);
     Au = lee_mat(nmat,ren,col);
     muestra_mat(Au,ren,col);
     W = crea_mat(ren,col);
@@ -35,8 +40,8 @@ int main(int argc, char *argv[]){
     for(i=0; i<ren; i++){
         for(j=i+1; j<ren; j++){
             hi = j%4;
-            hilos_arg[hi].w1 = Au[i]
-            hilos_arg[hi].w2 = Au[j]
+            hilos_arg[hi].w1 = Au[i];
+            hilos_arg[hi].w2 = Au[j];
             hilos_arg[hi].M = W;
             hilos_arg[hi].a = col;
             hilos_arg[hi].b = i;
@@ -51,17 +56,17 @@ int main(int argc, char *argv[]){
 
     cout<<"Tiempo de ejecución: "<<tm<<"segundos"<<endl;
     X = eval_ret(W,ren,col);
-    guarda_mat(W,ren,col,nmatso);
+    guarda_mat(W,ren,col,nmatsol);
     muestra_vect(X,ren);
 
 return 0;
 }
 
 void* mult_hilo(void* parameters){
-    struct parms* P=(struct parms*) parameters;
-    pthread_mutex_t mtc = PTHREAD_MUTEX_INITIALIZER;
+    struct parms* p=(struct parms*) parameters;
+    pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     int i,j,k,col;
-    float *U, *V, **Q, mg = 0, uv = 0;
+    float *U, *V, **Q, mg = 0;
     col = p -> a;
     i = p -> b;
     j = p -> c;
@@ -82,7 +87,7 @@ void* mult_hilo(void* parameters){
 return NULL;
 }
 
-flat** lee_mat(char *nom_arch, int m, int n){
+float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
     float **M;
     M = crea_mat(m,n);
@@ -90,15 +95,23 @@ flat** lee_mat(char *nom_arch, int m, int n){
     fd1.open(nom_arch, ios::in);
     while(!fd1.eof()){
         int i, j;
+        for(i=0;i<m;i++){
+            for (j=0;j<n;j++){
+                fd1>>M[i][j];
+            }
+            
+        }
     }
-
+    fd1.close();
+    cout<<"Matriz Leida"<<endl;
+    return M;
 }
 
 
 
 float *eval_ret(float **A, int r, int c){
     int i, j, m, n;
-    floa **M,  *Y, S=0;
+    float **M,  *Y, S=0;
     Y = crea_vect(r);
     Y[r-1] = A[r-1][c-1] / A[r-1][r-1];
     m = r-2;
@@ -110,7 +123,20 @@ float *eval_ret(float **A, int r, int c){
     Y[i] = (A[i][c-1]-S)/A[i][i];
     S = 0;    
     }
-
 return Y;
 }
 
+int guarda_mat(float** A, int r, int c, char* nom_arch){
+    int i, j;
+    fstream fd1;
+    fd1.open(nom_arch, ios::out);
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            fd1<<A[i][j]<<"";
+        }
+        cout<<endl;
+    }
+fd1.close();
+cout<<"Matriz Guardada"<<endl;
+return 0;
+}

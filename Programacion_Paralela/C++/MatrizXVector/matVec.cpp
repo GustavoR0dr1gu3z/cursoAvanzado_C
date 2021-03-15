@@ -95,7 +95,7 @@ int muestra_mat(float** M, int m, int n){
 return 0;
 }
 
-int muestra_vec(float *M, int n{
+int muestra_vec(float *M, int n){
     int j;
     for(j=0; j<n; j++){
         cout<<M[j]<<", ";
@@ -120,8 +120,8 @@ void* mult_hilo(void* parameters){
     i = p->inic;
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_lock(&mtx);
-        w[i] = prod_vv(p->w1, p->w2, p->cols);
-    pthread_mutex_unlock(&tmx);
+        W[i] = prod_vv(p->w1, p->w2, p->cols);
+    pthread_mutex_unlock(&mtx);
 return NULL;
 }
 
