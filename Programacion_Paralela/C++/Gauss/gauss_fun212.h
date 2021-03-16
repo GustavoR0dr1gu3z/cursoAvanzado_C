@@ -1,3 +1,4 @@
+using namespace std;
 float** crea_mat(int, int);
 float* crea_vect(int);
 int muestra_mat(float**, int, int);
