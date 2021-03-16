@@ -40,6 +40,7 @@ int main(int argc, char*argv[]){
     char nmatsol[12] = "matXsol.txt";
 
     X = crea_vect(ren);
+    Au = crea_mat(ren, col);
     Au = lee_mat(nmat,ren,col);
     muestra_mat(Au,ren,col);
 
