@@ -14,6 +14,7 @@ struct parms{
     float *w1, *w2, **M;
 };
 
+using namespace std;
 float** crea_mat(int, int);
 float* crea_vect(int);
 int muestra_mat(float**, int, int);
@@ -110,7 +111,7 @@ float** lee_mat(char *nom_arch, int m, int n){
 
 
 
-float *eval_ret(float **A, int r, int c){
+float * eval_ret(float **A, int r, int c){
     int i, j, m, n;
     float *Y, S = 0;
     Y = crea_vect(r);
