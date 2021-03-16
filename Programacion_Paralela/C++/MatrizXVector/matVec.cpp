@@ -5,8 +5,8 @@
 
 using namespace std;
 
-pthread_t hilos[4];
-struct params hilos_args[4];
+
+
 float **A;
 float *v, *w;
 
@@ -26,6 +26,9 @@ int main(int argc, char* argv[]){
     int col = atoi(argv[2]);
     char nomMat[13] = "matA.txt";
     char nomVect[10] = "unos.txt";
+
+    pthread_t hilos[4];
+    struct parms hilos_args[4];
 
     A = crea_mat(ren,col);
     A = lee_mat(nomMat, ren, col);
