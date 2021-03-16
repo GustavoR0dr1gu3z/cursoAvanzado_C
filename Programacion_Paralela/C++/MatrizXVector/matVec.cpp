@@ -6,9 +6,9 @@
 using namespace std;
 
 pthread_t hilos[4];
-struct parms hilos_args[4];
+struct params hilos_args[4];
 float **A;
-float *V, *W;
+float *v, *w;
 
 float** crea_mat(int, int);
 float* crea_vec(int);
@@ -21,20 +21,20 @@ float* lee_vec(char*, int);
 int ini_vect(float*,int);
 
 int main(int argc, char* argv[]){
-int i,k,hi;
-int ren = atoi(argv[1]);
-int col = atoi(argv[2]);
-char nomMat[13] = "matA.txt";
-char nomVect[10] = "unos.txt";
+    int i,k,hi;
+    int ren = atoi(argv[1]);
+    int col = atoi(argv[2]);
+    char nomMat[13] = "matA.txt";
+    char nomVect[10] = "unos.txt";
 
-A = crea_mat(ren,col);
-A = lee_mat(nomMat, ren, col);
-V = crea_vec(col);
-V = lee_vec(nomVect, ren);
-cout<<endl;
-muestra_mat(A, ren, col);
-cout<<endl;
-for (i = 0; i < ren; i++){
+    A = crea_mat(ren,col);
+    A = lee_mat(nomMat, ren, col);
+    V = crea_vec(col);
+    V = lee_vec(nomVect, ren);
+    cout<<endl;
+    muestra_mat(A, ren, col);
+    cout<<endl;
+    for (i = 0; i < ren; i++){
         hi = i%4;
         hilos_args[hi].w1 = A[i];
         hilos_args[hi].w2 = V;
@@ -42,10 +42,10 @@ for (i = 0; i < ren; i++){
         hilos_args[hi].inic = i;
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
         pthread_join(hilos[hi], NULL);
-}
-muestra_vec(w,ren);
-pthread_exit(NULL);
-return 0;
+    }
+    muestra_vec(w,ren);
+    pthread_exit(NULL);
+    return 0;
 }
 
 float* lee_vec(char *nom_arch, int m){
@@ -115,7 +115,7 @@ return W;
 
 
 void* mult_hilo(void* parameters){
-    struct parms* p=(struct parms*) parameters;
+    struct parms* p =(struct parms*) parameters;
     int i, k;
     i = p->inic;
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
@@ -124,11 +124,6 @@ void* mult_hilo(void* parameters){
     pthread_mutex_unlock(&mtx);
 return NULL;
 }
-
-
-
-
-
 
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;

@@ -26,9 +26,9 @@ int main(int argc, char *argv[]){
 
     struct parms hilos_arg[4];
 
-    char nvect[10] = "vecV.dat";
-    char nmat[10] = "matV.dat";
-    char nmatsol[12] = "matXsol.dat";
+    char nvect[10] = "vecV.txt";
+    char nmat[10] = "matV.txt";
+    char nmatsol[12] = "matXsol.txt";
 
     X = crea_vect(ren);
     Au = lee_mat(nmat,ren,col);
