@@ -122,8 +122,8 @@ float *eval_ret(float **A, int r, int c){
         for (j=m+1; j>= i+1; j--){
             S = S+(A[i][j]*Y[j]);
         }
-    Y[i] = (A[i][c-1]-S)/A[i][i];
-    S = 0;    
+        Y[i] = (A[i][c-1]-S)/A[i][i];
+        S = 0;    
     }
 return Y;
 }
@@ -134,7 +134,7 @@ int guarda_mat(float** A, int r, int c, char* nom_arch){
     fd1.open(nom_arch, ios::out);
     for(i=0;i<r;i++){
         for(j=0;j<c;j++){
-            fd1<<A[i][j]<<"";
+            fd1<<A[i][j]<<" ";
         }
         cout<<endl;
     }
