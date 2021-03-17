@@ -28,6 +28,7 @@ def bisecc(a,b):
         else:
             print("En este intervalo no hay raiz")
     else:
+        print("\n\n")
         print("Calculando la raiz...")
         print("ITERACION \t a \t b \t c\t fc \t")
         
@@ -35,7 +36,7 @@ def bisecc(a,b):
             k += 1
             c = float((a+b)/2.0)
             fc = funcion.f0(c)
-            print('k, \t,a, \t,b, \t,c, \t,fc')
+            print(k, '\t',a, '\t',b, '\t',c, '\t',fc)
 
             if(fa * fc > 0):
                 a = c
