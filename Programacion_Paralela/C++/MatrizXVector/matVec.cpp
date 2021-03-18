@@ -6,7 +6,12 @@
 using namespace std;
 
 float **A;
-float *v, *w;
+float *V, *W;
+
+struct parms{
+    int a, b, c;
+    float *w1, *w2, **M, cols, inic;
+};
 
 float** crea_mat(int, int);
 float* crea_vec(int);
@@ -44,7 +49,7 @@ int main(int argc, char* argv[]){
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
         pthread_join(hilos[hi], NULL);
     }
-    muestra_vec(w,ren);
+    muestra_vec(W,ren);
     pthread_exit(NULL);
     return 0;
 }
