@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 float **A;
 float *v, *w;
 
