@@ -1,3 +1,6 @@
+#ifndef gauss_fun212_h
+#define gauss_fun212_h
+
 using namespace std;
 float** crea_mat(int, int);
 float* crea_vect(int);
@@ -9,3 +12,5 @@ float* lee_vect(char*, int);
 int ini_vect(float*, int);
 float* eval_ret(float**, int, int);
 int guarda_mat(float**, int, int, char*);
+
+#endif
