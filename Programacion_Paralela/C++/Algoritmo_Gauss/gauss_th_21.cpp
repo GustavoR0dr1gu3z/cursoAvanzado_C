@@ -71,7 +71,7 @@ int main(int argc, char*argv[]){
 
     // Muestra el vector
     muestra_vect(X,ren);
-    //muestra_mat(Au,ren,col);
+    // muestra_mat(Au,ren,col);
     return 0;
 }
 
@@ -94,6 +94,18 @@ void* mult_hilo(void* parameters){
 return NULL;
 }
 
+float** crea_mat(int m, int n){
+    int j;
+    float **M;
+    M = new float*[m]; // Arreglo a M de m elementos
+
+    for(j=0; j<m; j++){
+        M[j] = new float[n]; // Le asignamos a ese arreglo las columnas
+    }
+    return M;
+}
+
+
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
     float **M;
@@ -114,6 +126,22 @@ float** lee_mat(char *nom_arch, int m, int n){
     return M;
 }
 
+float* crea_vec(int m){
+    float *W;
+    W = new float [m];      
+    return W;
+}
+
+int muestra_mat(float **M, int m, int n){
+    int i, j;
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            cout<<M[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
 
 
 float * eval_ret(float **A, int r, int c){
