@@ -1,5 +1,5 @@
 // Se compila: g++ -o gauss_th_21Compilado gauss_th_21.cpp -lpthread
-// Se ejecuta: ./gauss_th_21Compilado 10 10
+// Se ejecuta: ./gauss_th_21Compilado 10 11
 
 #include <iostream>
 #include <fstream>
