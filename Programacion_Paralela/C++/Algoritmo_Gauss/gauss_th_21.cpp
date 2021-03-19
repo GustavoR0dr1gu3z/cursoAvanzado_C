@@ -1,3 +1,6 @@
+// Se compila: g++ -o gauss_th_21Compilado gauss_th_21.cpp -lpthread
+// Se ejecuta: ./gauss_th_21Compilado 10 10
+
 #include <iostream>
 #include <fstream>
 #include <pthread.h>
@@ -172,7 +175,7 @@ float* crea_vect(int m){
 }
 
 //-------------------------MUESTRA EL VECTOR-------------
-int muestra_vec(float *M, int m){
+int muestra_vect(float *M, int m){
     int j;
     for(j=0; j<m; j++){
         cout<<M[j]<<" ";
