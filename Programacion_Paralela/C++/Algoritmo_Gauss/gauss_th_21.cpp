@@ -54,18 +54,24 @@ int main(int argc, char*argv[]){
             hilos_arg[hi].a = col;    // Columnas 
             hilos_arg[hi].b = i;      // Renglon i
             hilos_arg[hi].c = j;      // Renglon j
+
+            // Hilos a ejecutar        
             pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_arg[hi]);
+            // 
             pthread_join(hilos[hi], NULL);
         }
     }
+    // 2 etapa, evaluacion retroactiva
     X = eval_ret(Au, ren, col);
+    // Detenemos el reloj
     stop = clock();
 
     tm = (double(stop-start/CLOCKS_PER_SEC));
     cout<<"Tiempo de ejecucion: "<<tm<<"segundos"<<endl;
 
+    // Muestra el vector
     muestra_vect(X,ren);
-    muestra_mat(Au,ren,col);
+    //muestra_mat(Au,ren,col);
     return 0;
 }
 
