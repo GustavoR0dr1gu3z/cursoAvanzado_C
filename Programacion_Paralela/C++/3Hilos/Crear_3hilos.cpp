@@ -1,3 +1,6 @@
+// Se compila: g++ -o Crear_3hilosCompilado Crear_3hilos.cpp -lpthread
+// Se ejecuta: ./Crear_3hilosCompilado
+
 #include <pthread.h>
 #include <cstdio>
 #include <iostream>
