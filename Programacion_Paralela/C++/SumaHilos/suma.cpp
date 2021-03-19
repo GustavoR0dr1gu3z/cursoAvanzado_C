@@ -1,3 +1,6 @@
+// Se compila con: g++ -o sumaCompilado suma.cpp
+// Se ejecuta con: ./sumaCompilado 1 2 3
+
 #include <iostream>
 #include <stdlib.h>
 

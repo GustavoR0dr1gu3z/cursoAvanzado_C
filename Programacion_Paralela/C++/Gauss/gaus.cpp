@@ -1,3 +1,6 @@
+// Se compila con: g++ -o gausCompilado gaus.cpp -lpthread
+// Se ejecuta con: ./gausCompilado 10 10
+
 #include <iostream>
 #include <fstream>
 #include <pthread.h>

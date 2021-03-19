@@ -1,3 +1,6 @@
+// Se compila con: g++ -o ArrayCuatroHilosClaseCompilado ArrayCuatroHilosClase.cpp -lpthread
+// Se ejecuta con: ./ArrayCuatroHilosClaseCompilado
+
 #include <pthread.h>
 #include <cstdio>
 #include <iostream>

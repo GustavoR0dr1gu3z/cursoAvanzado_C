@@ -1,3 +1,6 @@
+// Se compila con: g++ -o Crear_4hilosCompilado Crear_4hilos.cpp -lpthread
+// Se ejecuta con: ./Crear_4hilos
+
 #include <pthread.h>
 #include <cstdio>
 #include <iostream>

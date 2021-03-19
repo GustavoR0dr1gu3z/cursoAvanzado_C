@@ -1,5 +1,6 @@
-//Programa 1 Hilos en c++
-//Se ejecuta con: g++ -o nombreEjecutable archivo.cpp -lpthread
+// Programa 1 Hilos en c++
+// Se ejecuta con: g++ -o hilos1Compilado hilos.cpp -lpthread
+// Se ejecuta con: ./hilos1Compilado
 
 #include <pthread.h>
 #include <cstdio>

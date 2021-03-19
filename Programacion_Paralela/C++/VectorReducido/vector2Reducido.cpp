@@ -1,3 +1,6 @@
+// Se compila con: g++ -o vector2ReducidoCompilado vector2Reducido.cpp -lpthread
+// Se ejecuta con: ./vector2ReducidoCompilado 10
+
 #include <iostream>
 #include <fstream>
 #include <pthread.h>

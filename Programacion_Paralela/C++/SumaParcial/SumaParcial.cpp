@@ -1,4 +1,4 @@
-// Se compila de esta manera: g++ -std=c++11 -o SumaParcialCompilado SumaParcial.cpp -lpthread
+// Se compila de esta manera: g++ -o SumaParcialCompilado SumaParcial.cpp -lpthread
 // Se ejecuta de esta manera: ./SumaParcialCompilado
 
 #include <iostream>
