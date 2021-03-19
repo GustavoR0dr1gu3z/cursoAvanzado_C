@@ -1,4 +1,4 @@
-// Se compila con: g++ -p VxVCompilado VxV.cpp -lpthread
+// Se compila con: g++ -o VxVCompilado VxV.cpp -lpthread
 // Se ejecuta con: ./VxVCompilado
 
 #include <iostream>
