@@ -26,34 +26,34 @@ float* eval_ret(float**, int, int); //vector solucion
 int guarda_mat(float**, int, int, char*);
 
 int main(int argc, char*argv[]){
-    int i, j, ren, col, hi;
+    int i, j, ren, col, hi; //Definimos algunos indices
     unsigned start, stop;
 
-    ren = atoi(argv[1]);
-    col = atoi(argv[2]);
-    pthread_t hilos[4];
+    ren = atoi(argv[1]); //Renglones 1 argumento
+    col = atoi(argv[2]); //Columnas  2 argumento
+    pthread_t hilos[4];  //Se crean arreglo de 4 hilos
 
-    struct parms hilos_arg[4];
+    struct parms hilos_arg[4]; // Estructuras de hilos
 
     char nvect[10] = "vecV.txt";
     char nmat[10] = "matV.txt";
     char nmatsol[12] = "matXsol.txt";
-
+// Asignando memoria a las funciones
     X = crea_vect(ren);
     Au = crea_mat(ren, col);
     Au = lee_mat(nmat,ren,col);
     muestra_mat(Au,ren,col);
 
-    start=clock();
-    for(i=0; i<ren-1; i++){
-        for(j=i+1; j<ren; j++){
-            hi = j%4;
-            hilos_arg[hi].w1 = Au[i];
-            hilos_arg[hi].w2 = Au[j];
-            hilos_arg[hi].M = Au;
-            hilos_arg[hi].a = col;
-            hilos_arg[hi].b = i;
-            hilos_arg[hi].c = j;
+    start=clock(); // Tiempo
+    for(i=0; i<ren-1; i++){ // Renglones que actualizan
+        for(j=i+1; j<ren; j++){ // Columnas, que van hasta el renglon
+            hi = j%4; // Renglones que trabajaremos
+            hilos_arg[hi].w1 = Au[i]; // Renglon i, para todos i
+            hilos_arg[hi].w2 = Au[j]; // Renglon i, para todos j
+            hilos_arg[hi].M = Au;     // Matriz del sistema aumentada
+            hilos_arg[hi].a = col;    // Columnas 
+            hilos_arg[hi].b = i;      // Renglon i
+            hilos_arg[hi].c = j;      // Renglon j
             pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_arg[hi]);
             pthread_join(hilos[hi], NULL);
         }
