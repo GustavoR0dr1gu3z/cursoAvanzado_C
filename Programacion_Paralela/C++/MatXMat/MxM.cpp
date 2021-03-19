@@ -1,5 +1,5 @@
 //Se compila:  g++ -o MxMCompilado MxM.cpp -lpthread
-//Se ejecuta: ./MxMCompilado 10 10
+//Se ejecuta: ./MxMCompilado 5 5
 
 #include <iostream>
 #include <fstream>
@@ -13,7 +13,7 @@ float *W;
 
 struct parms{
     int a, b, c;
-    float *w1, *w2, **Ma, **Mb, **M, cols, inic, rens;
+    float *w1, *w2, **Ma, **Mb, **M, cols, inic, rens, fin;
 };
 
 float** crea_mat(int, int);
@@ -21,7 +21,7 @@ float* crea_vec(int);
 int muestra_mat(float**, int, int);
 int muestra_vec(float*, int);
 void* mult_hilo(void*);
-float prod_vv(float*, float*, int);
+float prod_mm(float*, float*, int);
 float** lee_mat(char* ,int ,int);
 float* lee_vec(char*, int);
 int ini_vect(float*,int);
@@ -87,10 +87,12 @@ return 0;
 
 float prod_mm(float **V, float **U, int m, int n){
     int i, j;
-    float W = 0;
+    float **W;
+    W = new float*[m]; // Arreglo a M de m elementos
+
     for(i = 0; i<m; i++){
         for(j=0; j<n; j++){
-            W = W + V[i][j]*U[i][j];
+            W[i][j] += U[i][j] * V[j][j];
         }
     }
 return W;    
