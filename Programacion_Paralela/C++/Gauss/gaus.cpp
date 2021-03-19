@@ -86,6 +86,41 @@ void* mult_hilo(void* parameters){
 return NULL;
 }
 
+
+//--------------------------------------------------------------VECTOR----------------------------------------------------------------
+
+float* crea_vect(int m){
+    float *W;
+    W = new float [m];      
+    return W;
+}
+
+
+int muestra_vect(float *M, int m){
+    int j;
+    for(j=0; j<m; j++){
+        cout<<M[j]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
+
+//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
+
+float** crea_mat(int m, int n){
+    int j;
+    float **M;
+    M = new float*[m]; // Arreglo a M de m elementos
+
+    for(j=0; j<m; j++){
+        M[j] = new float[n]; // Le asignamos a ese arreglo las columnas
+    }
+    return M;
+}
+
+
+
+
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
     float **M;
@@ -106,7 +141,34 @@ float** lee_mat(char *nom_arch, int m, int n){
     return M;
 }
 
+int muestra_mat(float **M, int m, int n){
+    int i, j;
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            cout<<M[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
 
+int guarda_mat(float** A, int r, int c, char* nom_arch){
+    int i, j;
+    fstream fd1;
+    fd1.open(nom_arch, ios::out);
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            fd1<<A[i][j]<<"";
+        }
+        cout<<endl;
+    }
+fd1.close();
+cout<<"Matriz Guardada"<<endl;
+return 0;
+}
+
+
+//----------------------------------------------------------------EVALUACION RETROACTIVA----------------------------------------------
 
 float *eval_ret(float **A, int r, int c){
     int i, j, m, n;
@@ -125,17 +187,3 @@ float *eval_ret(float **A, int r, int c){
 return Y;
 }
 
-int guarda_mat(float** A, int r, int c, char* nom_arch){
-    int i, j;
-    fstream fd1;
-    fd1.open(nom_arch, ios::out);
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            fd1<<A[i][j]<<"";
-        }
-        cout<<endl;
-    }
-fd1.close();
-cout<<"Matriz Guardada"<<endl;
-return 0;
-}
