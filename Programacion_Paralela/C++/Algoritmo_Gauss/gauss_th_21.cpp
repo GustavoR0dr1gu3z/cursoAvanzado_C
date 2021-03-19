@@ -74,7 +74,7 @@ int main(int argc, char*argv[]){
     // muestra_mat(Au,ren,col);
     return 0;
 }
-
+//--------------------------------------------------------------MULTI HILO------------------------------------------------------------
 
 void* mult_hilo(void* parameters){
     struct parms* p=(struct parms*) parameters;
@@ -93,7 +93,8 @@ void* mult_hilo(void* parameters){
     }
 return NULL;
 }
-
+//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
+//----------------------------CREA LA MATRIZ----------
 float** crea_mat(int m, int n){
     int j;
     float **M;
@@ -105,7 +106,7 @@ float** crea_mat(int m, int n){
     return M;
 }
 
-
+//-----------------------------LEE LA MATRIZ------------
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
     float **M;
@@ -126,12 +127,25 @@ float** lee_mat(char *nom_arch, int m, int n){
     return M;
 }
 
-float* crea_vec(int m){
-    float *W;
-    W = new float [m];      
-    return W;
+
+//--------------------GUARDA LA MATRIZ------------------
+
+int guarda_mat(float** A, int r, int c, char* nom_arch){
+    int i, j;
+    fstream fd1;
+    fd1.open(nom_arch, ios::out);
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            fd1<<A[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+fd1.close();
+cout<<"Matriz Guardada"<<endl;
+return 0;
 }
 
+//-------------------------MUESTRA LA MATRIZ------------
 int muestra_mat(float **M, int m, int n){
     int i, j;
     for(i=0; i<m; i++){
@@ -142,8 +156,26 @@ int muestra_mat(float **M, int m, int n){
     }
     return 0;
 }
+//--------------------------------------------------------------VECTOR----------------------------------------------------------------
+//-------------------------CREA EL VECTOR---------------
 
+float* crea_vec(int m){
+    float *W;
+    W = new float [m];      
+    return W;
+}
 
+//-------------------------MUESTRA EL VECTOR-------------
+int muestra_vec(float *M, int m){
+    int j;
+    for(j=0; j<m; j++){
+        cout<<M[j]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
+
+//----------------------------------------------------------------EVALUACION RETROACTIVA----------------------------------------------
 float * eval_ret(float **A, int r, int c){
     int i, j, m, n;
     float *Y, S = 0;
@@ -160,19 +192,4 @@ float * eval_ret(float **A, int r, int c){
         S = 0;    
     }
 return Y;
-}
-
-int guarda_mat(float** A, int r, int c, char* nom_arch){
-    int i, j;
-    fstream fd1;
-    fd1.open(nom_arch, ios::out);
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            fd1<<A[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-fd1.close();
-cout<<"Matriz Guardada"<<endl;
-return 0;
 }
