@@ -1,5 +1,5 @@
-//Se compila:  g++ -o matVecCompilado matVec.cpp -lpthread
-//Se ejecuta: ./matVecCompilado 10 10
+//Se compila:  g++ -o MxMCompilado MxM.cpp -lpthread
+//Se ejecuta: ./MxMCompilado 10 10
 
 #include <iostream>
 #include <fstream>
@@ -13,7 +13,7 @@ float *W;
 
 struct parms{
     int a, b, c;
-    float *w1, *w2, **M, cols, inic;
+    float *w1, *w2, **Ma, **Mb, **M, cols, inic, rens;
 };
 
 float** crea_mat(int, int);
@@ -46,35 +46,19 @@ int main(int argc, char* argv[]){
     for (i = 0; i < ren; i++){
         hi = i%4;
         hilos_args[hi].w1 = A[i];
-        hilos_args[hi].w2 = B;
+        hilos_args[hi].w2 = B[i];
+        hilos_args[hi].rens = ren;
         hilos_args[hi].cols = col;
         hilos_args[hi].inic = i;
+    
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
         pthread_join(hilos[hi], NULL);
     }
-    muestra_vec(W,ren);
+    muestra_mat(B, ren, col);
     pthread_exit(NULL);
     return 0;
 }
 
-float* lee_vec(char *nom_arch, int m){
-    int i;
-    float* W;
-    cout<<"Leyendo Vector"<<endl;
-
-    W = crea_vec(m);
-    fstream fd2;
-    fd2.open(nom_arch, ios::in);
-    while(!fd2.eof()){
-        int i, j;
-            for(i=0; i<m; i++){
-                fd2>>W[i];
-            }
-    }
-    fd2.close();
-    cout<<"Vector Leido"<<endl;
-return W;
-}
 
 float** crea_mat(int m, int n){
     int j;
@@ -87,11 +71,6 @@ float** crea_mat(int m, int n){
 return M;
 }
 
-float* crea_vec(int m){
-    float* W;
-    W = new float[m];
-return W;
-}
 
 int muestra_mat(float** M, int m, int n){
     int i, j;
@@ -104,20 +83,15 @@ int muestra_mat(float** M, int m, int n){
 return 0;
 }
 
-int muestra_vec(float *M, int n){
-    int j;
-    for(j=0; j<n; j++){
-        cout<<M[j]<<", ";
-    }
-    cout<<endl;
-return 0;
-}
 
-float prod_vv(float * V, float *U, int n){
-    int j;
+
+float prod_mm(float **V, float **U, int m, int n){
+    int i, j;
     float W = 0;
-    for(j=0; j<n; j++){
-        W = W + V[j]*U[j];
+    for(i = 0; i<m; i++){
+        for(j=0; j<n; j++){
+            W = W + V[i][j]*U[i][j];
+        }
     }
 return W;    
 }
@@ -129,7 +103,7 @@ void* mult_hilo(void* parameters){
     i = p->inic;
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_lock(&mtx);
-        W[i] = prod_vv(p->w1, p->w2, p->cols);
+        W[i] = prod_mm(p->Ma, p->Mb, p->rens, p->cols);
     pthread_mutex_unlock(&mtx);
 return NULL;
 }
