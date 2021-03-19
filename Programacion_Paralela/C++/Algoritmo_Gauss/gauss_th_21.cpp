@@ -6,15 +6,15 @@
 #include <time.h>
 
 using namespace std;
-float *X, **Au, tm;
+float *X, **Au, tm; //tm = tiempo, vector = X, matriz Aumentada = Au
 int ren, col, m;
 
-struct parms{
+struct parms{ //Estructura de los parametros
     int a, b, c;
-    float *w1, *w2, **M;
+    float *w1, *w2, **M; //Vector w1, w2, y Matriz M
 };
 
-using namespace std;
+//Funciones
 float** crea_mat(int, int);
 float* crea_vect(int);
 int muestra_mat(float**, int, int);
@@ -22,8 +22,7 @@ int muestra_vect(float*, int);
 void* mult_hilo(void*);
 float** lee_mat(char*, int, int);
 float* lee_vect(char*, int);
-int ini_vect(float*, int);
-float* eval_ret(float**, int, int);
+float* eval_ret(float**, int, int); //vector solucion
 int guarda_mat(float**, int, int, char*);
 
 int main(int argc, char*argv[]){
