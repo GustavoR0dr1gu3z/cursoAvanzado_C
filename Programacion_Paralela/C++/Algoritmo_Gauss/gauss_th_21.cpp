@@ -21,7 +21,7 @@ struct parms{ //Estructura de los parametros
 float** crea_mat(int, int);
 float* crea_vect(int);
 int muestra_mat(float**, int, int);
-int muestra_vect(float*, int);
+int muestra_vect(int, float*);
 void* mult_hilo(void*);
 float** lee_mat(char*, int, int);
 float* lee_vect(char*, int);
@@ -73,7 +73,7 @@ int main(int argc, char*argv[]){
     cout<<"Tiempo de ejecucion: "<<tm<<"segundos"<<endl;
 
     // Muestra el vector
-    muestra_vect(X,ren);
+    muestra_vect(ren,X);
     // muestra_mat(Au,ren,col);
     return 0;
 }
@@ -175,7 +175,7 @@ float* crea_vect(int m){
 }
 
 //-------------------------MUESTRA EL VECTOR-------------
-int muestra_vect(float *M, int m){
+int muestra_vect(int m,float *M){
     int j;
     for(j=0; j<m; j++){
         cout<<M[j]<<" ";

@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
     char nomMat[13] = "matA.txt";
-    char nomMatB[13] = "matA.txt";
+    char nomMatB[13] = "matB.txt";
 
     pthread_t hilos[4];
     struct parms hilos_args[4];
