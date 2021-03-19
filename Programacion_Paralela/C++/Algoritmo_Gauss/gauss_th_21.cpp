@@ -77,17 +77,23 @@ int main(int argc, char*argv[]){
 //--------------------------------------------------------------MULTI HILO------------------------------------------------------------
 
 void* mult_hilo(void* parameters){
+    // Recibe los parametros y convierto a p 
     struct parms* p=(struct parms*) parameters;
+    // 
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     int i,j,k,col;
-    float mg = 0;
-    col = p -> a;
-    i = p -> b;
-    j = p -> c;
+    float mg = 0; // Multiplicador de Gauss
+    col = p -> a; // Asignamos a col el parametro a
+    i = p -> b; // Asignamos a i el parametro b
+    j = p -> c; // Asignamos a j el parametro c
 
+    // Usar directamente los elementos
     mg = (p-> M[p->c][p->b])/(p->M[p->b][p->b]);
+
     for(k=0; k<col; k++){
+        // Proteger con Mutex
         pthread_mutex_lock(&mtx);
+        // Hace la operacion entre vectores
         p->M[j][k] = p->w2[k]-mg*(p->w1[k]);
         pthread_mutex_unlock(&mtx);
     }
@@ -159,7 +165,7 @@ int muestra_mat(float **M, int m, int n){
 //--------------------------------------------------------------VECTOR----------------------------------------------------------------
 //-------------------------CREA EL VECTOR---------------
 
-float* crea_vec(int m){
+float* crea_vect(int m){
     float *W;
     W = new float [m];      
     return W;
@@ -177,19 +183,24 @@ int muestra_vec(float *M, int m){
 
 //----------------------------------------------------------------EVALUACION RETROACTIVA----------------------------------------------
 float * eval_ret(float **A, int r, int c){
-    int i, j, m, n;
-    float *Y, S = 0;
-    Y = crea_vect(r);
+    int i, j, m, n; // Indices
+    float *Y, S = 0; // vector aux
+    Y = crea_vect(r);    
     Y[r-1] = A[r-1][c-1] / A[r-1][r-1];
+    // Ultimo renglon / ultima columna
     m = r-1;
     n = c-1;
-    for(i=m;i>=0; i--){
+    // For de la variable 8 hasta 0, si n = 10
+    for(i=m-1; i>=0; i--){
+        // Acumulamos estos productos
         S = 0;
+        // Columnas j
         for (j=m+1; j>= i+1; j--){
+            // Acumulamos el producto de A*Y
             S = S+(A[i][j]*Y[j]);
         }
+        // Calcular Y para el anterrenglon renglon
         Y[i] = (A[i][c-1]-S)/A[i][i];
-        S = 0;    
     }
 return Y;
 }
