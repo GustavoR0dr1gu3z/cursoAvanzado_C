@@ -8,8 +8,8 @@
 
 using namespace std;
 
-float **A, **B;
-float *W;
+float **A, **B, **R;
+float *W, *V;
 
 struct parms{
     int a, b, c;
@@ -21,7 +21,7 @@ float* crea_vec(int);
 int muestra_mat(float**, int, int);
 int muestra_vec(float*, int);
 void* mult_hilo(void*);
-float prod_mm(float*, float*, int);
+float prod_mm(float**, float**, int);
 float** lee_mat(char* ,int ,int);
 float* lee_vec(char*, int);
 int ini_vect(float*,int);
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
     char nomMat[13] = "matA.txt";
-    char nomMatB[10] = "matB.txt";
+    char nomMatB[13] = "matA.txt";
 
     pthread_t hilos[4];
     struct parms hilos_args[4];
@@ -42,6 +42,9 @@ int main(int argc, char* argv[]){
     B = lee_mat(nomMatB, ren, col);
     cout<<endl;
     muestra_mat(A, ren, col);
+    cout<<endl;
+    cout<<endl;
+    muestra_mat(B, ren, col);
     cout<<endl;
     for (i = 0; i < ren; i++){
         hi = i%4;
@@ -54,7 +57,8 @@ int main(int argc, char* argv[]){
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
         pthread_join(hilos[hi], NULL);
     }
-    muestra_mat(A, ren, col);
+    cout<<"Resultado: "<<endl;
+    muestra_mat(R, ren, col);
     pthread_exit(NULL);
     return 0;
 }
@@ -85,14 +89,13 @@ return 0;
 
 
 
-float prod_mm(float **V, float **U, int m, int n){
+float prod_mm(float **V, float **U, int m){
     int i, j;
-    float **W;
-    W = new float*[m]; // Arreglo a M de m elementos
-
+    float W=0;
+    int n = m;
     for(i = 0; i<m; i++){
         for(j=0; j<n; j++){
-            W[i][j] += U[i][j] * V[j][j];
+            W += U[i][j] * V[j][j];
         }
     }
 return W;    
@@ -101,11 +104,14 @@ return W;
 
 void* mult_hilo(void* parameters){
     struct parms* p =(struct parms*) parameters;
-    int i, k;
+    int i, j, k;
     i = p->inic;
+    k = p->cols;
     pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
     pthread_mutex_lock(&mtx);
-        W[i] = prod_mm(p->Ma, p->Mb, p->rens, p->cols);
+    for(j=0; j<k; j++){
+        R[i][j] = prod_mm(p->Ma, B, p->cols);
+    }
     pthread_mutex_unlock(&mtx);
 return NULL;
 }
