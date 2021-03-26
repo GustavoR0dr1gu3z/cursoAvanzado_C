@@ -58,7 +58,8 @@ int main(int argc, char *argv[]){
 
     cout<<"Tiempo de ejecución: "<<tm<<"segundos"<<endl;
     X = eval_ret(W,ren,col);
-    //guarda_mat(W,ren,col,nmatsol);
+    guarda_mat(W,ren,col,nmatsol);
+    cout<<"Muestra Vector: "<<endl;
     muestra_vect(X,ren);
 
 return 0;
