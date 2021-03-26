@@ -55,7 +55,7 @@ int main(int argc, char*argv[]){
             hi = j%4; // Renglones que trabajaremos
             hilos_arg[hi].w1 = Au[i]; // Renglon i, para todos i
             hilos_arg[hi].w2 = Au[j]; // Renglon i, para todos j
-            hilos_arg[hi].M = W;     // Matriz del sistema aumentada
+            hilos_arg[hi].M = Au;      // Matriz del sistema aumentada
             hilos_arg[hi].a = col;    // Columnas 
             hilos_arg[hi].b = i;      // Renglon i
             hilos_arg[hi].c = j;      // Renglon j
@@ -94,6 +94,7 @@ void* mult_hilo(void* parameters){
     col = p -> a; // Asignamos a col el parametro a
     i = p -> b; // Asignamos a i el parametro b
     j = p -> c; // Asignamos a j el parametro c
+
 
     // Usar directamente los elementos
     mg = (p-> M[p->c][p->b])/(p->M[p->b][p->b]);
@@ -194,7 +195,7 @@ float * eval_ret(float **A, int r, int c){
     int i, j, m, n; // Indices
     float *Y, S = 0; // vector aux
     Y = crea_vect(r);    
-    Y[r-1] = A[r-1][c-1] / A[r-1][r-1];
+    Y[r-1] = A[r-1][c-1] / A[r-1][r-1]; //Ultima variable
     // Ultimo renglon / ultima columna
     m = r-1;
     n = c-1;
@@ -205,7 +206,7 @@ float * eval_ret(float **A, int r, int c){
         // Columnas j
         for (j=m+1; j>= i+1; j--){
             // Acumulamos el producto de A*Y
-            S = S+(A[i][j]*Y[j]);
+            S = S+(A[i][j]*Y[j]); //Ultima, penultima, etc
         }
         // Calcular Y para el anterrenglon renglon
         Y[i] = (A[i][c-1]-S)/A[i][i];
