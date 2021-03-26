@@ -9,7 +9,7 @@
 #include <time.h>
 
 using namespace std;
-float *X, **Au, tm; //tm = tiempo, vector = X, matriz Aumentada = Au
+float *X, **Au, tm, **W; //tm = tiempo, vector = X, matriz Aumentada = Au
 int ren, col, m;
 
 struct parms{ //Estructura de los parametros
@@ -21,7 +21,7 @@ struct parms{ //Estructura de los parametros
 float** crea_mat(int, int);
 float* crea_vect(int);
 int muestra_mat(float**, int, int);
-int muestra_vect(int, float*);
+int muestra_vect(float*,int);
 void* mult_hilo(void*);
 float** lee_mat(char*, int, int);
 float* lee_vect(char*, int);
@@ -47,13 +47,15 @@ int main(int argc, char*argv[]){
     Au = lee_mat(nmat,ren,col);
     muestra_mat(Au,ren,col);
 
+    W = crea_mat(ren, col);
+    W = lee_mat(nmat, ren, col);
     start=clock(); // Tiempo
     for(i=0; i<ren-1; i++){ // Renglones que actualizan
         for(j=i+1; j<ren; j++){ // Columnas, que van hasta el renglon
             hi = j%4; // Renglones que trabajaremos
             hilos_arg[hi].w1 = Au[i]; // Renglon i, para todos i
             hilos_arg[hi].w2 = Au[j]; // Renglon i, para todos j
-            hilos_arg[hi].M = Au;     // Matriz del sistema aumentada
+            hilos_arg[hi].M = W;     // Matriz del sistema aumentada
             hilos_arg[hi].a = col;    // Columnas 
             hilos_arg[hi].b = i;      // Renglon i
             hilos_arg[hi].c = j;      // Renglon j
@@ -64,16 +66,19 @@ int main(int argc, char*argv[]){
             pthread_join(hilos[hi], NULL);
         }
     }
-    // 2 etapa, evaluacion retroactiva
-    X = eval_ret(Au, ren, col);
+    
+    
     // Detenemos el reloj
     stop = clock();
 
     tm = (double(stop-start/CLOCKS_PER_SEC));
+    guarda_mat(W, ren, col, nmatsol);
     cout<<"Tiempo de ejecucion: "<<tm<<"segundos"<<endl;
-
+    
+    // 2 etapa, evaluacion retroactiva
+    X = eval_ret(Au, ren, col);
     // Muestra el vector
-    muestra_vect(ren,X);
+    muestra_vect(X,ren);
     // muestra_mat(Au,ren,col);
     return 0;
 }
