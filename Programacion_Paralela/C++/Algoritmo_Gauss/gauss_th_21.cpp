@@ -180,7 +180,7 @@ float* crea_vect(int m){
 }
 
 //-------------------------MUESTRA EL VECTOR-------------
-int muestra_vect(int m,float *M){
+int muestra_vect(float *M,int m){
     int j;
     for(j=0; j<m; j++){
         cout<<M[j]<<" ";
