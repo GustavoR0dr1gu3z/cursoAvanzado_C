@@ -10,7 +10,7 @@ using namespace std;
 // Estructura de paso de datos de la función
 struct print_parms {
     char caracter; // Caracter a imprimir
-    int contador;
+    int contador;           
 };
 
 void* char_print(void* parameters){ 

@@ -15,7 +15,6 @@ void* print_xs (void* unused){
     return NULL;
 }
 
-
 int main(){
 
     pthread_t th1;
@@ -25,6 +24,4 @@ int main(){
     while(1)
         cout<<"0";
     return 0;
-
-
 }
