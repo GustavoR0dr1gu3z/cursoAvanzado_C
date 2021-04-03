@@ -21,6 +21,7 @@ int main(){
 // Arreglo de hilos     
     pthread_t th[4];
     
+// Estructura de hilos    
     struct parms th_args[4];
 
 // Hilo 1
