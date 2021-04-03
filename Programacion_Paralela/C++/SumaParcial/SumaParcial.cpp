@@ -50,7 +50,6 @@ pthread_join(th[2],NULL);
 pthread_join(th[3],NULL);
 cout<<"El total de la suma es: "<<z<<endl;
 
-
 return 0;
 }
 
