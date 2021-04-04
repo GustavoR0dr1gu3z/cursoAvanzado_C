@@ -1,5 +1,5 @@
 //Se compila:  g++ -o matVecCompilado matVec.cpp -lpthread
-//Se ejecuta: ./matVecCompilado 10 10
+//Se ejecuta: ./matVecCompilado 10 11
 
 #include <iostream>
 #include <fstream>
