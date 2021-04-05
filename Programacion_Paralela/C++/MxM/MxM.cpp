@@ -1,3 +1,6 @@
+// Se compila con: g++ -o MxMCompilado MxM.cpp -lpthread
+// Se ejecuta con: ./MxMCompilado
+
 #include <math.h>
 #include <iostream>
 #include <stdio.h>
