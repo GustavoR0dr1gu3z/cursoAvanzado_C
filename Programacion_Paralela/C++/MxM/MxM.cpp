@@ -15,12 +15,12 @@ using namespace std;
 unsigned t0, t1;
 
 
-//declaramos  los 2 vectores como variables globales
+//declaramos  los 2 vectores
 int **v1;
 int **m1;
 
-char nombre1[20]="matrizA.txt";
-char nombre2[20]="matrizB.txt";
+char nombre1[20]="matA.txt";
+char nombre2[20]="matB.txt";
 
 int f=10;//numero de filas de matriz
 int c=10;//numero de columnas de matriz
