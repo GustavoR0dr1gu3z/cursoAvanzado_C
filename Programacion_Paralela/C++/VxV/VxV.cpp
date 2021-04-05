@@ -149,10 +149,8 @@ void crear_vector(int fil, int col, char* nom){
 int** leer_vector(int fil, int col, char* nom){
 	printf("Leer matriz de un archivo\n");	
 	int y=0;//variable que contendra el valor de lo escrito
-
 	FILE* ar;//se crea y se abre el archivo ar en modo lectura
-    	ar = fopen(nom, "rt");
-	
+	ar = fopen(nom, "rt");	
 	int **m = new int*[fil];//matriz que contendra los datos del archivo
 	for(int i=0; i<fil; i++){
 		m[i] = new int[col];
@@ -161,7 +159,6 @@ int** leer_vector(int fil, int col, char* nom){
 			m[i][j]=y;  	     //se llenan en la matriz m
 		}
 	}
-
 	fclose(ar);//se cierra el archivo
 	return m;//manda m	
 }
@@ -181,8 +178,7 @@ int** llenar_vector(int fil, int col){
 //funcion suma
 void* suma(void* parameters){
 	//estructura con los parametros de operacion
-	struct operacion* p = (struct operacion*) parameters;
-	
+	struct operacion* p = (struct operacion*) parameters;	
 	for(int i = p->inicio; i <= p->fin; ++i){//for con inicio 
 		for(int j = p->inicio; j <= p->fin; ++j){//y el fin de parametros		
 		}
@@ -190,8 +186,7 @@ void* suma(void* parameters){
 	printf("\n");
 }
 
-void imp_vector(int **vector){
-	
+void imp_vector(int **vector){	
 	for (int i = 0; i < fv; i++) {
 		printf(" %d", vector[i][0]);//se imprimen los datos de V
 		printf("\n");
@@ -199,9 +194,8 @@ void imp_vector(int **vector){
 	printf("\n");
 }
 
-void imprime(int **matriz){
-			//se imprime la matriz que paso por parametro
-	for (int i = 0; i < f; i++) {
+void imprime(int **matriz){			
+	for (int i = 0; i < f; i++) {//se imprime la matriz que paso por parametro
 		for (int j = 0; j < c; j++) {
 			printf("%d", matriz[i][j]);//se imprimen todos los datos
 		}
