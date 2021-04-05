@@ -111,13 +111,11 @@ float** crea_mat(int m, int n){
     int j;
     float **M;
     M = new float*[m]; // Arreglo a M de m elementos
-
     for(j=0; j<m; j++){
         M[j] = new float[n]; // Le asignamos a ese arreglo las columnas
     }
     return M;
 }
-
 //-----------------------------LEE LA MATRIZ------------
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
@@ -130,8 +128,7 @@ float** lee_mat(char *nom_arch, int m, int n){
         for(i=0;i<m;i++){
             for (j=0;j<n;j++){
                 fd1>>M[i][j];
-            }
-            
+            }            
         }
     }
     fd1.close();
