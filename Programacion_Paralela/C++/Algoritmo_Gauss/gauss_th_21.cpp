@@ -45,7 +45,7 @@ int main(int argc, char*argv[]){
     X = crea_vect(ren);
     Au = crea_mat(ren, col);
     Au = lee_mat(nmat,ren,col);
-    //muestra_mat(Au,ren,col);
+    muestra_mat(Au,ren,col);
 
     W = crea_mat(ren, col);
     W = lee_mat(nmat, ren, col);
