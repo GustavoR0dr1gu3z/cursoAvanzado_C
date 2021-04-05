@@ -78,6 +78,7 @@ int main(int argc, char*argv[]){
     // 2 etapa, evaluacion retroactiva
     X = eval_ret(Au, ren, col);
     // Muestra el vector
+    cout<<"\nVector: "<<endl;
     muestra_vect(X,ren);
     // muestra_mat(Au,ren,col);
     return 0;
