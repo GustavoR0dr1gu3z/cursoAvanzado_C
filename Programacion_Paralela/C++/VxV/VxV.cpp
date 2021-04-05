@@ -1,3 +1,6 @@
+// Se compila: g++ -o VxVCompilado VxV.cpp -lpthread
+// Se ejecuta: ./VxVCompilado
+
 #include <math.h>
 #include <iostream>
 #include <stdio.h>
@@ -5,38 +8,38 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctime>
-#include<time.h>
-#include<fstream>
+#include <time.h>
+#include <fstream>
 #include <omp.h>
-#include<cstdio>
-#include<cstdlib>
+#include <cstdio>
+#include <cstdlib>
 
 using namespace std;
 unsigned t0, t1;
 
 
-//declaramos  los 2 vectores como variables globales
+
 int **v1;
 int **m1;
 
 char nombre1[20]="vectorA.txt";
 char nombre2[20]="vectorB.txt";
 
-int f=10;//numero de filas de matriz
-int c=1;//numeor de columnas de vector(siempre es 1)
+int f=10;//filas de matriz
+int c=1;//columnas de vector(siempre es 1)
 
-int fv=10;//nuemro de filas de vector
-int cv=1;//numeor de columnas de vector(siempre es 1)
+int fv=10;//filas de vector
+int cv=1;//columnas de vector(siempre es 1)
 
 int** total;
 
-//definicion de structura de hilos
+// Estructura de hilos
 struct operacion{
-    int inicio=0,fin=0;//parametros de inicio y fin
+    int inicio=0,fin=0;
 };
 
 
-//prototipos de funciones
+// Funciones
 int multiplica();
 void* suma(void* parameters);
 
@@ -54,11 +57,10 @@ int main(){
 	t0=clock();
 	srand(time(NULL));
 
-    struct operacion record[4];//estructura definida con 4 espacios
-	//crear_matriz(f, c);
+    struct operacion record[4];
 	
 	int numval=1000; //valor del intervalo
-	int hilos=numval/4;//optenemos el numero de hilos 
+	int hilos=numval/4;// numero de hilos 
 
 
 	int val = 0;//hacemos el recorrido de los hilos hasta sus limites
@@ -72,7 +74,7 @@ int main(){
 		}
 	}
 
- 	pthread_t th[4];//se crean los 4 hilos 
+	pthread_t th[4];//se crean los 4 hilos 
 	for(int i = 0; i < 4; i++){
 		pthread_create(&th[i], NULL, &suma, &record[i]);
 		pthread_join(th[i], NULL);//se da orden con la funcion join
@@ -113,8 +115,7 @@ int main(){
 }
 
 //funcion multiplica() 'multiplica una matriz por 1 vector'
-int multiplica(){
-	
+int multiplica(){	
 	int suma=0;
 	//for que multiplica la matriz y el vector y despues guarda la suma en mtre[][]
 	for (int a = 0; a < cv; a++){
@@ -124,18 +125,14 @@ int multiplica(){
 				suma = suma + m1[j][a]*v1[i][j];			
 			}
 		}	
-	}
-	
+	}	
 	printf("\n");
 	return suma;//regresamos mtre
 }
 
-
 void crear_vector(int fil, int col, char* nom){
-
 	ofstream file (nom);
-	for (int i = 0; i < fil; i++) {
-		
+	for (int i = 0; i < fil; i++) {		
 		int r=rand();
 		for (int j = 0; j < col; j++) {
 			r=rand() % 10;
@@ -144,7 +141,7 @@ void crear_vector(int fil, int col, char* nom){
 		}
 		file<<"\n";
 	}
-  	file.close();
+	file.close();
 	return;
 
 }
