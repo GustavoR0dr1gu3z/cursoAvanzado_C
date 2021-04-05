@@ -106,37 +106,28 @@ int main(){
 int** multiplica(){
 	cout<<"Resultado: \n";
 	int **matriz = new int*[f];//matriz 
-
 	for (int i = 0; i < f; i++) {//for que crea la matriz dinamica
 		matriz[i] = new int[c];
 	}
-
 	int **mtre = new int*[f];//mtre es la matriz que devuelve la funcion
-
 	for (int i = 0; i < f; i++){
 		mtre[i] = new int[cv];//crea nuevas columnas
 	}
-
-
 	for (int a = 0; a < cv; a++){
 		for (int i = 0; i < f; i++){
 			int suma=0;
 			for (int j = 0; j < c; j++){
 				suma += m1[j][a]*v1[i][j];			
 			}
-
 			matriz[i][a]=suma;
 		}	
-	}
-	
+	}	
 	printf("\n");
 	return matriz;//regresamos mtre
 }
 
-
-void crear_matriz(int fil, int col, char* nom ){
-		
-  	ofstream file (nom);
+void crear_matriz(int fil, int col, char* nom ){		
+	ofstream file (nom);
 	for (int i = 0; i < fil; i++) {
 		
 		int r=rand();
@@ -147,19 +138,15 @@ void crear_matriz(int fil, int col, char* nom ){
 		}
 		file<<"\n";
 	}
-  	file.close();
+	file.close();
 	return;
-
 }
-
 int** leer_matriz(int fil, int col, char *nom){
 	//printf("Leer matriz de un archivo\n");	
 	int y=0;//variable que contendra el valor de lo escrito
-
 	FILE* ar;//se crea y se abre el archivo ar en modo lectura
     	//ar = fopen("matrizA.txt", "rt");
-	ar = fopen(nom, "rt");
-	
+	ar = fopen(nom, "rt");	
 	int **m = new int*[fil];//matriz que contendra los datos del archivo
 	for(int i=0; i<fil; i++){
 		m[i] = new int[col];
@@ -168,7 +155,6 @@ int** leer_matriz(int fil, int col, char *nom){
 			m[i][j]=y;  	     //se llenan en la matriz m
 		}
 	}
-
 	fclose(ar);//se cierra el archivo
 	return m;//manda m	
 }
