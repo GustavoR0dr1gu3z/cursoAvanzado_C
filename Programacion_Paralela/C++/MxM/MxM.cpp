@@ -25,21 +25,21 @@ int **m1;
 char nombre1[20]="matA.txt";
 char nombre2[20]="matB.txt";
 
-int f=10;//numero de filas de matriz
-int c=10;//numero de columnas de matriz
+int f=10; // filas de matriz
+int c=10; // columnas de matriz
 
-int fv=10;//nuemro de filas de vector
-int cv=10;//numeor de columnas de vector(siempre es 1)
+int fv=10;	// filas de vector
+int cv=10;	// columnas de vector(siempre es 1)
 
 int** total;
 
-//definicion de structura de hilos
+//Estructura de hilos
 struct operacion{
-    int inicio=0,fin=0;//parametros de inicio y fin
+    int inicio=0,fin=0;
 };
 
 
-//prototipos de funciones
+// Funciones
 int** multiplica();
 void* suma(void* parameters);
 
@@ -54,14 +54,11 @@ int main(){
 	srand(time(NULL));
 	t0=clock();
 
-	struct operacion record[4];//estructura definida con 4 espacios
-	
-	
-	int numval=1000; //valor del intervalo
-	int hilos=numval/4;//optenemos el numero de hilos 
+	struct operacion record[4];	
+	int numval=1000; // valor del intervalo
+	int hilos=numval/4;// numero de hilos 
 
-
-	int val = 0;//hacemos el recorrido de los hilos hasta sus limites
+	int val = 0;
 	for (int i = 0; i < 4;i++){
 		record[i].inicio = val;
 		val = val + hilos;
@@ -72,7 +69,7 @@ int main(){
 		}
 	}
 
- 	pthread_t th[4];//se crean los 4 hilos 
+	pthread_t th[4];//se crean los 4 hilos 
 	for(int i = 0; i < 4; i++){
 		pthread_create(&th[i], NULL, &suma, &record[i]);
 		pthread_join(th[i], NULL);//se da orden con la funcion join
