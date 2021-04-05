@@ -32,7 +32,7 @@ int** total;
 
 //definicion de structura de hilos
 struct operacion{
-     int inicio=0,fin=0;//parametros de inicio y fin
+    int inicio=0,fin=0;//parametros de inicio y fin
 };
 
 
@@ -51,7 +51,7 @@ int main(){
 	srand(time(NULL));
 	t0=clock();
 
-     	struct operacion record[4];//estructura definida con 4 espacios
+	struct operacion record[4];//estructura definida con 4 espacios
 	
 	
 	int numval=1000; //valor del intervalo
