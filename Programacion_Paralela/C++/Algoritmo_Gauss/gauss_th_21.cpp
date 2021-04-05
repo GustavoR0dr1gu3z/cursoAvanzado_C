@@ -62,19 +62,15 @@ int main(int argc, char*argv[]){
 
             // Hilos a ejecutar        
             pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_arg[hi]);
-            // 
+            // Empieza un hilo cuando termina otro
             pthread_join(hilos[hi], NULL);
         }
-    }
-    
-    
+    }        
     // Detenemos el reloj
     stop = clock();
-
     tm = (double(stop-start/CLOCKS_PER_SEC));
     guarda_mat(W, ren, col, nmatsol);
     cout<<"Tiempo de ejecucion: "<<tm<<"segundos"<<endl;
-    
     // 2 etapa, evaluacion retroactiva
     X = eval_ret(Au, ren, col);
     // Muestra el vector
