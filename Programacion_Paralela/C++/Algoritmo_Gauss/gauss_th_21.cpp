@@ -139,7 +139,7 @@ float** lee_mat(char *nom_arch, int m, int n){
         }
     }
     fd1.close();
-    cout<<"Matriz Leida"<<endl;
+    cout<<"Matriz Leida";
     return M;
 }
 
