@@ -45,10 +45,10 @@ int main(int argc, char*argv[]){
     X = crea_vect(ren);
     Au = crea_mat(ren, col);
     Au = lee_mat(nmat,ren,col);
-    muestra_mat(Au,ren,col);
-
     W = crea_mat(ren, col);
     W = lee_mat(nmat, ren, col);
+    muestra_mat(Au,ren,col);
+
     start=clock(); // Tiempo
     for(i=0; i<ren-1; i++){ // Renglones que actualizan
         for(j=i+1; j<ren; j++){ // Columnas, que van hasta el renglon
@@ -139,7 +139,7 @@ float** lee_mat(char *nom_arch, int m, int n){
         }
     }
     fd1.close();
-    cout<<"Matriz Leida";
+    cout<<"Matriz Leida"<<endl;
     return M;
 }
 
