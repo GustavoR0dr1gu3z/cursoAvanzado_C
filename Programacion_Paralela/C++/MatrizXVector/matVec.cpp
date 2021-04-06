@@ -1,5 +1,5 @@
 //Se compila:  g++ -o matVecCompilado matVec.cpp -lpthread
-//Se ejecuta: ./matVecCompilado 10 11
+//Se ejecuta: ./matVecCompilado 10 10
 
 #include <iostream>
 #include <fstream>
@@ -68,7 +68,6 @@ float* lee_vec(char *nom_arch, int m){
     int i;
     float* W;
     cout<<"Leyendo Vector"<<endl;
-
     W = crea_vec(m);
     fstream fd2;
     fd2.open(nom_arch, ios::in);
@@ -136,7 +135,6 @@ int ini_vec(float *M, int m){
     }
 return 0;
 }
-
 
 void* mult_hilo(void* parameters){
     struct parms* p =(struct parms*) parameters;
