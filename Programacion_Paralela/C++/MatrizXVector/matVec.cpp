@@ -24,14 +24,14 @@ void* mult_hilo(void*);
 float prod_vv(float*, float*, int);
 float** lee_mat(char* ,int ,int);
 float* lee_vec(char*, int);
-int ini_vect(float*,int);
+int ini_vec(float*,int);
 
 int main(int argc, char* argv[]){
     int i,k,hi;
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
-    char nomMat[13] = "matA.txt";
-    char nomVect[10] = "unos.txt";
+    char nomMat[9] = "matA.txt";
+    char nomVect[9] = "unos.txt";
 
     pthread_t hilos[4];
     struct parms hilos_args[4];
@@ -40,8 +40,14 @@ int main(int argc, char* argv[]){
     A = lee_mat(nomMat, ren, col);
     V = crea_vec(col);
     V = lee_vec(nomVect, ren);
+    W = crea_vec(col);
+    ini_vec(W,col);
     cout<<endl;
+    cout<<"----------MATRIZ----------"<<endl;
     muestra_mat(A, ren, col);
+    cout<<endl;
+    cout<<"------VECTOR COLUMNA------"<<endl;
+    muestra_vec(V,ren);
     cout<<endl;
     for (i = 0; i < ren; i++){
         hi = i%4;
@@ -51,7 +57,8 @@ int main(int argc, char* argv[]){
         hilos_args[hi].inic = i;
         pthread_create(&hilos[hi], NULL, &mult_hilo, &hilos_args[hi]);
         pthread_join(hilos[hi], NULL);
-    }
+    }	
+    cout<<"----Resultado----"<<endl;
     muestra_vec(W,ren);
     pthread_exit(NULL);
     return 0;
@@ -107,7 +114,7 @@ return 0;
 int muestra_vec(float *M, int n){
     int j;
     for(j=0; j<n; j++){
-        cout<<M[j]<<", ";
+        cout<<M[j]<<"\n";
     }
     cout<<endl;
 return 0;
@@ -120,6 +127,14 @@ float prod_vv(float * V, float *U, int n){
         W = W + V[j]*U[j];
     }
 return W;    
+}
+
+int ini_vec(float *M, int m){
+    int j;
+    for(j=0; j<m; j++){
+	M[j] = 0.1;
+    }
+return 0;
 }
 
 
