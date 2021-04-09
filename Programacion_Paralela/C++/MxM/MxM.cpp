@@ -25,11 +25,11 @@ int **m1;
 char nombre1[20]="matA.txt";
 char nombre2[20]="matB.txt";
 
-int f=10; // filas de matriz
+int f=12; // filas de matriz
 int c=10; // columnas de matriz
 
 int fv=10;	// filas de vector
-int cv=10;	// columnas de vector(siempre es 1)
+int cv=15;	// columnas de vector(siempre es 1)
 
 int** total;
 
@@ -78,7 +78,7 @@ int main(){
 	//llamado de funciones
 
 	crear_matriz(f, c, nombre1);
-	v1=leer_matriz(fv,cv,nombre1);  //se llena el vector
+	v1=leer_matriz(fv,cv,nombre1);  //se llena la matriz
 
 	printf("Matriz A\n");		
 	imprime(v1);
