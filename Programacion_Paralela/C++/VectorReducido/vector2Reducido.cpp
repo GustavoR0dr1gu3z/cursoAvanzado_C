@@ -6,7 +6,6 @@
 #include <pthread.h>
 #include <time.h>
 
-
 using namespace std;
 
 float z, *V, *U;
