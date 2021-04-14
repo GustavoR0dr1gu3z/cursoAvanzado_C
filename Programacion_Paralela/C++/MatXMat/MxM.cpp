@@ -1,5 +1,5 @@
 //Se compila:  g++ -o MxMCompilado MxM.cpp -lpthread
-//Se ejecuta: ./MxMCompilado 5 5
+//Se ejecuta: ./MxMCompilado 10 10
 
 #include <iostream>
 #include <fstream>
