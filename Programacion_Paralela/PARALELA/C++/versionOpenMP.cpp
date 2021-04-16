@@ -1,3 +1,11 @@
+// EJERCICIO 1
+
+// Se compila como: g++ -o versionOpenMPCompilado versionOpenMP.cpp -fopenmp
+// Se ejecuta como: ./versionOpenMPCompilado
+
+// Resultado: OpenMP version: 201511
+// Resultado: Version 4.5
+
 #include <stdio.h>
 
 int main(int argc, char **argv){
