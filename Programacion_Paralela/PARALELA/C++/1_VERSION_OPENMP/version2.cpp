@@ -1,3 +1,11 @@
+// EJERCICIO 1.1
+
+// Se compila como: g++ -o version2Compilado version2Compilado.cpp -fopenmp
+// Se ejecuta como: ./version2Compilado
+
+// Resultado: OpenMP version: 201511
+// Resultado: Version 4.5
+
 #include <unordered_map>
 #include <iostream>
 #include <omp.h>
