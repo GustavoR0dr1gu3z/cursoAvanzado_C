@@ -8,7 +8,7 @@
 
 using namespace std;
 int main(){
-// Si quiero mas 
+// Si quiero mas impresiones en pantalla
     omp_set_num_threads(10);
     #pragma omp parallel
     {
