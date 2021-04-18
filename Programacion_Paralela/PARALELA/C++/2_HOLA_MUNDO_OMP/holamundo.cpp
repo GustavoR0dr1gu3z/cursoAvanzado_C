@@ -8,11 +8,16 @@
 
 using namespace std;
 int main(){
+    // Definit un entero k
+    int k = 0;
 // Si quiero mas impresiones en pantalla
     omp_set_num_threads(10);
     #pragma omp parallel
     {
+        k += 1;
         cout<<"Hola Mundo En Paralelo"<<endl;
+        cout<<k<<endl; // Imprimir k
+
     }
     return 0;
 }
