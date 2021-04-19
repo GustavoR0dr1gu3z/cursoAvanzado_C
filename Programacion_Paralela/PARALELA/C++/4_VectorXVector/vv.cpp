@@ -28,7 +28,7 @@ int main(int argc, char* argv[]){
 // OCUPANDO 4 HILOS
     omp_set_num_threads(4);
 
-
+//DECLARAR n, QUE ES PARA EL TAMAÑO DE LOS VECTORES
     n = atoi(argv[3]);
 
 // ASIGNAR MEMORIA PARA LOS VECTORES
@@ -39,14 +39,17 @@ int main(int argc, char* argv[]){
     v1 = lee_vec(argv[1],n);
     v2 = lee_vec(argv[2],n);
 
-#pragma omp parallel for reduction(+:prod)
-{
-    for (i=0; i<n; i++){
-        prod += v1[i]*v2[i];
+// HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN prod
+    #pragma omp parallel for reduction(+:prod)
+    {
+        for (i=0; i<n; i++){
+            prod += v1[i]*v2[i];
+        }
     }
-}
-cout<<"El producto es igual a: "<<prod<<endl;
-return 0;
+
+// SE IMPRIME EL RESULTADO
+    cout<<"El producto es igual a: "<<prod<<endl;
+    return 0;
 }
 
 float *lee_vec(char* nom_arch, int m){
