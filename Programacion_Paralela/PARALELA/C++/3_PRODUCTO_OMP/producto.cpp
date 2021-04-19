@@ -1,3 +1,10 @@
+// EJERCICIO 3
+
+// Se compila con: g++ -o productoCompilado producto.cpp -fopenmp
+// Se ejecuta con: ./productoCompilado
+
+// Resultado: 20 impresiones de hola mundo con un for
+
 #include <iostream>
 #include <omp.h>
 
