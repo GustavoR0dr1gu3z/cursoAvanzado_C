@@ -25,10 +25,10 @@ int main(int argc, char* argv[]){
     float prod = 0.0;
     float *v1, *v2;
 
-// OCUPANDO 8 HILOS
-    omp_set_num_threads(8);
+// OCUPANDO 4 HILOS
+    omp_set_num_threads(4);
 
-// NO SE
+
     n = atoi(argv[3]);
 
 // ASIGNAR MEMORIA PARA LOS VECTORES
