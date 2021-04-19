@@ -15,11 +15,12 @@ int main(){
     int i;
 
     // Declaración de sección paralela
-    #pragma omp parallel
+    //#pragma omp parallel
+#pragma omp for private(i)
     {
         //Private significa que cada hilo tendrá un cierto 
         //numero de indices que ejecutar dentro del for
-        #pragma omp parallel for private(i)
+        //#pragma omp parallel for private(i)
             for (i =0; i<20; i++){
                 cout<<"Hola mundo con omp: "<<i<<endl;
             }
