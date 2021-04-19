@@ -20,9 +20,7 @@ int main(){
     {
         cout<<k<<endl; // Imprimir k
         k += 1;
-        cout<<"Hola Mundo En Paralelo"<<endl;
-        cout<<k<<endl; // Imprimir k
-
+        cout<<"Hola Mundo En Paralelo"<<endl;    
     }
     return 0;
 }
