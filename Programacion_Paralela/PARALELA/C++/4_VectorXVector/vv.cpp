@@ -17,6 +17,7 @@ using namespace std;
 
 float* lee_vec(char*, int);
 float* crea_vec(int);
+float* muestra_vec(float*, int);
 
 int main(int argc, char* argv[]){
 
@@ -47,6 +48,13 @@ int main(int argc, char* argv[]){
         }
     }
 
+// IMPRIMIENDO VECTORES
+    cout<<"Vector 1: "<<endl;
+    muestra_vec(v1,n);
+
+    cout<<"Vector 2: "<<endl;
+    muestra_vec(v2,n);
+
 // SE IMPRIME EL RESULTADO
     cout<<"El producto es igual a: "<<prod<<endl;
     return 0;
@@ -76,4 +84,12 @@ float* crea_vec(int m){
     float *VV;
     VV = new float[m];
     return VV;
+}
+
+float muestra_vec(int *m, int n){
+    for(int i=0; i<n; i++){
+        cout<<"%.2f"<<m[i];
+        cout<<endl;
+    }
+    cout<<endl;
 }
