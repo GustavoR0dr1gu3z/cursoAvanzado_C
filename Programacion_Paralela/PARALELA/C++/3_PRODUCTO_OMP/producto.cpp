@@ -25,4 +25,3 @@ int main(){
                 cout<<"Hola mundo con omp: "<<i<<endl;
             }
     }
-}
