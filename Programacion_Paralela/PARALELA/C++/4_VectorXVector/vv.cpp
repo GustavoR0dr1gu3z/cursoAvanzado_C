@@ -71,3 +71,9 @@ float *lee_vec(char* nom_arch, int m){
     cout<<"Vector Leído"<<endl;
     return VV;
 }
+
+float* crea_vec(int m){
+    float *VV;
+    VV = new float[m];
+    return VV;
+}
