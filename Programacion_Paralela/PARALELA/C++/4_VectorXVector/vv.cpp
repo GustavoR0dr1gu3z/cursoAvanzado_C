@@ -48,3 +48,23 @@ int main(int argc, char* argv[]){
 cout<<"El producto es igual a: "<<prod<<endl;
 return 0;
 }
+
+float *lee_vec(char* nom_arch, int m){
+    int i;
+    float *VV;
+// SE CREA EL VECTOR CON UN TAMAÑO ASIGNADO
+    VV = crea_vec(m);
+
+    fstream fd2;
+// ABRE EL ARCHIVO Y SE GUARDA EM VV
+    fd2.open(nom_arch, ios::in);
+    while(!fd2.eof()){
+        int i,j;
+        for(i=0; i<m; i++){
+            fd2>>VV[i];
+        }
+    }
+    fd2.close();
+    cout<<"Vector Leído"<<endl;
+    return VV;
+}
