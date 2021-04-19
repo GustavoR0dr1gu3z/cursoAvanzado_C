@@ -1,8 +1,8 @@
 // EJERCICIO 4
 
-// Se compila con:
+// Se compila con: g++ -o vvCompilado vv.cpp -fopenmp
 
-// Se ejecuta con:
+// Se ejecuta con: ./vvCompilado uno.txt dos.txt 10
 
 // El resultado es un escalar
 
@@ -17,7 +17,7 @@ using namespace std;
 
 float* lee_vec(char*, int);
 float* crea_vec(int);
-float* muestra_vec(float*, int);
+
 
 int main(int argc, char* argv[]){
 
@@ -42,18 +42,10 @@ int main(int argc, char* argv[]){
 
 // HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN prod
     #pragma omp parallel for reduction(+:prod)
-    {
+    
         for (i=0; i<n; i++){
             prod += v1[i]*v2[i];
         }
-    }
-
-// IMPRIMIENDO VECTORES
-    cout<<"Vector 1: "<<endl;
-    muestra_vec(v1,n);
-
-    cout<<"Vector 2: "<<endl;
-    muestra_vec(v2,n);
 
 // SE IMPRIME EL RESULTADO
     cout<<"El producto es igual a: "<<prod<<endl;
@@ -84,12 +76,4 @@ float* crea_vec(int m){
     float *VV;
     VV = new float[m];
     return VV;
-}
-
-float muestra_vec(int *m, int n){
-    for(int i=0; i<n; i++){
-        cout<<"%.2f"<<m[i];
-        cout<<endl;
-    }
-    cout<<endl;
 }
