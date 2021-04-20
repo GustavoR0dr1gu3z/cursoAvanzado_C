@@ -32,7 +32,7 @@ int main(int argc,char * argv[])
     char nomVect[9] = "vec.txt";
 
 // OCUPANDO 4 HILOS
-    omp_set_num_threads(4);
+    omp_set_num_threads(10);
 
     //USANDO LAS FUNCIONES, PARA ASIGNAR ESPACIO 
 //MATRIZ
@@ -57,7 +57,7 @@ int main(int argc,char * argv[])
             for (int j=0; j<ren; j++){
                 //prod =  A[i][j] * V[i];
                 //Wi[i] = prod;
-                prod = prod + A[i][j] * V[i];
+                prod = prod + A[j][i] * V[i];
                 Wi[i] =  prod;
             }
         }
