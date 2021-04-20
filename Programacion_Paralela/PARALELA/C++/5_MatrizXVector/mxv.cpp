@@ -21,11 +21,11 @@ float** crea_mat(int, int);
 int muestra_mat(float**, int, int);
 int muestra_vec(float*, int);
 
-float **A, *V, *W;
+float **A, *V, *W, *mat;
 
 int main(int argc,char * argv[])
 {   
-    
+    float prod = 0.0;
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
     char nomMat[9] = "mat.txt";
@@ -52,11 +52,10 @@ int main(int argc,char * argv[])
     muestra_vec(V,ren);
     cout<<endl;
 
-    #pragma omp parallel for reduction(+:b)
-    for(int i = 0 ; i <100; i++)
-	    {           
-            c[i]=A[i]*V[i];
-            b+=c[i];                            
+    #pragma omp parallel for reduction(+:prod)
+        for(int i=0; i<ren; i++){
+            //producto[i] += mat[i]*V[i];
+            cout<<"Hola";
         }
     
     cout<<"----Resultado----"<<endl;
