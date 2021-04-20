@@ -12,10 +12,10 @@ using namespace std;
 int main(){
 
 // Si quiero mas impresiones en pantalla
-    omp_set_num_threads(6);
+    //omp_set_num_threads(6);
 
     // Definimos una región paralela
-    #pragma omp parallel 
+    #pragma omp parallel num_threads(4)
     {
         cout<<"Hola Mundo En Paralelo"<<endl;
 
