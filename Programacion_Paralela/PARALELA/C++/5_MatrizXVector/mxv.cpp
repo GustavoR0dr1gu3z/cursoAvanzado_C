@@ -21,13 +21,11 @@ float** crea_mat(int, int);
 int muestra_mat(float**, int, int);
 int muestra_vec(float*, int);
 
-float **A, *V, *W, *mat;
+float **A, *V, *W, *Wi;
 
 int main(int argc,char * argv[])
 {   
-    float **res;
     float prod = 0.0;
-    int contador = 0;
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
     char nomMat[9] = "mat.txt";
@@ -43,7 +41,7 @@ int main(int argc,char * argv[])
 //VECTOR
     V = crea_vec(col);
     V = lee_vec(nomVect, ren);
-    W = crea_vec(col);
+    Wi = crea_vec(col);
 
 //IMPRIMIR MATRIZ Y VECTOR
     cout<<endl;
@@ -57,13 +55,15 @@ int main(int argc,char * argv[])
     #pragma omp parallel for reduction(+:prod)
         for(int i=0; i<ren; i++){
             for (int j=0; j<col; j++){
-                prod =  A[i][j] * V[i];
-                mat[i] = prod;
+                //prod =  A[i][j] * V[i];
+                //Wi[i] = prod;
+                prod = prod + A[i][j] * V[i];
+                Wi[i] =  prod;
             }
         }
     
     cout<<"----Resultado----"<<endl;
-    //muestra_vec(mat,ren);
+    muestra_vec(Wi,ren);
     //for(int i; i<ren; i++){
     //    cout<<mat[i]<<endl;
     //}
