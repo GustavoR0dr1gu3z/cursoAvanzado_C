@@ -54,7 +54,7 @@ int main(int argc,char * argv[])
 
     #pragma omp parallel for reduction(+:prod)
         for(int i=0; i<ren; i++){
-            for (int j=0; j<col; j++){
+            for (int j=0; j<ren; j++){
                 //prod =  A[i][j] * V[i];
                 //Wi[i] = prod;
                 prod = prod + A[i][j] * V[i];
