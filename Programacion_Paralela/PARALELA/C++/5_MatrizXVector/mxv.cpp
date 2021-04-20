@@ -1,15 +1,17 @@
 // EJERCICIO 5
 
-// Se compila con: g++ -o mxvCompilado vv.cpp -fopenmp
+// Se compila con: g++ -o mxvCompilado mxv.cpp -fopenmp
 
-// Se ejecuta con: ./mxvCompilado mat.txt vec.txt 10
+// Se ejecuta con: ./mxvCompilado mat.txt vec.txt 10 10
 
-
-#include<pthread.h>
 #include<omp.h>
+#include <fstream>
 #include<cstdio>
 #include<iostream>
-//g++ MatrizxvectorOmp.cpp -fopenmp
+#include <math.h>
+#include <cstdlib>
+
+
 using namespace std;
 
 float* lee_vec(char*, int);;
@@ -19,7 +21,7 @@ float** crea_mat(int, int);
 int muestra_mat(float**, int, int);
 int muestra_vec(float*, int);
 
-float **A, *V;
+float **A, *V, *W;
 
 int main(int argc,char * argv[])
 {   
@@ -32,13 +34,14 @@ int main(int argc,char * argv[])
 // OCUPANDO 4 HILOS
     omp_set_num_threads(4);
 
-    //USANDO LAS FUNCIONES
+    //USANDO LAS FUNCIONES, PARA ASIGNAR ESPACIO 
 //MATRIZ
     A = crea_mat(ren,col);
     A = lee_mat(nomMat, ren, col);
 //VECTOR
     V = crea_vec(col);
     V = lee_vec(nomVect, ren);
+    W = crea_vec(col);
 
 //IMPRIMIR MATRIZ Y VECTOR
     cout<<endl;
@@ -49,26 +52,100 @@ int main(int argc,char * argv[])
     muestra_vec(V,ren);
     cout<<endl;
 
-
-    for(int i=0;i<100;i++){
-        for(int j=0;j<100;j++){
-            Matriz2[i]=1;
-            Matriz[i][j]=1;
-        }
-    }
-    int b=0;
-    int c[100][100];
     #pragma omp parallel for reduction(+:b)
     for(int i = 0 ; i <100; i++)
-	    {   
-            for(int j=0;j<100;j++){
-                c[i][j]=Matriz[i][j]*Matriz2[i];
-                b+=c[i][j];
-            }                   
+	    {           
+            c[i]=A[i]*V[i];
+            b+=c[i];                            
         }
     
-    cout<<"resultado: "<<b;  
+    cout<<"----Resultado----"<<endl;
+    muestra_vec(W,ren);
     return 0;
 }    
 
+// ------------------------------VECTOR----------------------
+
+// RESERVANDO MEMORIA PARA EL VECTOR
+float* crea_vec(int m){
+    float* W;
+    W = new float[m];
+return W;
+}
+
+// LEYENDO EL VECTOR
+float* lee_vec(char *nom_arch, int m){
+    int i;
+    float* W;
+    cout<<"Leyendo Vector"<<endl;
+    W = crea_vec(m);
+    fstream fd2;
+    fd2.open(nom_arch, ios::in);
+    while(!fd2.eof()){
+        int i, j;
+            for(i=0; i<m; i++){
+                fd2>>W[i];
+            }
+    }
+    fd2.close();
+    cout<<"Vector Leido"<<endl;
+return W;
+}
+
+// IMPRIME EL VECTOR
+int muestra_vec(float *M, int n){
+    int j;
+    for(j=0; j<n; j++){
+        cout<<M[j]<<"\n";
+    }
+    cout<<endl;
+return 0;
+}
+
+// ------------------------------MATRIZ-------------------------
+
+//CREA ESPACIO PARA LA MATRIZ, EN FORMA VECTORIZADA
+float** crea_mat(int m, int n){
+    int j;
+    float** M;
+    M = new float*[m];
+    for(j=0; j<m; j++){
+        M[j] = new float[n];
+    }
+return M;
+}
+
+// LLENA EL ESPACIO PARA LA MATRIZ
+float** lee_mat(char *nom_arch, int m, int n){
+    int i, j;
+    float **M;
+    M = crea_mat(m, n);
+    fstream fd1;
+    fd1.open(nom_arch, ios::in);
+    while(!fd1.eof()){
+        int i, j;
+        for (i=0; i<m; i++){
+            for (j=0; j<n; j++){
+                fd1>>M[i][j];
+            }
+        }
+    }
+    fd1.close();
+    cout<<"Matriz Leida"<<endl;
+return M;
+}
+
+
+
+// MUESTRA LA MATRIZ
+int muestra_mat(float** M, int m, int n){
+    int i, j;
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            cout<<M[i][j]<<", ";
+        }
+        cout<<endl;
+    }
+return 0;
+}
 
