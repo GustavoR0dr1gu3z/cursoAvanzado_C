@@ -54,19 +54,16 @@ int main(int argc,char * argv[])
 
     #pragma omp parallel for reduction(+:prod)
         for(int i=0; i<ren; i++){
-            for (int j=0; j<ren; j++){
+            for (int j=0; j<col; j++){
                 //prod =  A[i][j] * V[i];
                 //Wi[i] = prod;
-                prod = prod + A[j][i] * V[i];
+                prod += A[i][j] * V[j];
                 Wi[i] =  prod;
             }
         }
     
     cout<<"----Resultado----"<<endl;
     muestra_vec(Wi,ren);
-    //for(int i; i<ren; i++){
-    //    cout<<mat[i]<<endl;
-    //}
     return 0;
 }    
 
