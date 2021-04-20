@@ -1,79 +1,74 @@
-// EJERCICIO 4
+// EJERCICIO 5
 
-// Se compila con: g++ -o vvCompilado vv.cpp -fopenmp
+// Se compila con: g++ -o mxvCompilado vv.cpp -fopenmp
 
-// Se ejecuta con: ./vvCompilado uno.txt dos.txt 10
+// Se ejecuta con: ./mxvCompilado mat.txt vec.txt 10
 
-// El resultado es un escalar
 
-#include <iostream>
-#include <fstream>
-#include <cstdio>
-#include <cstdlib>
-#include <omp.h>
-#include <math.h>
-
+#include<pthread.h>
+#include<omp.h>
+#include<cstdio>
+#include<iostream>
+//g++ MatrizxvectorOmp.cpp -fopenmp
 using namespace std;
 
-float* lee_vec(char*, int);
+float* lee_vec(char*, int);;
 float* crea_vec(int);
+float** lee_mat(char*, int, int);
+float** crea_mat(int, int);
+int muestra_mat(float**, int, int);
+int muestra_vec(float*, int);
 
+float **A, *V;
 
-int main(int argc, char* argv[]){
-
-// DECLARANDO VARIABLES
-    int i,n;
-    float prod = 0.0;
-    float *v1, *v2;
+int main(int argc,char * argv[])
+{   
+    
+    int ren = atoi(argv[1]);
+    int col = atoi(argv[2]);
+    char nomMat[9] = "mat.txt";
+    char nomVect[9] = "vec.txt";
 
 // OCUPANDO 4 HILOS
     omp_set_num_threads(4);
 
-//DECLARAR n, QUE ES PARA EL TAMAÑO DE LOS VECTORES
-    n = atoi(argv[3]);
+    //USANDO LAS FUNCIONES
+//MATRIZ
+    A = crea_mat(ren,col);
+    A = lee_mat(nomMat, ren, col);
+//VECTOR
+    V = crea_vec(col);
+    V = lee_vec(nomVect, ren);
 
-// ASIGNAR MEMORIA PARA LOS VECTORES
-    v1 = new float[n];
-    v2 = new float[n];
+//IMPRIMIR MATRIZ Y VECTOR
+    cout<<endl;
+    cout<<"----------MATRIZ----------"<<endl;
+    muestra_mat(A, ren, col);
+    cout<<endl;
+    cout<<"------VECTOR COLUMNA------"<<endl;
+    muestra_vec(V,ren);
+    cout<<endl;
 
-// ASIGNARLE UN ESPACIO Y LEER ARCHIVO
-    v1 = lee_vec(argv[1],n);
-    v2 = lee_vec(argv[2],n);
 
-// HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN prod
-    #pragma omp parallel for reduction(+:prod)
-    
-        for (i=0; i<n; i++){
-            prod += v1[i]*v2[i];
-        }
-
-// SE IMPRIME EL RESULTADO
-    cout<<"El producto es igual a: "<<prod<<endl;
-    return 0;
-}
-
-float *lee_vec(char* nom_arch, int m){
-    int i;
-    float *VV;
-// SE CREA EL VECTOR CON UN TAMAÑO ASIGNADO
-    VV = crea_vec(m);
-
-    fstream fd2;
-// ABRE EL ARCHIVO Y SE GUARDA EM VV
-    fd2.open(nom_arch, ios::in);
-    while(!fd2.eof()){
-        int i,j;
-        for(i=0; i<m; i++){
-            fd2>>VV[i];
+    for(int i=0;i<100;i++){
+        for(int j=0;j<100;j++){
+            Matriz2[i]=1;
+            Matriz[i][j]=1;
         }
     }
-    fd2.close();
-    cout<<"Vector Leído"<<endl;
-    return VV;
-}
+    int b=0;
+    int c[100][100];
+    #pragma omp parallel for reduction(+:b)
+    for(int i = 0 ; i <100; i++)
+	    {   
+            for(int j=0;j<100;j++){
+                c[i][j]=Matriz[i][j]*Matriz2[i];
+                b+=c[i][j];
+            }                   
+        }
+    
+    cout<<"resultado: "<<b;  
+    return 0;
+}    
 
-float* crea_vec(int m){
-    float *VV;
-    VV = new float[m];
-    return VV;
-}
+
