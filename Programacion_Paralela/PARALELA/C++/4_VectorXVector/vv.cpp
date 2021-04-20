@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
     v2 = lee_vec(argv[2],n);
 
 // HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN prod
-    #pragma omp for reduction(+:prod)
+    #pragma omp parallel for reduction(+:prod)
     
         for (i=0; i<n; i++){
             prod += v1[i]*v2[i];
