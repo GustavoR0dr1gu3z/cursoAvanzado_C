@@ -49,9 +49,11 @@ int main(int argc, char* argv[]){
 
 
 // VECTOR 1
+    cout<<"\n\nVECTOR 1: \n";
     muestra_vec(v1,n);       
 
 // VECTOR 2    
+    cout<<"\nVECTOR 2: \n";
     muestra_vec(v2,n);
 
 // SE IMPRIME EL RESULTADO
