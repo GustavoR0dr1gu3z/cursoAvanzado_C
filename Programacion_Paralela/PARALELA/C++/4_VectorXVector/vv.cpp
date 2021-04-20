@@ -47,6 +47,7 @@ int main(int argc, char* argv[]){
             prod += v1[i]*v2[i];
         }
 
+
 // VECTOR 1
     muestra_vec(v1,n);       
 
@@ -89,4 +90,5 @@ int muestra_vec(float* M ,int n){
     for (i=0; i<n; i++){
         cout<<M[i]<<endl;
     }
+    return 0;
 }
