@@ -1,3 +1,9 @@
+
+
+// SE COMPILA COMO: g++ -o dsCompilado ds.cpp -fopenmp
+// SE EJECUTA COMO: ./dsCompilado
+
+
 #include <iostream>
 #include <omp.h>
 
