@@ -23,6 +23,19 @@ int main(int argc, char *argv[]){
     V = crea_vec(n);
     W = crea_vec(n);
 
-    
+    #pragma omp parallel private(tid)
+        #pragma omp sections
+        {
+            #pragma omp section
+            {
+                V = lee_vec(nomA1,n);
+                muestra_vec(V,n);
+            }
+            #pragma omp section 
+            {
+                W = lee_vec(nomA2,n);
+                muestra_vec(W,n);
+            }
+        }
 
 }
