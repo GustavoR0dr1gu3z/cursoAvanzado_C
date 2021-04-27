@@ -4,3 +4,4 @@ fun_omp.o : fun_omp.cpp
     g++ -C -std=gnu++11 fun_omp.cpp -o fun_omp.o
 clean :
     rm *.o
+    
