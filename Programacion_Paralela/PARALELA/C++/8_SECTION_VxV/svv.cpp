@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "fun_omp.h"
 
+// El arcivo MAKE se compila: make -f MAKEFILE_VxV
+
 using namespace std;
 
 float *V, *W, Prod = 0.0;
