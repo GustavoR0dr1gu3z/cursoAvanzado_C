@@ -15,11 +15,11 @@ int main(){
     {
         for(i=0; i<20;i++){
             cout<<"Hilo Trabajando "<<omp_get_thread_num()<<endl;            
-        }
-        for(j=0; j<4; j++){
-            pr = i+j;
-            cout<<"Producto: "<<
-        }
+            for(j=0; j<4; j++){
+                pr = i+j;
+                cout<<"Producto Anidado Interno: "<<pr<<endl;
+            }
+        }    
     }
 return 0;
 }
