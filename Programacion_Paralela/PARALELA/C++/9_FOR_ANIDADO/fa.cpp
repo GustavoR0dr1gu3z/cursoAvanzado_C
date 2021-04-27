@@ -1,3 +1,4 @@
+#include <iostream>
 #include <omp.h>
 
 using namespace std;
@@ -15,9 +16,9 @@ int main(){
     {
     cout<<"Thread: "<<omp_get_thread_num()<<" Ejecuta region exterior"<<endl;
     }
-        
-
-
-
-
+    #pragma omp parallel num_threads(3)
+    {
+        cout<<"Thread: "<<omp_get_thread_num()<<" Ejecuta region interior"<<endl;
+    }
+return 0;
 }
