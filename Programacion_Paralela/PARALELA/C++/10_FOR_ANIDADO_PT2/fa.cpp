@@ -14,9 +14,12 @@ int main(){
     #pragma omp parallel for num_threads(2)
     {
         for(i=0; i<20;i++){
-            cout<<"Hilo Trabajando "<<omp_get_thread_num()<<endl;
+            cout<<"Hilo Trabajando "<<omp_get_thread_num()<<endl;            
+        }
+        for(j=0; j<4; j++){
+            pr = i+j;
+            cout<<"Producto: "<<
         }
     }
-
-
+return 0;
 }
