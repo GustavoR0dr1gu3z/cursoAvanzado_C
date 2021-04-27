@@ -12,7 +12,6 @@ int main(){
     cout<<"Paralelismo Anidado es: "<<sp<<endl;
 
     #pragma omp parallel for num_threads(2)
-    {
         for(i=0; i<20;i++){
             cout<<"Hilo Trabajando "<<omp_get_thread_num()<<endl;            
             for(j=0; j<4; j++){
@@ -20,6 +19,5 @@ int main(){
                 cout<<"Producto Anidado Interno: "<<pr<<endl;
             }
         }    
-    }
 return 0;
 }
