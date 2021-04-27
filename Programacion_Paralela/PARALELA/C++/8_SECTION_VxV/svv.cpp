@@ -23,6 +23,7 @@ int main(int argc, char *argv[]){
     V = crea_vec(n);
     W = crea_vec(n);
 
+// SECTIONS: LEER Y MOSTRAR VECTOR
     #pragma omp parallel private(tid)
         #pragma omp sections
         {
@@ -37,5 +38,12 @@ int main(int argc, char *argv[]){
                 muestra_vec(W,n);
             }
         }
-
+// OMP: PRODUCTO
+    #pragma omp for reduction(+:Prod)
+        for (i=0; i<n; i++){
+            Prod += V[i]*W[i];
+        }
+// FIN DEL PROGRAMA
+cout<<"\nProducto: "<<Prod<<endl;
+return 0;
 }
