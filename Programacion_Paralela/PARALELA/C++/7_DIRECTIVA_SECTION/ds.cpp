@@ -40,7 +40,6 @@ int main(){
                 cout<<"El hilo: "<<tid<<" Calcula la seccion 1 de: "<<nth<<endl;
                 
             }
-
         }
         return 0;
 }
