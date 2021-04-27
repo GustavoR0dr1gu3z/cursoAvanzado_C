@@ -7,7 +7,7 @@ int main(){
 
     int i,j,pr;
     const char *sp;
-
+    omp_set_nested(true);
     sp = omp_get_nested()? "Soportado":"No Soportado";
     cout<<"Paralelismo Anidado es: "<<sp<<endl;
 
