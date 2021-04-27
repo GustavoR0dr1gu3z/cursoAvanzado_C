@@ -1,3 +1,6 @@
+// Se compila como: g++ -o faCompilado fa.cpp -fopenmp
+// Se ejecuta como: ./faCompilado
+
 #include <iostream>
 #include <omp.h>
 
