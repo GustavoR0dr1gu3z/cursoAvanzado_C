@@ -1,4 +1,4 @@
-svvCompilado: fun_omp.o
+svvCompilado.out: fun_omp.o
     g++ svv.cpp fun_omp.cpp fun_omp.o -o svvCompilado -fopenmp
 fun_omp.o : fun_omp.cpp
     g++ -C -std=gnu++11 fun_omp.cpp -o fun_omp.o
