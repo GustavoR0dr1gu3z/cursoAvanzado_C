@@ -11,7 +11,12 @@ int main(){
     sp = omp_get_nested()? "Soportado":"No Soportado";
     cout<<"Paralelismo Anidado es: "<<sp<<endl;
 
-    #pragma omp parallel
+    #pragma omp parallel for num_threads(2)
+    {
+        for(i=0; i<20;i++){
+            cout<<"Hilo Trabajando "<<omp_get_thread_num()<<endl;
+        }
+    }
 
 
 }
