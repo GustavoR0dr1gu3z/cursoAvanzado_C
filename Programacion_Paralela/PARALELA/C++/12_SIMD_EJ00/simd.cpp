@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <omp.h>
 #include <fstream>
 #include "fun_omp.h"
