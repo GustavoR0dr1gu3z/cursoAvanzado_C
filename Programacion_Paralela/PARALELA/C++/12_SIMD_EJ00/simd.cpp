@@ -8,7 +8,7 @@ void simd_loop(float *a, float *b, float *c, int n){
     int i;
     #pragma omp simd
         for (i=0; i<n; i++){
-            a[i] = b[i]+c[i];
+            c[i] = b[i]+a[i];
         }
 }
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
         #pragma omp section
         {
             a = crea_vec(n);
-            a = lee_vect(nomArc,n);
+            a = lee_vec(nomArc,n);
         }
         #pragma omp section
         {
