@@ -12,7 +12,7 @@
 
 using namespace std;
 
-void simd_loop(float *a, float *b, float *c, int n){
+void for_loop(float *a, float *b, float *c, int n){
     int i;
     #pragma omp simd
         for (i=0; i<n; i++){
@@ -42,11 +42,11 @@ int main(int argc, char *argv[]){
         }
         #pragma omp section
         {
-            c = crea_vec(n);
             c = lee_vec(nomArc,n);
         }
     }
-simd_loop(a,b,c,n);
+omp_set_num_threads(2);    
+for_loop(a,b,c,n);
 muestra_vec(c,n);
 return 0;
 }
