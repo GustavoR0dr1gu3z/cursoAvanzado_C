@@ -17,8 +17,26 @@ return c;
 }
 
 int main(int argc, char *argv[]){
-float *a, *b, *c;
+    float *a, *b, *c;
+    int n;
+    char *nomArc, *nomArc2;
+    n= atoi(argv[1]);
+    nomArc = argv[2];
+    nomArc2 = argv[3];
 
+    #pragma omp sections
+    {
+        #pragma omp section
+        {
+            a = crea_vec(n);
+            a = lee_vec(nomArc,n);
+        }
+        #pragma omp section
+        {
+            b = crea_vec(n);
+            b = lee_vec(nomArc,n);
+        }
+    }
 
 cout<<"Resultado: "<<c<<endl;
 return 0;
