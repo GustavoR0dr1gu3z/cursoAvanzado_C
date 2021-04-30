@@ -1,3 +1,7 @@
+
+
+// Se ejecuta con: ./vvCompilado uno.txt dos.txt 10
+
 #include <iostream>
 #include <stdlib.h>
 #include <cstdio>
