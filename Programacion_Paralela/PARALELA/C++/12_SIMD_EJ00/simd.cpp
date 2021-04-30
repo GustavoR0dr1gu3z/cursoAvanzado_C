@@ -13,6 +13,7 @@ void simd_loop(float *a, float *b, float *c, int n){
 }
 
 int main(int argc, char *argv[]){
+    float *a, *b, *c;
     int n;
     char *nomArc, *nomArc2;
     n= atoi(argv[1]);
@@ -29,12 +30,12 @@ int main(int argc, char *argv[]){
         #pragma omp section
         {
             b = crea_vec(n);
-            b = lee_vect(nomArc,n);
+            b = lee_vec(nomArc,n);
         }
         #pragma omp section
         {
             c = crea_vec(n);
-            c = lee_vect(nomArc,n);
+            c = lee_vec(nomArc,n);
         }
     }
 
