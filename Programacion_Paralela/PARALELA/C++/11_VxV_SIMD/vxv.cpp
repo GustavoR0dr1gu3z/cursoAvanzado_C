@@ -16,7 +16,7 @@ int vxv (float *a, float*b, float c, int n){
     int i;
     #pragma omp simd reduction(+:c)
         for(i=0; i<n; i++){
-            c = b[i]*a[i];
+            c += b[i]*a[i];
         }
 return c;
 }
