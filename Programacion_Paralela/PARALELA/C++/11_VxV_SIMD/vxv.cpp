@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int vxv (float *a, float*b, int n){
+int vxv (float *a, float*b, float c, int n){
     int i;
     #pragma omp simd reduction(+:c)
         for(i=0; i<n; i++){
@@ -18,7 +18,7 @@ return c;
 }
 
 int main(int argc, char *argv[]){
-    float *a, *b, *c;
+    float *a, *b, c;
     int n;
     char *nomArc, *nomArc2;
     n= atoi(argv[1]);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]){
         }
     }
 omp_set_num_threads(2);
-vxv(a,b,n);
+vxv(a,b,c,n);
 cout<<"Resultado: "<<c<<endl;
 return 0;
 }
