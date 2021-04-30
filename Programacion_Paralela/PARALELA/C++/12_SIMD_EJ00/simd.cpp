@@ -38,8 +38,8 @@ int main(int argc, char *argv[]){
             c = lee_vec(nomArc,n);
         }
     }
-
-
+simd_loop(a,b,c,n);
+muestra_vec(c,n);
 return 0;
 }
 
