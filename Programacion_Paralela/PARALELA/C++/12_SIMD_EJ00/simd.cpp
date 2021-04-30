@@ -6,6 +6,8 @@
 #include <fstream>
 #include "fun_omp.h"
 
+using namespace std;
+
 void simd_loop(float *a, float *b, float *c, int n){
     int i;
     #pragma omp simd
