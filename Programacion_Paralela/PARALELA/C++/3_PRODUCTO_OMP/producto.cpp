@@ -1,5 +1,8 @@
 // EJERCICIO 3
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 18 de Abril 2021
+
 // Se compila con: g++ -o productoCompilado producto.cpp -fopenmp
 // Se ejecuta con: ./productoCompilado
 
