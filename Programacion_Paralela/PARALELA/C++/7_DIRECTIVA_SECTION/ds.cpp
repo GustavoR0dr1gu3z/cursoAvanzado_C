@@ -1,4 +1,4 @@
-
+// EJERCICIO 7
 
 // SE COMPILA COMO: g++ -o dsCompilado ds.cpp -fopenmp
 // SE EJECUTA COMO: ./dsCompilado
