@@ -1,3 +1,5 @@
+// EJERCICIO 10
+
 // Se compila como: g++ -o faCompilado fa.cpp -fopenmp
 // Se ejecuta como: ./faCompilado
 
