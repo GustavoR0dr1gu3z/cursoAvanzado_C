@@ -6,7 +6,6 @@
 // Se compila como: g++ -o vxvCompilado vxv.cpp -fopenmp 
 // Se ejecuta como: ./vxvCompilado 10 uno.txt dos.txt 
 
-
 #include <iostream>
 #include <stdlib.h>
 #include <cstdio>
