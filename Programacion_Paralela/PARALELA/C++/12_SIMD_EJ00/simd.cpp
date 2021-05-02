@@ -1,3 +1,4 @@
+// EJERCICIO 12
 
 
 // Se ejecuta con: ./simdCompilado 10 uno.txt dos.txt
