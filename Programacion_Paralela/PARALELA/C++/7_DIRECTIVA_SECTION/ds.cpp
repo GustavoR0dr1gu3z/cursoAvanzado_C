@@ -1,5 +1,8 @@
 // EJERCICIO 7
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 23 de Abril de 2021
+
 // SE COMPILA COMO: g++ -o dsCompilado ds.cpp -fopenmp
 // SE EJECUTA COMO: ./dsCompilado
 
