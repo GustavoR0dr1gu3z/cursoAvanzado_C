@@ -1,4 +1,4 @@
-
+// EJERCICIO 13
 
 // Se ejecuta con: ./simdCompilado 10 uno.txt dos.txt
 // time taskset -c 0 ./simdCompilado 10 uno.txt dos.txt 
