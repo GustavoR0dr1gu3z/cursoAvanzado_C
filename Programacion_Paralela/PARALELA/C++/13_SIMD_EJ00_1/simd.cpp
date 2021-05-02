@@ -1,5 +1,8 @@
 // EJERCICIO 13
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 30 de Abril del 2021
+
 // Se compila como g++ -o simdCompilado simd.cpp -fopenmp
 // Se ejecuta con: ./simdCompilado 10 uno.txt dos.txt
 // time taskset -c 0 ./simdCompilado 10 uno.txt dos.txt 
