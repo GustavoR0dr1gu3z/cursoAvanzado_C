@@ -1,3 +1,8 @@
+// EJERCICIO 11
+
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 30 De Abril 2021
+
 // Se compila como: g++ -o vxvCompilado vxv.cpp -fopenmp 
 // Se ejecuta como: ./vxvCompilado 10 uno.txt dos.txt 
 
