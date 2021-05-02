@@ -1,5 +1,8 @@
 // EJERCICIO 4
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 18 de Abril 2021
+
 // Se compila con: g++ -o vvCompilado vv.cpp -fopenmp
 
 // Se ejecuta con: ./vvCompilado uno.txt dos.txt 10
