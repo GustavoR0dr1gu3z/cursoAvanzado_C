@@ -1,5 +1,8 @@
 // EJERCICIO 5
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 19 de Abril de 2021
+
 // Se compila con: g++ -o mxvCompilado mxv.cpp -fopenmp
 
 // Se ejecuta con: ./mxvCompilado mat.txt vec.txt 10 10
