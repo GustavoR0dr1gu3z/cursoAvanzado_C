@@ -1,3 +1,7 @@
+// EJERCICIO 8
+
+// El arcivo MAKE se compila: make -f MAKEFILE_VxV
+
 #include <iostream>
 #include <omp.h>
 #include <fstream>
@@ -5,7 +9,7 @@
 #include <stdlib.h>
 #include "fun_omp.h"
 
-// El arcivo MAKE se compila: make -f MAKEFILE_VxV
+
 
 using namespace std;
 
