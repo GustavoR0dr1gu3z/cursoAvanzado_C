@@ -1,5 +1,8 @@
 // EJEMPLO 9 
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 27 de Abril del 2021
+
 // Se compila como: g++ -o faCompilado fa.cpp -fopenmp
 // Se ejecuta como: ./faCompilado
 
