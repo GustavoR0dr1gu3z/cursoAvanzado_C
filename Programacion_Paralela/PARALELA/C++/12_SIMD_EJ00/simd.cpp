@@ -2,6 +2,7 @@
 
 
 // Se ejecuta con: ./simdCompilado 10 uno.txt dos.txt
+// Se compila con: g++ -p simdCompilado simd.cpp -fopenmp
 
 #include <iostream>
 #include <stdlib.h>
