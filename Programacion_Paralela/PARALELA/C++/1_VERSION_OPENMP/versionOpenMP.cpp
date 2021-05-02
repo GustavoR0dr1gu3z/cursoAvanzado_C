@@ -1,4 +1,5 @@
-// EJERCICIO 1
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 16 de Abril 2021
 
 // Se compila como: g++ -o versionOpenMPCompilado versionOpenMP.cpp -fopenmp
 // Se ejecuta como: ./versionOpenMPCompilado
