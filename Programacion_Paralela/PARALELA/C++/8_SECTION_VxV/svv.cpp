@@ -13,7 +13,6 @@
 #include "fun_omp.h"
 
 
-
 using namespace std;
 
 float *V, *W, Prod = 0.0;
