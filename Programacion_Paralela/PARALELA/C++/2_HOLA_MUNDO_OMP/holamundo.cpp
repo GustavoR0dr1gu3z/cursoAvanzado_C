@@ -1,5 +1,8 @@
 // EJERCICIO 2
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 16 de Abril 2021
+
 // Se compila con: g++ -o holamundoCompilado holamundo.cpp -fopenmp
 // Se ejecuta con: ./holamundoCompilado
 
