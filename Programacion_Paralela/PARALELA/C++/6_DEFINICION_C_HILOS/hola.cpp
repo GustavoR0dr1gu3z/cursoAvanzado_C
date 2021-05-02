@@ -1,5 +1,8 @@
 // EJERCICIO 2
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 20 de Abil de 2021
+
 // Se compila con: g++ -o holaCompilado hola.cpp -fopenmp
 // Se ejecuta con: ./holaCompilado
 
