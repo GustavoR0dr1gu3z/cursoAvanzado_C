@@ -1,5 +1,6 @@
 // Hecho por: Gustavo Rodriguez Calzada
 // El dia: 16 de Abril 2021
+
 // Se compila como: g++ -o version2Compilado version2Compilado.cpp -fopenmp
 // Se ejecuta como: ./version2Compilado
 
