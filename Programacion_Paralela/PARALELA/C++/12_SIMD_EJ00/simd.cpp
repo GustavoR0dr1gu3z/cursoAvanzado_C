@@ -1,5 +1,7 @@
 // EJERCICIO 12
 
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 30 De Abril Del 2021
 
 // Se ejecuta con: ./simdCompilado 10 uno.txt dos.txt
 // Se compila con: g++ -p simdCompilado simd.cpp -fopenmp
