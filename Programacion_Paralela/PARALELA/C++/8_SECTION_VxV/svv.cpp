@@ -58,7 +58,7 @@ return 0;
 }
 
 
-float* crea_vect(int m){
+float* crea_vec(int m){
     float *W;
     W = new float [m];      
     return W;
