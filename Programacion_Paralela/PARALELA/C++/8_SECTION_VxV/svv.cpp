@@ -3,6 +3,8 @@
 // Hecho por: Gustavo Rodriguez Calzada
 // El dia: 26 de Abril del 2021
 
+// Se compila como: g++ -o svvCompilado svv.cpp -fopenmp
+
 // El arcivo MAKE se compila: make -f MAKEFILE_VxV
 
 #include <iostream>
