@@ -65,7 +65,7 @@ float* crea_vec(int m){
 }
 
 
-int muestra_vect(float *M, int m){
+int muestra_vec(float *M, int m){
     int j;
     for(j=0; j<m; j++){
         cout<<M[j]<<" ";
