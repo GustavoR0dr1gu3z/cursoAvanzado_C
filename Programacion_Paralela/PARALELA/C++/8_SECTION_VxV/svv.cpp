@@ -4,7 +4,7 @@
 // El dia: 26 de Abril del 2021
 
 // Se compila como: g++ -o svvCompilado svv.cpp -fopenmp
-// Se ejecuta como: 
+// Se ejecuta como: ./svvCompilado 10 uno.txt dos.txt
 
 // El arcivo MAKE se compila: make -f MAKEFILE_VxV
 
