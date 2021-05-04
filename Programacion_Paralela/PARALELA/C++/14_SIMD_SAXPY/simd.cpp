@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <omp.h>
+#include "fun_omp.h"
 
 using namespace std;
 
