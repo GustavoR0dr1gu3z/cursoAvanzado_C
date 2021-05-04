@@ -1,3 +1,9 @@
+
+
+// SE EJECUTA COMO: g++ -o piCompilado pi.cpp -fopenmp
+// SE COMPILA COMO: ./piCompilado
+
+
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
