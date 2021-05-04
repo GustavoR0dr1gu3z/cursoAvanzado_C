@@ -23,7 +23,18 @@ int main(int argc, char *argv){
     float SA = 2.5;
 
     #pragma omp parallel sections
-
+    {
+        #pragma omp section
+        {
+            X = crea_vec(size);
+            X = lee_vec(nomA1,size);
+        }
+        #pragma omp section
+        {
+            X = crea_vec(size);
+            X = lee_vec(nomA1,size);
+        }
+    }
 
 
 
