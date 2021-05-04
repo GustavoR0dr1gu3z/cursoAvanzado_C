@@ -18,9 +18,8 @@ float pi(int count){
         for (int i=0; i<count;i++){
             t = (float)((i+0.5)/count);
             dpi += 4.0/(1.0+t*t);
-            dpi /= count;
-            
-        }
+        }    
+            dpi /= count;        
         return dpi;
 }
 
