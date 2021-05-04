@@ -15,7 +15,7 @@ using namespace std;
 
 float *X, *Y, SA;
 
-int main(int argc, char *argv){
+int main(int argc, char *argv[]){
     char* nomA1, *nomA2;
     int size = atoi(argv[1]);
     nomA1 = argv[2];
@@ -31,9 +31,13 @@ int main(int argc, char *argv){
         }
         #pragma omp section
         {
-            X = crea_vec(size);
-            X = lee_vec(nomA1,size);
+            Y = crea_vec(size);
+            Y = lee_vec(nomA2,size);
         }
+    }
+    #pragma omp simd
+    for(int i=0; i<size; i++){
+        saxpy(X,Y,i,SA);
     }
 
 
