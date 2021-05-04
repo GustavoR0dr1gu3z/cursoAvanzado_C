@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <omp.h>
 #include "fun_omp.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -12,14 +13,16 @@ using namespace std;
             Y[i] = SA+X[i]+Y[i];
         }
 
-    float *X, *Y, SA;
+float *X, *Y, SA;
 
 int main(int argc, char *argv){
-    char *nomA1, *nomA2;
+    char* nomA1, *nomA2;
     int size = atoi(argv[1]);
     nomA1 = argv[2];
     nomA2 = argv[3];
     float SA = 2.5;
+
+    #pragma omp parallel sections
 
 
 
