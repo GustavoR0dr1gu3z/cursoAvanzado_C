@@ -17,8 +17,8 @@ using namespace std;
 int main(int argc, char *argv){
     char *nomA1, *nomA2;
     int size = atoi(argv[1]);
-    nv1 = argv[2];
-    nv2 = argv[3];
+    nomA1 = argv[2];
+    nomA2 = argv[3];
     float SA = 2.5;
 
 
