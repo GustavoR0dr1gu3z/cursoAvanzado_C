@@ -1,4 +1,4 @@
-// EJERCICIO 14
+// EJERCICIO 15
 
 // Hecho por: Gustavo Rodriguez Calzada
 // El dia: 4 de Mayo del 2021
@@ -16,7 +16,7 @@
 
 using namespace std;
 
-#pragma omp declare simd
+#pragma omp declare simd uniform(X,Y) linear(i:1)
     void saxpy(float *X, float *Y, int i, float SA)
         {
             Y[i] = SA+X[i]+Y[i];
