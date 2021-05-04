@@ -2,7 +2,6 @@
 #include <fstream>
 #include <stdio.h>
 #include <omp.h>
-#include "fun_omp.h"
 #include <stdlib.h>
 
 float pi (int count){
@@ -17,3 +16,10 @@ float pi (int count){
         return dpi;
 }
 
+int main(int argc, char*argv[]){
+    int count;
+    count = int(argv[1]);
+    float cpi =0;
+
+
+}
