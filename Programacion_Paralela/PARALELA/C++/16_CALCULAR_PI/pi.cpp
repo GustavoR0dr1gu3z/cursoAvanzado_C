@@ -4,7 +4,9 @@
 #include <omp.h>
 #include <stdlib.h>
 
-float pi (int count){
+using namespace std;
+
+float pi(int count){
     float dpi = 0.0,t;
     #pragma omp parallel for simd private(t) reduction(+:dpi)
         for (int i=0; i<count;i++){
@@ -18,8 +20,9 @@ float pi (int count){
 
 int main(int argc, char*argv[]){
     int count;
-    count = int(argv[1]);
+    count = atoi(argv[1]);
     float cpi =0;
-
-
+    cpi = pi(count);
+    cout<<"PI calculado: "<<cpi<<endl;
+return 0;
 }
