@@ -1,3 +1,12 @@
+// EJERCICIO 14
+
+// Hecho por: Gustavo Rodriguez Calzada
+// El dia: 4 de Mayo del 2021
+
+// Se compila como: g++ -o svvCompilado svv.cpp -fopenmp
+// Se ejecuta como: ./svvCompilado 10 uno.txt dos.txt
+
+
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
