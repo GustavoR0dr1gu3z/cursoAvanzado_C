@@ -6,7 +6,6 @@
 using namespace std;
 
 #pragma omp declare simd
-
     void saxpy(float *X, float *Y, int i, float SA)
         {
             Y[i] = SA+X[i]+Y[i];
@@ -15,7 +14,13 @@ using namespace std;
     float *X, *Y, SA;
 
 int main(int argc, char *argv){
+    char *nomA1, *nomA2;
+    int size = atoi(argv[1]);
+    nomv1 = argv[2];
+    nomv2 = argv[3];
+    float SA = 2.5;
 
+    
 
 
 }        
