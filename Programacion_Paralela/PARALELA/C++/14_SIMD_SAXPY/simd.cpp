@@ -16,11 +16,11 @@ using namespace std;
 int main(int argc, char *argv){
     char *nomA1, *nomA2;
     int size = atoi(argv[1]);
-    nomv1 = argv[2];
-    nomv2 = argv[3];
+    nv1 = argv[2];
+    nv2 = argv[3];
     float SA = 2.5;
 
-    
+
 
 
 }        
