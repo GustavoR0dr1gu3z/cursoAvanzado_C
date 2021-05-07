@@ -19,6 +19,8 @@ float **A;
 
 int main(int argc, char* argv[]){
     int i, j, m, n;
+    float s;
+    s = 2.5;
     m = 2;
     n = 5;
     omp_set_nested(true);
@@ -26,7 +28,7 @@ int main(int argc, char* argv[]){
     #pragma omp for 
         for(i=0; i<m; i++){
             for(j=0; j<n; j++){
-                A[n*i+j] = float(i+j+1);
+                A[n*i+j] = i*j+1;
             }
         }
 
