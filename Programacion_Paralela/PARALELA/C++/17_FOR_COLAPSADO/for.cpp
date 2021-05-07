@@ -1,7 +1,7 @@
-// EJERCICIO 16
+// EJERCICIO 17
 
 // Hecho por: Gustavo Rodriguez Calzada
-// El dia: 4 de Mayo del 2021
+// El dia: 7 de Mayo del 2021
 
 
 #include <iostream>
