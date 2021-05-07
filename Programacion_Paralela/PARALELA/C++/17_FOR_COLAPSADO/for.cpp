@@ -19,12 +19,13 @@ float **A;
 
 int main(int argc, char* argv[]){
     int i, j, m, n;
-    float s;
+    float s,ini,fin,total;
     s = 2.5;
     m = 2;
     n = 5;
     omp_set_nested(true);
     A = crea_mat(m,n);
+    ini = omp_get_wtime();
     #pragma omp parallel for collapse(2)
         for(i=0; i<m; i++){
             for(j=0; j<n; j++){
@@ -32,6 +33,9 @@ int main(int argc, char* argv[]){
                 A[i][j] = s;
             }
         }
+    fin = omp_get_wtime();
+    total = fin - ini;
+    cout<<"Tiempo: "<<total<<" Segundos."<<endl;
     muestra_mat(A,m,n);
 return 0;
 }
