@@ -13,8 +13,9 @@ using namespace std;
 
 float **A;
 
-int main(){
-
+int main(int argc, char* argv[]){
+    int i,j;
+    A = crea_mat();
 
 
 return 0;
