@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
     m = 2;
     n = 5;
     omp_set_nested(true);
-    A = crea_mat(m,2);
+    A = crea_mat(m,n);
     #pragma omp for 
         for(i=0; i<m; i++){
             for(j=0; j<n; j++){
