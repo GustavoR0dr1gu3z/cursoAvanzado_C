@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
     #pragma omp for 
         for(i=0; i<m; i++){
             for(j=0; j<n; j++){
-                A[n*i+j] = i+j+1;
+                A[n*i+j] = i+j+1.0;
             }
         }
 
