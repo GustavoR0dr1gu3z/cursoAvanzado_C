@@ -13,3 +13,9 @@ using namespace std;
 
 float **A;
 
+int main(){
+
+
+
+return 0;
+}
