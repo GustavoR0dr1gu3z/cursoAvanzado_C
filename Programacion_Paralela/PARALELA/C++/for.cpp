@@ -7,4 +7,9 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include "func_omp.h"
+
+using namespace std;
+
+float **A;
 
