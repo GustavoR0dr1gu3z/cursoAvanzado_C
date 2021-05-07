@@ -4,6 +4,9 @@
 // El dia: 7 de Mayo del 2021
 
 
+// SE COMPILA COMO: g++ -o forCompilado for.cpp -fopenmp
+// SE EJECUTA COMO: 
+
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
