@@ -25,14 +25,14 @@ int main(int argc, char* argv[]){
     n = 5;
     omp_set_nested(true);
     A = crea_mat(m,n);
-    #pragma omp for 
+    #pragma omp parallel for collapse(2)
         for(i=0; i<m; i++){
             for(j=0; j<n; j++){
                 //A[n*i+j] = i*j+1;
                 A[i][j] = s;
             }
         }
-
+    muestra_mat(A,m,n);
 return 0;
 }
 
