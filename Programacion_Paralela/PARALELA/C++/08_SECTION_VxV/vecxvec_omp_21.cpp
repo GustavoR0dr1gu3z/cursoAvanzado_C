@@ -28,12 +28,15 @@ float *V, *W, Prod = 0.0;
 
 int main(int argc, char *argv[]){
 
+// DECLARANDO VARIABLES
     int n, i;
     char *nomA1;
     char *nomA2;
 
+// DECLARAR n, QUE ES PARA EL TAMAÑO DE LOS VECTORES
     n = atoi(argv[1]);
 
+// DECLARA nomA1, nomA2 QUE ES PARA ASIGNARLE LOS ARCHIVOS TXT
     nomA1 = argv[2];
     nomA2 = argv[3];
 
@@ -56,7 +59,9 @@ int main(int argc, char *argv[]){
             //muestra_vec(W,n);
         }
     }
+
 // OMP: PRODUCTO
+// HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN Prod
     #pragma omp for reduction(+:Prod)
         for (i=0; i<n; i++){
             Prod += V[i]*W[i];
