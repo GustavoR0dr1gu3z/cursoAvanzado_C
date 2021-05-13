@@ -5,11 +5,11 @@
 
 // ------------------- PRIMERA FORMA --------------------
 // Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp -fopenmp
-// Se ejecuta como: ./vecxvec_omp_21Compilado 10 uno.txt dos.txt
+// Se ejecuta como: ./vecxvec_omp_21Compilado 10000 uno.txt dos.txt
 
 // ------------------- SEGUNDA FORMA ---------------------
 // El arcivo MAKE se compila: make -f MAKEFILE_VxV
-// ./vxv_omp 10 uno.txt dos.txt
+// Se ejecuta como: ./vxv_omp 10000 uno.txt dos.txt
 
 #include <iostream>
 #include <omp.h>
