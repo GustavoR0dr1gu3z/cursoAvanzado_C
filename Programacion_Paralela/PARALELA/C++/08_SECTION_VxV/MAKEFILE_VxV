@@ -1,6 +1,6 @@
 vxv_omp: func_omp.o
-/tg++ vecxvec_omp_21.cpp func_omp.o -o vxv_omp -fopenmp
+//tg++ vecxvec_omp_21.cpp func_omp.o -o vxv_omp -fopenmp
 func_omp.o: func_omp.cpp
-/tg++ -c -std=gnu++11 func_omp.cpp -o func_omp.o 
+//tg++ -c -std=gnu++11 func_omp.cpp -o func_omp.o 
 clean:
-/trm *.o
+//trm *.o
