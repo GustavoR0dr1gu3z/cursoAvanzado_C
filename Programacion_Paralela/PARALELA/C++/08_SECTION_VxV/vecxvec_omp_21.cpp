@@ -44,13 +44,13 @@ int main(int argc, char *argv[]){
         {
             V = crea_vec(n);
             V = lee_vec(nomA1,n);
-            muestra_vec(V,n);
+            //muestra_vec(V,n);
         }
         #pragma omp section 
         {
             W = crea_vec(n);
             W = lee_vec(nomA2,n);
-            muestra_vec(W,n);
+            //muestra_vec(W,n);
         }
     }
 // OMP: PRODUCTO
