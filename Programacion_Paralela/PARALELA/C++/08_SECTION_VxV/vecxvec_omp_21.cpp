@@ -13,7 +13,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include "fun_omp.h"
+#include "func_omp.h"
 
 
 using namespace std;
