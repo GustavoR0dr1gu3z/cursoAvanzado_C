@@ -1,7 +1,7 @@
 /* EJERCICIO 8 -> VECTOR POR VECTOR CON OPENMP 
 
 Hecho por: Gustavo Rodriguez Calzada
-El dia: 19 de Abril del 2021
+El dia: 20 de Abril del 2021
 
 
 ------------------- PRIMERA FORMA --------------------
