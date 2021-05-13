@@ -7,6 +7,7 @@
 // Se ejecuta como: ./svvCompilado 10 uno.txt dos.txt
 
 // El arcivo MAKE se compila: make -f MAKEFILE_VxV
+// ./vxv_omp 10 uno.txt dos.txt
 
 #include <iostream>
 #include <omp.h>
