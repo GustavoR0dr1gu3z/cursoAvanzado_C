@@ -1,15 +1,18 @@
-// EJERCICIO 8
+/* EJERCICIO 8 -> VECTOR POR VECTOR CON OPENMP 
 
-// Hecho por: Gustavo Rodriguez Calzada
-// El dia: 26 de Abril del 2021
+Hecho por: Gustavo Rodriguez Calzada
+El dia: 19 de Abril del 2021
 
-// ------------------- PRIMERA FORMA --------------------
-// Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp func_omp.o -fopenmp
-// Se ejecuta como: ./vecxvec_omp_21Compilado 10000 uno.txt dos.txt
 
-// ------------------- SEGUNDA FORMA ---------------------
-// El arcivo MAKE se compila: make -f MAKEFILE_VxV
-// Se ejecuta como: ./vxv_omp 10000 uno.txt dos.txt
+------------------- PRIMERA FORMA --------------------
+El arcivo MAKE se compila: make -f MAKEFILE_VxV
+Se ejecuta como: ./vxv_omp 10000 uno.txt dos.txt
+
+
+------------------- SEGUNDA FORMA ---------------------
+Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp func_omp.o -fopenmp
+Se ejecuta como: ./vecxvec_omp_21Compilado 10000 uno.txt dos.txt
+*/
 
 #include <iostream>
 #include <omp.h>
