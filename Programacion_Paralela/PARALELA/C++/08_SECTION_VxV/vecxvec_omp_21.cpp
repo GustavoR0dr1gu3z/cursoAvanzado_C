@@ -4,7 +4,7 @@
 // El dia: 26 de Abril del 2021
 
 // ------------------- PRIMERA FORMA --------------------
-// Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp -fopenmp
+// Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp func_omp.o -fopenmp
 // Se ejecuta como: ./vecxvec_omp_21Compilado 10000 uno.txt dos.txt
 
 // ------------------- SEGUNDA FORMA ---------------------
