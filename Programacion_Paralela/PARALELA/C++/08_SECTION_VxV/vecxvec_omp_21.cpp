@@ -3,9 +3,11 @@
 // Hecho por: Gustavo Rodriguez Calzada
 // El dia: 26 de Abril del 2021
 
-// Se compila como: g++ -o svvCompilado svv.cpp -fopenmp
-// Se ejecuta como: ./svvCompilado 10 uno.txt dos.txt
+// ------------------- PRIMERA FORMA --------------------
+// Se compila como: g++ -o vecxvec_omp_21Compilado vecxvec_omp_21.cpp -fopenmp
+// Se ejecuta como: ./vecxvec_omp_21Compilado 10 uno.txt dos.txt
 
+// ------------------- SEGUNDA FORMA ---------------------
 // El arcivo MAKE se compila: make -f MAKEFILE_VxV
 // ./vxv_omp 10 uno.txt dos.txt
 
