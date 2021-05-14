@@ -14,22 +14,22 @@
 
 using namespace std;
 
-float pi(int count){
+float pi(int lados){
     float dpi = 0.0,t;
     #pragma omp parallel for simd private(t) reduction(+:dpi)
-        for (int i=0; i<count;i++){
-            t = (float)((i+0.5)/count);
+        for (int i=0; i<lados;i++){
+            t = (float)((i+0.5)/lados);
             dpi += 4.0/(1.0+t*t);
         }    
-            dpi /= count;        
+            dpi /= lados;        
         return dpi;
 }
 
 int main(int argc, char*argv[]){
-    int count;
-    count = atoi(argv[1]);
+    int lados;
+    lados = atoi(argv[1]);
     float cpi =0;
-    cpi = pi(count);
+    cpi = pi(lados);
     cout<<"PI calculado: "<<cpi<<endl;
 return 0;
 }
