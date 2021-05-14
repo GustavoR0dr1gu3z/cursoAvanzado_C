@@ -31,7 +31,8 @@ float ppi(int n, int A, int B){
         for(int i=0; i<n; i+= subIntervalo){
             xk = xk+i;
         }
-
+    pi = h * ( (fa) + (2*xk) + (fb) );
+    return pi;
 }
 
 int main(int argc, int argv[]){
