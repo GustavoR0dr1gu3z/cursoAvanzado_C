@@ -20,11 +20,12 @@ float ppi(int max){
 
 }
 
-int main(int argc, char*argv[]){
+int main(int argc, int argv[]){
     // max DEL POLIGONO
     int max;
     // LADOS A Y B
-    int A, B;
+    float A;
+    float B;
 
     // SE ASIGNAN LOS VALORES PARA LA FORMULA
     max = atoi(argv[1]);
