@@ -18,8 +18,8 @@ using namespace std;
 
 float ppi(int n, float A, float B){
     float pi = 0.0;
-    float subIntervalo = ((B-A)/n);
-    float h = subIntervalo/2;
+    float subIntervalo = ((B-A)/float(n));
+    float h = subIntervalo/float(2);
     float ba = B-A;
     float fa = 4/(1+0); // 4/(1+0̣^2)
     float fb = 4/(1+1); // 4/(1+1^2)
