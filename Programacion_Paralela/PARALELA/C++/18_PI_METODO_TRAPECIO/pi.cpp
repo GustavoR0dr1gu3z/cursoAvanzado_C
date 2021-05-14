@@ -17,6 +17,9 @@ using namespace std;
 
 
 float ppi(int max, int A, int B){
+    float pi = 0.0;
+    #pragma omp parallel
+        pi = (B-A)*( () / () )
 
 }
 
