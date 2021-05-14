@@ -22,9 +22,9 @@ float pi(int lados){
     // PERIMETROS DE LOS POLIGONOS
     float A;
     float B;
-
-    A=4*sqrt(2)*r;  // Cargo los perímetros de un CUADRADO inscrito (A) y circunscrito (B). Estos valores pueden ser fácilmente
-    B=8*r;          // obtenidos con el teorema de pitagoras, no pi required.
+    // CARGA DE LOS PERIMETROS
+    A=4*sqrt(2)*r;  
+    B=8*r;
     
     float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
 
