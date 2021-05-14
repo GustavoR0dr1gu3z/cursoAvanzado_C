@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <omp.h>
 #include <stdlib.h>
+#include <cmath>
 
 using namespace std;
 
@@ -34,8 +35,9 @@ float ppi(int n, float A, float B){
             // PUNTO MEDIO DEL INTERVALO
             xi = (1.0/n)*(i+0.5);
             // SE SUSTITUYE XI EN LA FUNCION: 4/(1+x^2)
-            sumaR += 4.0 / (1.0+xi*xi);
+            sumaR += 4.0 / (1.0+pow(xi,2));
         }
+    //     
     pi = sumaR * (1.0 / n);
     return pi;
 }
