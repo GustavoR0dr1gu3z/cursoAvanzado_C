@@ -11,16 +11,24 @@
 #include <stdio.h>
 #include <omp.h>
 #include <stdlib.h>
+#include <cmath>
 
 using namespace std;
 
-// RADIO
-float r = 1; 
-// PERIMETROS DE LOS POLIGONOS
-float A;
-float B;
 
 float pi(int lados){
+    // RADIO
+    float r = 1; 
+    // PERIMETROS DE LOS POLIGONOS
+    float A;
+    float B;
+
+    A=4*sqrt(2)*r;  // Cargo los perímetros de un CUADRADO inscrito (A) y circunscrito (B). Estos valores pueden ser fácilmente
+    B=8*r;          // obtenidos con el teorema de pitagoras, no pi required.
+    
+    float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
+
+
     float dpi = 0.0,t;
     #pragma omp parallel for simd private(t) reduction(+:dpi)
         for (int i=0; i<lados;i++){
