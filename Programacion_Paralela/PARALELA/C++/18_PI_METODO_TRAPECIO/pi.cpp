@@ -35,7 +35,7 @@ float ppi(int n, int A, int B){
     return pi;
 }
 
-int main(int argc, int argv[]){
+int main(int argc, char*argv[]){
     // n DEL POLIGONO
     int n;
     // LADOS A Y B
@@ -43,7 +43,7 @@ int main(int argc, int argv[]){
     float B = 1;
 
     // SE ASIGNAN LOS VALORES PARA LA FORMULA
-    n = argv[1];
+    n = atoi(argv[1]);
 
     // SE MANDA A LLAMAR LA FUNCION DE PI
     float cpi =0;
