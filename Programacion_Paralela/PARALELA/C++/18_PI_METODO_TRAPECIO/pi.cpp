@@ -16,7 +16,7 @@
 using namespace std;
 
 
-float pi(int lados){
+float ppi(int lados){
     // RADIO
     float r = 1; 
 
@@ -30,22 +30,26 @@ float pi(int lados){
     
     float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
 
-    float dpi = 0.0,t;
     #pragma omp parallel
         while (m*2<=lados) {        
             B=2*A*B/(A+B);   
             A=sqrt(A*B);        
             m=m*2;
         }
-        float pi=(  A/2/r + B/2/r  )/2;
-    return pi;
+        float pii=(  A/2/r + B/2/r  )/2;
+    return pii;
 }
 
 int main(int argc, char*argv[]){
+    // LADOS DEL POLIGONO
     int lados;
     lados = atoi(argv[1]);
+    
+    // SE MANDA A LLAMAR LA FUNCION DE PI
     float cpi =0;
-    cpi = pi(lados);
+    cpi = ppi(lados);
+
+    // SE MUESTRA EL RESULTADO
     cout<<"PI calculado: "<<cpi<<endl;
 return 0;
 }
