@@ -16,7 +16,7 @@
 using namespace std;
 
 
-float ppi(int n, int A, int B){
+float ppi(int n, float A, float B){
     float pi = 0.0;
     float subIntervalo = ((B-A)/n);
     float h = subIntervalo/2;
@@ -26,11 +26,12 @@ float ppi(int n, int A, int B){
     int i;
     float xk = 0.0;
     // 4/(1+x'2)
-    #pragma omp parallel for reduction(+:xk)
-        for(i=1; i<n-1; i+=int(subIntervalo)){
-            xk += (4/1+i);
-        }
-    pi = h * ( (fa) + (2*xk) + (fb) );
+    #pragma omp parallel //for reduction(+:xk)
+        //for(i=1; i<n-1; i+=int(subIntervalo)){
+            //xk += (4/1+i);
+        //}
+        pi = (ba)*((fa+fb)/(2));
+    //pi = h * ( (fa) + (2*xk) + (fb) );
     return pi;
 }
 
@@ -38,8 +39,8 @@ int main(int argc, char *argv[]){
     // n DEL POLIGONO
     int n;
     // LADOS A Y B
-    int A = 0;
-    int B = 1;
+    float A = 0.0;
+    float B = 1.0;
 
     // SE ASIGNAN LOS VALORES PARA LA FORMULA
     n = atoi(argv[1]);
