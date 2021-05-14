@@ -16,28 +16,27 @@
 using namespace std;
 
 
-float ppi(int max, int A, int B){
+float ppi(int n, int A, int B){
     float pi = 0.0;
-    #pragma omp parallel
-        pi = (B-A)*( () / () )
+    float subIntervalo = 0.0;
+    subIntervalo = ((B-A)/n);
+
 
 }
 
 int main(int argc, int argv[]){
-    // max DEL POLIGONO
-    int max;
+    // n DEL POLIGONO
+    int n;
     // LADOS A Y B
-    float A;
-    float B;
+    float A = 0;
+    float B = 1;
 
     // SE ASIGNAN LOS VALORES PARA LA FORMULA
-    max = argv[1];
-    A = argv[2];
-    B = argv[3];
+    n = argv[1];
 
     // SE MANDA A LLAMAR LA FUNCION DE PI
     float cpi =0;
-    cpi = ppi(max,A,B);
+    cpi = ppi(n,A,B);
 
     // SE MUESTRA EL RESULTADO
     cout<<"PI calculado: "<<cpi<<endl;
