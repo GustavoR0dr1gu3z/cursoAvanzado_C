@@ -1,10 +1,10 @@
 // EJERCICIO 18
 
 // Hecho por: Gustavo Rodriguez Calzada
-// El dia: 4 de Mayo del 2021
+// El dia: 11 de Mayo del 2021
 
-// SE EJECUTA COMO: g++ -o piCompilado pi.cpp -fopenmp
-// SE COMPILA COMO: ./piCompilado 1000000
+// SE EJECUTA COMO: g++ -o piCompilado pi.cpp -fopenmp 
+// SE COMPILA COMO: ./piCompilado 1000
 
 
 #include <iostream>
@@ -18,11 +18,11 @@ using namespace std;
 
 float ppi(int n, float A, float B){
     float pi = 0.0;
-    float subIntervalo = ((B-A)/float(n));
-    float h = subIntervalo/float(2);
-    float ba = B-A;
-    float fa = 4.0/(1.0+0.0); // 4/(1+0̣^2)
-    float fb = 4.0/(1.0+1.0); // 4/(1+1^2)
+    //float subIntervalo = ((B-A)/float(n));
+    //float h = subIntervalo/float(2);
+    //float ba = B-A;
+    //float fa = 4.0/(1.0+0.0); // 4/(1+0̣^2)
+    //float fb = 4.0/(1.0+1.0); // 4/(1+1^2)
     int i;
     float xi;
     float sumaR = 0.0; 
