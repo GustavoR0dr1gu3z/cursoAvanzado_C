@@ -19,9 +19,11 @@ using namespace std;
 float pi(int lados){
     // RADIO
     float r = 1; 
+    
     // PERIMETROS DE LOS POLIGONOS
     float A;
     float B;
+
     // CARGA DE LOS PERIMETROS
     A=4*sqrt(2)*r;  
     B=8*r;
