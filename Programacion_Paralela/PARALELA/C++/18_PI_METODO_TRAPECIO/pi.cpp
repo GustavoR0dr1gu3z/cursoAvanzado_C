@@ -37,9 +37,10 @@ float pi(int lados){
         B=2*A*B/(A+B);      // Calculo de los perímetros con el doble de lados. A cada vuelta los valores de A y B se sobreeescriben.
         A=sqrt(A*B);
         
-        m=m*2;              // El número de lados se duplica en cada vuelta.
-        
-    }
+        m=m*2;              // El número de lados se duplica en cada vuelta.        
+        }
+        float pi=(  A/2/r + B/2/r  )/2;
+    return pi;
 }
 
 int main(int argc, char*argv[]){
