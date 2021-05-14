@@ -16,7 +16,7 @@
 using namespace std;
 
 
-float ppi(int max){
+float ppi(int max, int A, int B){
 
 }
 
@@ -34,7 +34,7 @@ int main(int argc, int argv[]){
 
     // SE MANDA A LLAMAR LA FUNCION DE PI
     float cpi =0;
-    cpi = ppi(max);
+    cpi = ppi(max,A,B);
 
     // SE MUESTRA EL RESULTADO
     cout<<"PI calculado: "<<cpi<<endl;
