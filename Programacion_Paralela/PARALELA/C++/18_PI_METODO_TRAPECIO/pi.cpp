@@ -30,7 +30,9 @@ float pi(int lados){
     
     float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
 
-while (m*2<=n) {  // BUCLE. Si el número de lados del polígono a generar supera el número impuesto por usuario, para.
+    float dpi = 0.0,t;
+    #pragma omp parallel for simd private(t) reduction(+:dpi)
+        while (m*2<=lados) {  // BUCLE. Si el número de lados del polígono a generar supera el número impuesto por usuario, para.
         
         B=2*A*B/(A+B);      // Calculo de los perímetros con el doble de lados. A cada vuelta los valores de A y B se sobreeescriben.
         A=sqrt(A*B);
@@ -38,12 +40,6 @@ while (m*2<=n) {  // BUCLE. Si el número de lados del polígono a generar super
         m=m*2;              // El número de lados se duplica en cada vuelta.
         
     }
-
-    float dpi = 0.0,t;
-    #pragma omp parallel for simd private(t) reduction(+:dpi)
-    
-
-        return dpi;
 }
 
 int main(int argc, char*argv[]){
