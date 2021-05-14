@@ -11,12 +11,12 @@
 #include <stdio.h>
 #include <omp.h>
 #include <stdlib.h>
-#include <cmath>
 
 using namespace std;
 
 
 float ppi(int n, float A, float B){
+    // SE DECLARA LA VARIABLE PI
     float pi = 0.0;
     //float subIntervalo = ((B-A)/float(n));
     //float h = subIntervalo/float(2);
