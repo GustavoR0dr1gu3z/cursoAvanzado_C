@@ -1,4 +1,4 @@
-// EJERCICIO 18
+// EJERCICIO 18: CALCULO DE PI CON EL METODO DEL TRAPECIO
 
 // Hecho por: Gustavo Rodriguez Calzada
 // El dia: 11 de Mayo del 2021
@@ -37,7 +37,7 @@ float ppi(int n, float A, float B){
             // SE SUSTITUYE XI EN LA FUNCION: 4/(1+x^2)
             sumaR += 4.0 / (1.0+pow(xi,2));
         }
-    //     
+    // SE CALCULA PI    
     pi = sumaR * (1.0 / n);
     return pi;
 }
