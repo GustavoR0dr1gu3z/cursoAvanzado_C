@@ -19,7 +19,7 @@ using namespace std;
 float pi(int lados){
     // RADIO
     float r = 1; 
-    
+
     // PERIMETROS DE LOS POLIGONOS
     float A;
     float B;
@@ -30,14 +30,19 @@ float pi(int lados){
     
     float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
 
+while (m*2<=n) {  // BUCLE. Si el número de lados del polígono a generar supera el número impuesto por usuario, para.
+        
+        B=2*A*B/(A+B);      // Calculo de los perímetros con el doble de lados. A cada vuelta los valores de A y B se sobreeescriben.
+        A=sqrt(A*B);
+        
+        m=m*2;              // El número de lados se duplica en cada vuelta.
+        
+    }
 
     float dpi = 0.0,t;
     #pragma omp parallel for simd private(t) reduction(+:dpi)
-        for (int i=0; i<lados;i++){
-            t = (float)((i+0.5)/lados);
-            dpi += 4.0/(1.0+t*t);
-        }    
-            dpi /= lados;        
+    
+
         return dpi;
 }
 
