@@ -35,9 +35,9 @@ float ppi(int lados){
         while (m*2<=lados) {        
             B=2*A*B/(A+B);   
             A=sqrt(A*B);        
-            m=m*2;
-            pii=(  A/2/r + B/2/r  )/2;
+            m=m*2;        
         }        
+    pii=(  A/2/r + B/2/r  )/2;    
     return pii;
 }
 
