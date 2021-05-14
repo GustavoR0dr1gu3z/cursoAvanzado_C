@@ -13,6 +13,11 @@
 #include <stdlib.h>
 
 using namespace std;
+// RADIO
+float r = 1; 
+// Perímetros de los polígonos
+float A;
+float B;
 
 float pi(int lados){
     float dpi = 0.0,t;
