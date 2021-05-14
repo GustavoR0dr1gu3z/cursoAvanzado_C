@@ -28,7 +28,8 @@ float ppi(int lados){
     A=4*sqrt(2)*r;  
     B=8*r;
     
-    float m=4;     // Este es el número de lados de los polígonos con los que estamos trabajando.
+    // LADOS DEL POLIGONO
+    float m=4;     
 
     #pragma omp parallel
         while (m*2<=lados) {        
