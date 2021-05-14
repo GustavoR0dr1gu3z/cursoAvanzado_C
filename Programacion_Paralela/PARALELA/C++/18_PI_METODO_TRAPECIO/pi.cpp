@@ -21,6 +21,12 @@ float ppi(int n, int A, int B){
     float subIntervalo = 0.0;
     subIntervalo = ((B-A)/n);
 
+    float fa = 4/(1+pow(A,2));
+    float fb = 4/(1+pow(B,2));
+
+    // 4/(1+x'2)
+    #pragma omp parallel
+
 
 }
 
