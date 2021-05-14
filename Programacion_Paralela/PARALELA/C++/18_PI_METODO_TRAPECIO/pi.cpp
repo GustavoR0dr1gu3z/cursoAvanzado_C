@@ -24,18 +24,15 @@ float ppi(int n, float A, float B){
     float fa = 4.0/(1.0+0.0); // 4/(1+0̣^2)
     float fb = 4.0/(1.0+1.0); // 4/(1+1^2)
     int i;
-    float xk = 0.0;
+    float xi;
+    float sumaR = 0.0; 
     // 4/(1+x'2)
-    #pragma omp parallel for reduction(+:xk)
-        //for(i=1; i<n-1; i+=int(subIntervalo)){
-            //xk += (4/1+i);
-        //}
-        //pi = (ba)*((fa+fb)/(2));
-        for(i=int(subIntervalo); i<n-1; i+=int(subIntervalo)){
-            xk += ( 4 / 1 + pow((A + i*subIntervalo),2) );
+    #pragma omp parallel for reduction(+:sumaR)
+        for (i=0; i<n; i++){
+            xi = (1.0/n)*(i+0.5);
+            sumaR += 4.0 / (1.0+xi*xi);
         }
-    //pi = h * ( (fa) + (2*xk) + (fb) );
-    pi = subIntervalo * ( ( (fa+fb)/(2) ) + (xk)  );
+    pi = sumaR * (1.0 / n);
     return pi;
 }
 
