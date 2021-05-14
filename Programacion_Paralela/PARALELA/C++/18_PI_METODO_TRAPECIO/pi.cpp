@@ -30,14 +30,14 @@ float ppi(int lados){
     
     // LADOS DEL POLIGONO
     float m=4;     
-
+    float pii;
     #pragma omp parallel
         while (m*2<=lados) {        
             B=2*A*B/(A+B);   
             A=sqrt(A*B);        
             m=m*2;
-        }
-        float pii=(  A/2/r + B/2/r  )/2;
+            pii=(  A/2/r + B/2/r  )/2;
+        }        
     return pii;
 }
 
