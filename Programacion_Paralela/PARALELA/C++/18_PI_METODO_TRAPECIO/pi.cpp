@@ -31,7 +31,7 @@ float ppi(int n, float A, float B){
             //xk += (4/1+i);
         //}
         //pi = (ba)*((fa+fb)/(2));
-        for(i=1; i<n-1; i++){
+        for(i=0; i<=int(B); i+=int(subIntervalo)){
             xk += ( 4 / 1 + pow((A + i*subIntervalo),2) );
         }
     //pi = h * ( (fa) + (2*xk) + (fb) );
