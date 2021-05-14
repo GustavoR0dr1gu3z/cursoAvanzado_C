@@ -27,9 +27,13 @@ float ppi(int n, float A, float B){
     float xi;
     float sumaR = 0.0; 
     // 4/(1+x'2)
+
+    // HACE QUE SE SUME Y EL RESULTADO SE QUEDE EN sumaR
     #pragma omp parallel for reduction(+:sumaR)
         for (i=0; i<n; i++){
+            // PUNTO MEDIO DEL INTERVALO
             xi = (1.0/n)*(i+0.5);
+            // SE SUSTITUYE XI EN LA FUNCION: 4/(1+x^2)
             sumaR += 4.0 / (1.0+xi*xi);
         }
     pi = sumaR * (1.0 / n);
