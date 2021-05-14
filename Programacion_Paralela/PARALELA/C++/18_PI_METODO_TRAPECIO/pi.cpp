@@ -28,7 +28,7 @@ int main(int argc, int argv[]){
     float B;
 
     // SE ASIGNAN LOS VALORES PARA LA FORMULA
-    max = atoi(argv[1]);
+    max = argv[1];
     A = argv[2];
     B = argv[3];
 
