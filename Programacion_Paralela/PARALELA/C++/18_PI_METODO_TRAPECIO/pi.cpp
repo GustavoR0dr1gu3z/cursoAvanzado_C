@@ -22,8 +22,8 @@ float ppi(int n, int A, int B){
     subIntervalo = ((B-A)/n);
     float h = subIntervalo/2;
 
-    float fa = 4/(1+pow(A,2));
-    float fb = 4/(1+pow(B,2));
+    float fa = 4/(1+0); // 4/(1+0̣^2)
+    float fb = 4/(1+1); // 4/(1+1^2)
 
     float xk = A;
     // 4/(1+x'2)
