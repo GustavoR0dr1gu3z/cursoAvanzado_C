@@ -23,11 +23,11 @@ float ppi(int n, int A, int B){
     float ba = B-A;
     float fa = 4/(1+0); // 4/(1+0̣^2)
     float fb = 4/(1+1); // 4/(1+1^2)
-
-    float xk = A;
+    int i;
+    float xk = 0.0;
     // 4/(1+x'2)
     #pragma omp parallel for reduction(+:xk)
-        for(int i=1; i<=n-1; i+=subIntervalo){
+        for(i=1; i<n-1; i+=int(subIntervalo)){
             xk += (4/1+i);
         }
     pi = h * ( (fa) + (2*xk) + (fb) );
