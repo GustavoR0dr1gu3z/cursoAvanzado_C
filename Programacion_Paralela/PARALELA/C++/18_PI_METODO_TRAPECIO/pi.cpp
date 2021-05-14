@@ -20,13 +20,15 @@ float ppi(int n, int A, int B){
     float pi = 0.0;
     float subIntervalo = 0.0;
     subIntervalo = ((B-A)/n);
+    float h = subIntervalo/2;
 
     float fa = 4/(1+pow(A,2));
     float fb = 4/(1+pow(B,2));
 
+    float xk = 0.0;
     // 4/(1+x'2)
-    #pragma omp parallel
-
+    #pragma omp parallel for reduction(+:xk)
+        for()
 
 }
 
