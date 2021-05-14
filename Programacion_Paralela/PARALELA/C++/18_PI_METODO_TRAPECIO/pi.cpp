@@ -13,9 +13,10 @@
 #include <stdlib.h>
 
 using namespace std;
+
 // RADIO
 float r = 1; 
-// Perímetros de los polígonos
+// PERIMETROS DE LOS POLIGONOS
 float A;
 float B;
 
