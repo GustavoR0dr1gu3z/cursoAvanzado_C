@@ -26,12 +26,16 @@ float ppi(int n, float A, float B){
     int i;
     float xk = 0.0;
     // 4/(1+x'2)
-    #pragma omp parallel //for reduction(+:xk)
+    #pragma omp parallel for reduction(+:xk)
         //for(i=1; i<n-1; i+=int(subIntervalo)){
             //xk += (4/1+i);
         //}
-        pi = (ba)*((fa+fb)/(2));
+        //pi = (ba)*((fa+fb)/(2));
+        for(i=1; i<n-1; i++){
+            xk += ( 4 / 1 + pow((A + i*subIntervalo),2) );
+        }
     //pi = h * ( (fa) + (2*xk) + (fb) );
+    pi = subIntervalo * ( ( (fa+fb)/(2) ) + (xk)  );
     return pi;
 }
 
