@@ -11,8 +11,6 @@ int main(int argc, char* argv[]){
     char nomMat[13] = "matA.txt";
     char nomMatB[13] = "matB.txt";
 
-    pthread_t hilos[4];
-    struct parms hilos_args[4];
 
     A = crea_mat(ren, col);
     A = lee_mat(nomMat, ren, col);
