@@ -1,6 +1,7 @@
 #include <iostream>
 #include <omp.h>
 #include <stdlib.h>
+#include <fstream>
 #include "func_omp.h"
 
 using namespace std;
