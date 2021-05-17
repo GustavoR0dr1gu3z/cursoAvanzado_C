@@ -31,10 +31,25 @@ int main(int argc, char* argv[]){
         }
     }
 
+// OMP: PRODUCTO
+    // HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN Prod
+    #pragma omp for reduction(+:Prod)
+        for (i=0; i<n; i++){
+            Prod += V[i]*W[i];
+        }
+
     cout<<"El resultado es: "<<endl;
     muestra_vec(X,ren);
     return 0;
 }
+
+float * gauss_f(float **A, int *B, int r, int c){
+    int i,j,m,n;
+    float S = 0;
+    B[r-1] = A[r-1][c-1] / A[r-1][r-1];
+}
+
+
 //-----------------------------MATRIZ------------------------
 
 float** crea_mat(int m, int n){
