@@ -15,7 +15,22 @@ int main(int argc, char* argv[]){
     char nomMatB[13] = "matB.txt";
 
 
-    A = crea_mat(ren, col);
-    A = lee_mat(nomMat, ren, col);
-    B = crea_mat(ren, col);
-    B = lee_mat(nomMatB, ren, col);
+// SECTIONS: LEER Y MOSTRAR MATRIZ
+    //#pragma omp parallel private(tid)
+    #pragma omp parallel sections
+    {
+        #pragma omp section
+        {
+            A = crea_mat(ren, col);
+            A = lee_mat(nomMat, ren, col);
+        }
+        #pragma omp section 
+        {        
+            B = crea_mat(ren, col);
+            B = lee_mat(nomMatB, ren, col);
+        }
+    }
+
+
+
+}
