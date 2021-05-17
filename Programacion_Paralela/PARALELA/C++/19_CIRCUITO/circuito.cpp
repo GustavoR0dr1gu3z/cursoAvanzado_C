@@ -15,10 +15,16 @@
 using namespace std;
 
 int main(int argc, char *argv[]){
-    int i, id, p, solucionm, n;
+    int i, id, p, solucion, n_in,n_comb;
     
-    // SE ASIGNAN LOS VALORES PARA LA FORMULA
-    n = atoi(argv[1]);
+    // Numero de entradas del circuito
+    n_in = atoi(argv[1]);
+    n_comb = atoi(argv[2]);
 
+    solucion = 0;
+    #pragma omp parallel for reduction(+:solucion)
+        for(i=0; i<n; i++){
+            solucion += 
+        }
 
 }
