@@ -14,6 +14,8 @@
 
 using namespace std;
 
+void check_circuit(int);
+
 int main(int argc, char *argv[]){
     int i, id, p, solucion, n_in,n_comb;
     
@@ -23,8 +25,8 @@ int main(int argc, char *argv[]){
 
     solucion = 0;
     #pragma omp parallel for reduction(+:solucion)
-        for(i=0; i<n; i++){
-            solucion += 
+        for(i=0; i<n_comb; i++){
+            check_circuit(i); 
         }
-
+    cout<<"Procesador "
 }
