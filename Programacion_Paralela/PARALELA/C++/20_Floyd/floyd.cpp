@@ -1,8 +1,11 @@
 #include <iostream>
 #include <omp.h>
 #include <stdlib.h>
+#include "func_omp.h"
 
 using namespace std;
+
+float **A, **B;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
