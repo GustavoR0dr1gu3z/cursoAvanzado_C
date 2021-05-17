@@ -11,10 +11,9 @@ int main(int argc, char* argv[]){
     int i,k,hi;
     int ren = atoi(argv[1]);
     int col = atoi(argv[2]);
-    char *matA;
-    char *matB;
-    char *vec;
-     
+    char *matA = "matA.txt";
+    char *matB = "matB.txt";
+    char *vec  = "vec.txt";
 
 // SECTIONS: LEER Y MOSTRAR MATRIZ
     //#pragma omp parallel private(tid)
