@@ -6,7 +6,7 @@
 
 using namespace std;
 
-float **A, *B;
+float **A, *B, *X;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
@@ -31,8 +31,9 @@ int main(int argc, char* argv[]){
         }
     }
 
-
-
+    cout<<"El resultado es: "<<endl;
+    muestra_vec(X,ren);
+    return 0;
 }
 //-----------------------------MATRIZ------------------------
 
