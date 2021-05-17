@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
 
 
 }
-
+//-----------------------------MATRIZ------------------------
 
 float** crea_mat(int m, int n){
     int j;
@@ -77,6 +77,8 @@ int muestra_mat(float** M, int m, int n){
     }
 return 0;
 }
+
+//--------------------------VECTOR----------------------------
 
 float *lee_vec(char* nom_arch, int m){
     int i;
