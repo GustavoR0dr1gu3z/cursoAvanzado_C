@@ -12,3 +12,13 @@
 #include <omp.h>
 #include <stdlib.h>
 
+using namespace std;
+
+int main(int argc, char *argv[]){
+    int i, id, p, solucionm, n;
+    
+    // SE ASIGNAN LOS VALORES PARA LA FORMULA
+    n = atoi(argv[1]);
+
+
+}
