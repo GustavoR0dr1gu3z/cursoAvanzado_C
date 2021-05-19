@@ -117,6 +117,11 @@ float * floyd_f(float **M, int m){
             }
         }
     }
+
+    printSolution(M,m);
+
+}
+
+void printSolution(float **M, int m){
     
-return M;
 }
