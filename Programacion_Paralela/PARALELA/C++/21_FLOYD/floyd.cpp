@@ -14,6 +14,10 @@ Se ejecuta como: ./gaussCompilado 30 31
 #include <fstream>
 #include "func_omp.h"
 
+using namespace std;
+
+float *X, **AU, **W;
+int ren, col, m;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
