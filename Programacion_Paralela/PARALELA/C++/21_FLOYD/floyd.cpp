@@ -114,7 +114,8 @@ float ** floyd_f(float **M, int m){
                 for(jj=0; jj<m; jj++){
                     if( M[ii][k] + M[k][jj] < M[ii][jj] )
                     {
-                        M[ii][jj] = M[ii][k] + M[k][jj];
+                        //M[ii][jj] = M[ii][k] + M[k][jj];
+                        M[ii][jj] = M[k][jj];
                         //P[ii][jj] = k;
                     }
                 }
