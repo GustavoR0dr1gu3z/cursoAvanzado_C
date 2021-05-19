@@ -125,7 +125,9 @@ float * floyd_f(float **M, int m){
 void printSolution(float **M, int m){
     for(int i=0; i<m; i++){
         for(int j=0; j<m;j++){
-            
+            cout<<"De: "<<i<<" a: "<<j<<" : ";
+            cout<<M[i][j] <<endl;
+            cout<<endl;
         }
     }
 }
