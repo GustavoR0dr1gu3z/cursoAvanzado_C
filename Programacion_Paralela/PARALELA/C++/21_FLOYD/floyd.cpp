@@ -125,6 +125,7 @@ float ** floyd_f(float **M, int m){
         for(int j=0; j<m;j++){
             cout<<M[i][j]<<" ";
         }
+        cout<<endl;
     }
 
     for(int i=0; i<m; i++){
