@@ -45,10 +45,10 @@ int main(int argc, char*argv[]){
     X = crea_vect(ren);
     Au = crea_mat(ren, col);
     Au = lee_mat(nmat,ren,col);
-    muestra_mat(Au,ren,col);
+    
 
-    W = crea_mat(ren, col);
-    W = lee_mat(nmat, ren, col);
+   // W = crea_mat(ren, col);
+    //W = lee_mat(nmat, ren, col);
     start=clock(); // Tiempo
     for(i=0; i<ren-1; i++){ // Renglones que actualizan
         for(j=i+1; j<ren; j++){ // Columnas, que van hasta el renglon
@@ -69,7 +69,7 @@ int main(int argc, char*argv[]){
     // Detenemos el reloj
     stop = clock();
     tm = (double(stop-start/CLOCKS_PER_SEC));
-    guarda_mat(W, ren, col, nmatsol);
+    //guarda_mat(W, ren, col, nmatsol);
     cout<<"Tiempo de ejecucion: "<<tm<<"segundos"<<endl;
     // 2 etapa, evaluacion retroactiva
     X = eval_ret(Au, ren, col);
@@ -133,6 +133,7 @@ float** lee_mat(char *nom_arch, int m, int n){
     }
     fd1.close();
     cout<<"Matriz Leida"<<endl;
+    muestra_mat(M,m,n);
     return M;
 }
 
@@ -170,7 +171,8 @@ int muestra_mat(float **M, int m, int n){
 
 float* crea_vect(int m){
     float *W;
-    W = new float [m];      
+    W = new float [m];    
+
     return W;
 }
 
