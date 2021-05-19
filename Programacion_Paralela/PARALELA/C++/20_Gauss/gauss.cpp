@@ -16,7 +16,6 @@ Se ejecuta como: ./gaussCompilado 30 31
 
 using namespace std;
 
-<<<<<<< HEAD
 float *X, **AU, **W;
 int ren, col, m;
 
@@ -25,16 +24,6 @@ int main(int argc, char* argv[]){
     char matA[10000] = "matB.txt";
     ren = atoi(argv[1]);
     col = atoi(argv[2]);
-=======
-float **A, *B, *X;
-
-int main(int argc, char* argv[]){
-    int i,k,hi;
-    int ren = atoi(argv[1]);
-    int col = atoi(argv[2]);
-    char matA[10000] = "matA.txt";
-    char *vec  = "vec.txt";
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
 
 // SECTIONS: LEER Y MOSTRAR MATRIZ
     //#pragma omp parallel private(tid)
