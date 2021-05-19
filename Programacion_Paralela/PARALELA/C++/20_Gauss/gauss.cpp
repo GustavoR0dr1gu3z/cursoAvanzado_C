@@ -123,7 +123,6 @@ int muestra_vec(float* M ,int n){
         cout<<M[i]<<endl;
     }
     return 0;
-<<<<<<< HEAD
 }
 
 float * gauss_f(float **A, int r, int c){
@@ -153,6 +152,3 @@ float * gauss_f(float **A, int r, int c){
 return Y;
 }
 
-=======
-}
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
