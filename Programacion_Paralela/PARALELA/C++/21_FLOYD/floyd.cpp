@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 
 // CREACION DE LA MATRIZ
     mat1 = lee_mat(matA,tam,tam);
-    sol = floyd_f(mat1,tam);
+    sol = floyd_f(mat1,vertices);
 
     return 0;
 }
@@ -120,11 +120,19 @@ float ** floyd_f(float **M, int m){
         }
     }
     
+    cout<<"MATRIZ RESUELTA: "<<endl;
+    for(int i=0; i<m; i++){
+        for(int j=0; j<m;j++){
+            cout<<M[i][j] <<endl;
+        }
+    }
+
     for(int i=0; i<m; i++){
         for(int j=0; j<m;j++){
             cout<<"De: "<<i<<" a: "<<j<<" : ";
             cout<<M[i][j] <<endl;
         }
     }
+
 return M;
 }
