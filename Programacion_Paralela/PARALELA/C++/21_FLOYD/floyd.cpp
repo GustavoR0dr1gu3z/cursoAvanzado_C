@@ -108,49 +108,42 @@ int muestra_mat(float **M, int m, int n){
 float ** floyd_f(float **M, int m){
     int k,ii,jj;
 
-    #pragma omp parallel
-        #pragma omp sections
-        { 
-            #pragma omp section
-            {
-                for(k=0; k<m;k++){
-                    for(ii=0; ii<m; ii++){
-                        for(jj=0; jj<m; jj++){
-                            if( M[ii][k] + M[k][jj] < M[ii][jj] )
-                            {
-                                M[ii][jj] = M[ii][k] + M[k][jj];
-                                //P[ii][jj] = k;
-                            }
-                        }
-                    }
-                }
-            
-            }
-
-            #pragma omp section
-            {
-                for(int i=0;i<m;i++){
-                    for(int j=0;j<m;j++){
-                        if(i==j){
-                            M[i][j] = 0;
-                        }
-                    }
-                }
-            
-                cout<<"Matriz RESUELTA"<<endl;
-                muestra_mat(M,m,m);
-                cout<<endl;
-                cout<<endl;
-
-                cout<<"LISTADO DE CAMINOS"<<endl<<endl;
-                for(int i=0; i<m; i++){
-                    for(int j=0; j<m;j++){
-                        cout<<"De: "<<i<<" a: "<<j<<" : ";
-                        cout<<M[i][j] <<endl;
+    #pragma omp parallel for simd
+        for(k=0; k<m;k++){
+            for(ii=0; ii<m; ii++){
+                for(jj=0; jj<m; jj++){
+                    if( M[ii][k] + M[k][jj] < M[ii][jj] )
+                    {
+                        M[ii][jj] = M[ii][k] + M[k][jj];
+                        //P[ii][jj] = k;
                     }
                 }
             }
         }
+
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<m;j++){
+            if(i==j){
+                M[i][j] = 0;
+            }
+        }
+    }
+    
+    cout<<"Matriz RESUELTA"<<endl;
+    muestra_mat(M,m,m);
+    cout<<endl;
+    cout<<endl;
+
+    cout<<"LISTADO DE CAMINOS"<<endl<<endl;
+    for(int i=0; i<m; i++){
+        for(int j=0; j<m;j++){
+            cout<<"De: "<<i<<" a: "<<j<<" : ";
+            cout<<M[i][j] <<endl;
+        }
+    }
+    
+
 
 return M;
 }
