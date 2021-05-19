@@ -31,7 +31,6 @@ int main(int argc, char* argv[]){
     {
         #pragma omp section
         {
-<<<<<<< HEAD
             AU = crea_mat(ren,col);
             AU = lee_mat(matA,ren,col);
         }
@@ -40,25 +39,6 @@ int main(int argc, char* argv[]){
     //muestra_mat(AU,ren,col);
     X = gauss_f(AU, ren, col);
     cout<<endl<<endl;
-=======
-            A = crea_mat(ren, col);
-            A = lee_mat(matA, ren, col);
-        }
-        #pragma omp section 
-        {        
-            B = crea_vec(ren);
-            B = lee_vec(vec, ren);
-        }
-    }
-
-// OMP: PRODUCTO
-    // HACE QUE CADA HILO SE SUME Y EL RESULTADO SE QUEDE EN Prod
-    #pragma omp for reduction(+:Prod)
-        for (i=0; i<n; i++){
-            Prod += V[i]*W[i];
-        }
-
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
     cout<<"El resultado es: "<<endl;
     muestra_vec(X,ren);
     return 0;
