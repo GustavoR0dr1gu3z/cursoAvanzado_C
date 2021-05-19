@@ -74,7 +74,6 @@ float** lee_mat(char *nom_arch, int m, int n){
     }
     fd1.close();
     cout<<"Matriz Leida"<<endl;
-<<<<<<< HEAD
     muestra_mat(M,m,n);
     return M;
 }
@@ -118,52 +117,6 @@ float* crea_vec(int m){
 }
 
 //-------------------------MUESTRA EL VECTOR-------------
-=======
-    return M;
-}
-
-
-int muestra_mat(float** M, int m, int n){
-    int i, j;
-    for(i=0; i<m; i++){
-        for(j=0; j<n; j++){
-            cout<<M[i][j]<<", ";
-        }
-        cout<<endl;
-    }
-return 0;
-}
-
-//--------------------------VECTOR----------------------------
-
-float *lee_vec(char* nom_arch, int m){
-    int i;
-    float *VV;
-// SE CREA EL VECTOR CON UN TAMAÑO ASIGNADO
-    VV = crea_vec(m);
-
-    fstream fd2;
-// ABRE EL ARCHIVO Y SE GUARDA EM VV
-    fd2.open(nom_arch, ios::in);
-    while(!fd2.eof()){
-        int i,j;
-        for(i=0; i<m; i++){
-            fd2>>VV[i];
-        }
-    }
-    fd2.close();
-    cout<<"Vector Leído"<<endl;
-    return VV;
-}
-
-
-float* crea_vect(int m){
-    float *W;
-    W = new float [m];      
-    return W;
-}
-
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
 int muestra_vec(float* M ,int n){
     int i;
     for (i=0; i<n; i++){
