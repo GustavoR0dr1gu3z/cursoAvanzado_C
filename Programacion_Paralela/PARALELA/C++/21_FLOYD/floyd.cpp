@@ -104,10 +104,14 @@ int muestra_mat(float **M, int m, int n){
 
 
 float * floyd_f(float **M, int m){
-    int k,l,m;
+    int k,l,p;
     
-    for(k=0; k<m;){
-
+    for(k=0; k<m;k++){
+        for(l=0; l<m; l++){
+            for(p=0; p<m; p++){
+                
+            }
+        }
     }
 
 }
