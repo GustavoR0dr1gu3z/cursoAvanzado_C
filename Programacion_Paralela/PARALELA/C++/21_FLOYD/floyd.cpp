@@ -21,7 +21,7 @@ int tam, vertices;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
-    char matA[100000] = "matB.txt";
+    char matA[10000] = "matB.txt";
     tam = atoi(argv[1]);
     vertices = atoi(argv[2]);
 
