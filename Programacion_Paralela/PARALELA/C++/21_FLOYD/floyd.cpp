@@ -122,7 +122,10 @@ float ** floyd_f(float **M, int m){
     
     cout<<"MATRIZ RESUELTA: "<<endl;
     for(int i=0; i<m; i++){
-        for(int j=0; j<m;j++){
+        for(int j=0; j<m;j++){            
+            if(i==j){
+                M[i][j] = 0;            
+            }
             cout<<M[i][j]<<" ";
         }
         cout<<endl;
