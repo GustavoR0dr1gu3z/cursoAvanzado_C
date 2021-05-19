@@ -69,12 +69,7 @@ float** lee_mat(char *nom_arch, int m, int n){
         for(i=0;i<m;i++){
             for (j=0;j<n;j++){
                 fd1>>M[i][j];
-<<<<<<< HEAD
             }            
-=======
-            }
-            
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
         }
     }
     fd1.close();
