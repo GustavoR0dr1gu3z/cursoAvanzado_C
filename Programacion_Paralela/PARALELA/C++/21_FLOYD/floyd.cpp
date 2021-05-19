@@ -17,30 +17,15 @@ Se ejecuta como: ./gaussCompilado 30 31
 using namespace std;
 
 float *X, **AU, **W;
-int ren, col, m;
+int tam;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
     char matA[10000] = "matB.txt";
-    ren = atoi(argv[1]);
-    col = atoi(argv[2]);
+    tam = atoi(argv[1]);
 
-// SECTIONS: LEER Y MOSTRAR MATRIZ
-    //#pragma omp parallel private(tid)
-    #pragma omp parallel sections
-    {
-        #pragma omp section
-        {
-            AU = crea_mat(ren,col);
-            AU = lee_mat(matA,ren,col);
-        }
-    }
-    //omp_set_num_threads(10);
-    //muestra_mat(AU,ren,col);
-    //X = gauss_f(AU, ren, col);
-    cout<<endl<<endl;
-    cout<<"El resultado es: "<<endl;
-    muestra_vec(X,ren);
+
+
     return 0;
 }
 
@@ -125,5 +110,5 @@ int muestra_vec(float* M ,int n){
 }
 
 float * floyd_f(){
-    
+
 }
