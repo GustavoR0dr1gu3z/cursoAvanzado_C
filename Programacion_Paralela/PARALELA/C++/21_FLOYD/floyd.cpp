@@ -61,8 +61,8 @@ float** lee_mat(char *nom_arch, int m, int n){
     fd1.close();
 
     for(i=0;i<m;i++){
-        for(j=0;j<n;j++){
-            if(i=j){
+        for(j=0;j<m;j++){
+            if(i==j){
                 M[i][j] = 0;
             }
         }
