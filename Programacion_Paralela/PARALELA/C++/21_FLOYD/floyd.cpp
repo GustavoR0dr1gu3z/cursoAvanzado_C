@@ -123,3 +123,7 @@ int muestra_vec(float* M ,int n){
     }
     return 0;
 }
+
+float * floyd_f(){
+    
+}
