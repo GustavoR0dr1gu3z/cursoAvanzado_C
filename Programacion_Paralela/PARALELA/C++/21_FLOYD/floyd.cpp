@@ -71,6 +71,7 @@ float** lee_mat(char *nom_arch, int m, int n){
 
     cout<<"Matriz Leida"<<endl;
     muestra_mat(M,m,n);
+    cout<<endl;
     return M;
 }
 
