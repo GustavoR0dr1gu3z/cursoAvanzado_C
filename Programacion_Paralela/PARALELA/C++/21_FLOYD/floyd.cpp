@@ -5,7 +5,7 @@ El dia: 17 de Abril del 2021
 
 
 Se compila como: g++ -o floydCompilado floyd.cpp -fopenmp
-Se ejecuta como: ./floydCompilado 10 100
+Se ejecuta como: ./floydCompilado 10 10
 */
 
 #include <iostream>
@@ -21,7 +21,7 @@ int tam, vertices;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
-    char matA[10000] = "matB.txt";
+    char matA[10000] = "matBB.txt";
     tam = atoi(argv[1]);
     vertices = atoi(argv[2]);
 
