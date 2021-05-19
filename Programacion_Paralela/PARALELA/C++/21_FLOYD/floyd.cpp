@@ -108,7 +108,7 @@ int muestra_mat(float **M, int m, int n){
 float ** floyd_f(float **M, int m){
     int k,ii,jj;
 
-    #pragma omp parallel for collapse(2)    
+    #pragma omp parallel for collapse(3)    
         for(k=0; k<m;k++){
             for(ii=0; ii<m; ii++){
                 for(jj=0; jj<m; jj++){
