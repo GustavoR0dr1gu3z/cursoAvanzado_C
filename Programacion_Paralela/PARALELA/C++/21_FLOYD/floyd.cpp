@@ -113,5 +113,5 @@ float * floyd_f(float **M, int m){
             }
         }
     }
-
+return M;
 }
