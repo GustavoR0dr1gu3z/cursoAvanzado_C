@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* EJERCICIO 20 -> GAUSS 
 
 Hecho por: Gustavo Rodriguez Calzada
@@ -9,8 +8,6 @@ Se compila como: g++ -o gaussCompilado gauss.cpp -fopenmp
 Se ejecuta como: ./gaussCompilado 30 31
 */
 
-=======
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
 #include <iostream>
 #include <omp.h>
 #include <stdlib.h>
