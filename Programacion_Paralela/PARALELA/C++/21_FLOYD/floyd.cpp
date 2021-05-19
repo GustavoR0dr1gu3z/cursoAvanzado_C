@@ -16,18 +16,18 @@ Se ejecuta como: ./floydCompilado 10 100
 
 using namespace std;
 
-float **mat1, **sol;
+float *X, **AU, **W, **mat1, **sol;
 int tam, vertices;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
-    char matA[10000] = "matBB.txt";
+    char matA[10000] = "matB.txt";
     tam = atoi(argv[1]);
     vertices = atoi(argv[2]);
 
 // CREACION DE LA MATRIZ
     mat1 = lee_mat(matA,tam,tam);
-    sol = floyd_f(mat1,tam);
+    sol = floyd_f(mat1,vertices);
 
     return 0;
 }
@@ -107,25 +107,31 @@ int muestra_mat(float **M, int m, int n){
 
 float ** floyd_f(float **M, int m){
     int k,ii,jj;
-    float **P = M;
-    
+
     #pragma omp parallel
-        for(k=0; k<m;k++){
-            for(ii=0; ii<m; ii++){
-                for(jj=0; jj<m; jj++){
-                    if( M[ii][k] + M[k][jj] < M[ii][jj] )
-                    {
-                        //M[ii][jj] = M[ii][k] + M[k][jj];
-                        P[ii][jj] = P[k][jj];
-                        //P[ii][jj] = k;
+                for(k=0; k<m;k++){
+                    for(ii=0; ii<m; ii++){
+                        for(jj=0; jj<m; jj++){
+                            if( M[ii][k] + M[k][jj] < M[ii][jj] )
+                            {
+                                M[ii][jj] = M[ii][k] + M[k][jj];
+                                //P[ii][jj] = k;
+                            }
+                        }
                     }
                 }
+            
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<m;j++){
+            if(i==j){
+                M[i][j] = 0;
             }
         }
+    }
 
-    
     cout<<"Matriz RESUELTA"<<endl;
-    muestra_mat(P,m,m);
+    muestra_mat(M,m,m);
     cout<<endl;
     cout<<endl;
 
@@ -133,11 +139,8 @@ float ** floyd_f(float **M, int m){
     for(int i=0; i<m; i++){
         for(int j=0; j<m;j++){
             cout<<"De: "<<i<<" a: "<<j<<" : ";
-            cout<<P[i][j] <<endl;
+            cout<<M[i][j] <<endl;
         }
-    }
-    
-
-
+                }    
 return M;
 }
