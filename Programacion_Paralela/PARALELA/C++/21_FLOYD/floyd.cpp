@@ -16,7 +16,7 @@ Se ejecuta como: ./gaussCompilado 30 31
 
 using namespace std;
 
-float *X, **AU, **W;
+float *X, **AU, **W, **mat1;
 int tam, vertices;
 
 int main(int argc, char* argv[]){
@@ -25,6 +25,8 @@ int main(int argc, char* argv[]){
     tam = atoi(argv[1]);
     vertices = atoi(argv[2]);
 
+// CREACION DE LA MATRIZ
+    mat1 = lee_mat(matA,tam,tam);
 
     return 0;
 }
