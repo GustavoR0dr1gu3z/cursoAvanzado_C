@@ -8,5 +8,3 @@ float** lee_mat(char* ,int ,int);
 float* lee_vec(char*, int);
 int ini_vect(float*,int);
 float **floyd_f(float**, int);
-void **printSolution(float*, int);
-
