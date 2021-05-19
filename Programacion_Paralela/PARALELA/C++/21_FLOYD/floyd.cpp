@@ -43,3 +43,83 @@ int main(int argc, char* argv[]){
     muestra_vec(X,ren);
     return 0;
 }
+
+//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
+//----------------------------CREA LA MATRIZ----------
+float** crea_mat(int m, int n){
+    int j;
+    float **M;
+    M = new float*[m]; // Arreglo a M de m elementos
+    for(j=0; j<m; j++){
+        M[j] = new float[n]; // Le asignamos a ese arreglo las columnas
+    }
+    return M;
+}
+
+//-----------------------------LEE LA MATRIZ------------
+float** lee_mat(char *nom_arch, int m, int n){
+    int i, j;
+    float **M;
+    M = crea_mat(m,n);
+    fstream fd1;
+    fd1.open(nom_arch, ios::in);
+    while(!fd1.eof()){
+        int i, j;
+        for(i=0;i<m;i++){
+            for (j=0;j<n;j++){
+                fd1>>M[i][j];
+            }            
+        }
+    }
+    fd1.close();
+    cout<<"Matriz Leida"<<endl;
+    muestra_mat(M,m,n);
+    return M;
+}
+
+//--------------------GUARDA LA MATRIZ------------------
+
+int guarda_mat(float** A, int r, int c, char* nom_arch){
+    int i, j;
+    fstream fd1;
+    fd1.open(nom_arch, ios::out);
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++){
+            fd1<<A[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+fd1.close();
+cout<<"Matriz Guardada"<<endl;
+return 0;
+}
+
+//-------------------------MUESTRA LA MATRIZ------------
+int muestra_mat(float **M, int m, int n){
+    int i, j;
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            cout<<M[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+
+//--------------------------------------------------------------VECTOR----------------------------------------------------------------
+//-------------------------CREA EL VECTOR---------------
+
+float* crea_vec(int m){
+    float *W;
+    W = new float [m];    	  
+    return W;
+}
+
+//-------------------------MUESTRA EL VECTOR-------------
+int muestra_vec(float* M ,int n){
+    int i;
+    for (i=0; i<n; i++){
+        cout<<M[i]<<endl;
+    }
+    return 0;
+}
