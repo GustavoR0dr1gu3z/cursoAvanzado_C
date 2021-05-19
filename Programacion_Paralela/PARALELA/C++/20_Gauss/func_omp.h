@@ -7,5 +7,9 @@ float prod_mm(float**, float**, int);
 float** lee_mat(char* ,int ,int);
 float* lee_vec(char*, int);
 int ini_vect(float*,int);
+<<<<<<< HEAD
+float *gauss_f(float**, int , int );
+=======
 
+>>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
 
