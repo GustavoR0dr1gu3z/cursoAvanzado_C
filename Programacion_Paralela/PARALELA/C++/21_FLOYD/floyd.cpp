@@ -104,14 +104,19 @@ int muestra_mat(float **M, int m, int n){
 
 
 float * floyd_f(float **M, int m){
-    int k,l,p;
+    int k,ii,jj;
     
     for(k=0; k<m;k++){
-        for(l=0; l<m; l++){
-            for(p=0; p<m; p++){
-                M[l,p] = min( M[l,p], M[l,k] + M[k,p] );
+        for(ii=0; ii<m; ii++){
+            for(jj=0; jj<m; jj++){
+                if( M[ii][k] + M[k][jj] < M[ii][jj] )
+                {
+                    M[ii][jj] = M[ii][k] + M[k][jj];
+                    //P[ii][jj] = k;
+                }
             }
         }
     }
+    
 return M;
 }
