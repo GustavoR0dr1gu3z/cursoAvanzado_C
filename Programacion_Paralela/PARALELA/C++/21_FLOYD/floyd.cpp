@@ -21,13 +21,13 @@ int tam, vertices;
 
 int main(int argc, char* argv[]){
     int i,k,hi;
-    char matA[10000] = "matB.txt";
+    char matA[10000] = "matBB.txt";
     tam = atoi(argv[1]);
     vertices = atoi(argv[2]);
 
 // CREACION DE LA MATRIZ
     mat1 = lee_mat(matA,tam,tam);
-    sol = floyd_f(mat1,vertices);
+    sol = floyd_f(mat1,tam);
 
     return 0;
 }
