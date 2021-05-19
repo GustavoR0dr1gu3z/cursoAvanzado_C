@@ -102,25 +102,12 @@ int muestra_mat(float **M, int m, int n){
     return 0;
 }
 
-//--------------------------------------------------------------VECTOR----------------------------------------------------------------
-//-------------------------CREA EL VECTOR---------------
 
-float* crea_vec(int m){
-    float *W;
-    W = new float [m];    	  
-    return W;
-}
+float * floyd_f(float **M, int m){
+    int k,l,m;
+    
+    for(k=0; k<m;){
 
-//-------------------------MUESTRA EL VECTOR-------------
-int muestra_vec(float* M ,int n){
-    int i;
-    for (i=0; i<n; i++){
-        cout<<M[i]<<endl;
     }
-    return 0;
+
 }
-
-/*
-float * floyd_f(){
-
-}*/
