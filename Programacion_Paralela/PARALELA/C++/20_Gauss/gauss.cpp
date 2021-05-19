@@ -44,7 +44,6 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
-<<<<<<< HEAD
 
 //--------------------------------------------------------------MATRIZ----------------------------------------------------------------
 //----------------------------CREA LA MATRIZ----------
@@ -59,28 +58,6 @@ float** crea_mat(int m, int n){
 }
 
 //-----------------------------LEE LA MATRIZ------------
-=======
-float * gauss_f(float **A, int *B, int r, int c){
-    int i,j,m,n;
-    float S = 0;
-    B[r-1] = A[r-1][c-1] / A[r-1][r-1];
-}
-
-
-//-----------------------------MATRIZ------------------------
-
-float** crea_mat(int m, int n){
-    int j;
-    float** M;
-    M = new float*[m];
-
-    for(j=0; j<m; j++){
-        M[j] = new float[n];
-    }
-return M;
-}
-
->>>>>>> 427ac12ac2fa6f39cb086f3f832b1769e1c0fe3e
 float** lee_mat(char *nom_arch, int m, int n){
     int i, j;
     float **M;
