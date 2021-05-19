@@ -109,7 +109,7 @@ float * floyd_f(float **M, int m){
     for(k=0; k<m;k++){
         for(l=0; l<m; l++){
             for(p=0; p<m; p++){
-                
+                M[l,p] = min( M[l,p], M[l,k] + M[k,p] );
             }
         }
     }
