@@ -16,7 +16,7 @@ Se ejecuta como: ./floydCompilado 10 100
 
 using namespace std;
 
-float *X, **AU, **W, **mat1;
+float *X, **AU, **W, **mat1, **sol;
 int tam, vertices;
 
 int main(int argc, char* argv[]){
@@ -27,6 +27,7 @@ int main(int argc, char* argv[]){
 
 // CREACION DE LA MATRIZ
     mat1 = lee_mat(matA,tam,tam);
+    sol = floyd_f(mat1,tam);
 
     return 0;
 }
@@ -103,7 +104,7 @@ int muestra_mat(float **M, int m, int n){
 }
 
 
-float * floyd_f(float **M, int m){
+float ** floyd_f(float **M, int m){
     int k,ii,jj;
     
     for(k=0; k<m;k++){
