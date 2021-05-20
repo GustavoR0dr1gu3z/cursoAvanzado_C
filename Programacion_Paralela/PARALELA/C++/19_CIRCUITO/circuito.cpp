@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 	int i;
 	int id;
 	int p;
-	omp_set_num_threads(4);
+	omp_set_num_threads(10);
 	p = omp_get_num_threads();
 	id = omp_get_thread_num();
 	#pragma omp parallel for simd
