@@ -1,32 +1,56 @@
-// EJERCICIO 19: PROGRAMA CIRCUITO EN C++
-
-// Hecho por: Gustavo Rodriguez Calzada
-// El dia: 17 de Mayo del 2021
-
-// SE EJECUTA COMO: g++ -o circuitoCompilado circuito.cpp -fopenmp 
-// SE COMPILA COMO: ./circuitoCompilado 1000
-
+/*Programo Ivan Moctezuma
+* Verifica la satisfactibilidad de un circuito
+* compilar y ejecutar
+* 18/05/2021
+*/
 
 #include <iostream>
 #include <stdio.h>
 #include <omp.h>
-#include <stdlib.h>
 
 using namespace std;
 
-void check_circuit(int);
+// Regresa 1 si el bit i de n es 1, de lo contrario regresa 0
+#define EXTRACT_BIT(n, i) ((n&(1<<i))?1:0)
+
+void check_circuit(int, int);
 
 int main(int argc, char *argv[]){
-    int i, id, p, solucion, n_in,n_comb;
-    
-    // Numero de entradas del circuito
-    n_in = atoi(argv[1]);
-    n_comb = atoi(argv[2]);
+	int i;
+	int id;
+	int p;
+	omp_set_num_threads(4);
+	p = omp_get_num_threads();
+	id = omp_get_thread_num();
+	#pragma omp parallel for simd
+	for(i = id; i < 65536; i += p){
+		check_circuit(id, i);
+	}
+	cout<<"El proceso " <<id<<" ha terminado"<<endl;
+	fflush(stdout);
+	return 0;
 
-    solucion = 0;
-    #pragma omp parallel for reduction(+:solucion)
-        for(i=0; i<n_comb; i++){
-            check_circuit(i); 
-        }
-    cout<<"Procesador "
+}
+
+void check_circuit(int id, int z){
+	int v[16];
+	int i;
+
+	for(i = 0; i < 16; i++) v[i] = EXTRACT_BIT(z,i);
+
+	if((v[0] || v[1]) && (!v[1] || !v[3])
+	   &&(v[2] || v[3]) && (!v[3] || !v[4])
+	   &&(v[4] || !v[5]) && (v[5] || !v[6])
+	   &&(v[5] || v[6]) && (v[6] || !v[15])
+	   &&(v[7] || !v[8]) && (!v[7] || !v[13])
+	   &&(v[8] || v[9]) && (v[8] || !v[9])
+	   &&(!v[9] || !v[10]) && (v[9] || v[11])
+	   &&(v[10] || v[11]) && (v[12] || v[13])
+	   &&(v[13] || !v[14]) && (v[14] || v[15])){
+
+		cout<<id<<") "<<v[0]<<v[1]<<v[2]<<v[3]<<v[4]<<v[5]<<v[6]<<v[7]<<v[8]<<v[9]<<v[10]<<v[11]<<v[12]<<v[13]<<v[14]<<v[15]<<v[16]<<endl;
+		fflush(stdout);
+	}
+
+
 }
