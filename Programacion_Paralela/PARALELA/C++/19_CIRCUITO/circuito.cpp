@@ -16,7 +16,7 @@ using namespace std;
 // Regresa 1 si el bit i de n es 1, de lo contrario regresa 0
 #define EXTRACT_BIT(n, i) ((n&(1<<i))?1:0)
 
-void check_circuit(int, int);
+void test_circuito(int, int);
 
 int main(int argc, char *argv[]){
 	int i;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]){
 	id = omp_get_thread_num();
 	#pragma omp parallel for simd
 	for(i = id; i < 65536; i += p){
-		check_circuit(id, i);
+		test_circuito(id, i);
 	}
 	cout<<"El proceso " <<id<<" ha terminado"<<endl;
 	fflush(stdout);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
 
 }
 
-void check_circuit(int id, int z){
+void test_circuito(int id, int z){
 	int v[16];
 	int i;
 
