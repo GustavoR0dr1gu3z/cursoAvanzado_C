@@ -1,9 +1,12 @@
-/*Programo Ivan Moctezuma
-* Verifica la satisfactibilidad de un circuito
-* compilar y ejecutar
-* 18/05/2021
-*/
+/* EJERCICIO 19 -> Circuito
 
+Hecho por: Gustavo Rodriguez Calzada
+El dia: 17 de Abril del 2021
+
+
+Se compila como: g++ -o circuitoCompilado circuito.cpp -fopenmp
+Se ejecuta como: ./circuitoCompilado
+*/
 #include <iostream>
 #include <stdio.h>
 #include <omp.h>
