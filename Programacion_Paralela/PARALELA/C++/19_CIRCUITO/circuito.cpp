@@ -24,10 +24,12 @@ int main(int argc, char *argv[]){
 	int idHilos;
 	int numHilos;
 	int nHilosT;
+
 	nHilosT = atoi(argv[1]);
 	omp_set_num_threads(nHilosT);
 	numHilos = omp_get_num_threads();
 	idHilos = omp_get_thread_num();
+	
 	cout<<"   abcdefghijklmnop"<<endl;
 	#pragma omp parallel for simd
 	for(i = idHilos; i < 65536; i += numHilos){
