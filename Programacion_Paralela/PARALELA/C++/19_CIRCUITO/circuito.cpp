@@ -28,11 +28,12 @@ int main(int argc, char *argv[]){
 	omp_set_num_threads(nHilosT);
 	numHilos = omp_get_num_threads();
 	idHilos = omp_get_thread_num();
+	cout<<"   abcdefghijklmnop"<<endl;
 	#pragma omp parallel for simd
 	for(i = idHilos; i < 65536; i += numHilos){
 		test_circuito(idHilos, i);
 	}
-	cout<<"ID del Hilo: " <<idHilos<<" ya terminó"<<endl;
+	cout<<"Proceso del Hilo: " <<idHilos<<" ya terminó"<<endl;
 	fflush(stdout);
 	return 0;
 
@@ -45,11 +46,11 @@ void test_circuito(int idHilo, int z){
 	for(i = 0; i < 16; i++){
 		c[i] = EXTRACT_BIT(z,i);
 	}
-
+	
 	if((c[0] || c[1]) && (!c[1] || !c[3]) && (c[2] || c[3]) && (!c[3] || !c[4]) && (c[4] || !c[5]) && (c[5] || !c[6])
 		&&(c[5] || c[6]) && (c[6] || !c[15]) && (c[7] || !c[8]) && (!c[7] || !c[13]) && (c[8] || c[9]) && (c[8] || !c[9])
 		&&(!c[9] || !c[10]) && (c[9] || c[11]) && (c[10] || c[11]) && (c[12] || c[13]) && (c[13] || !c[14]) && (c[14] || c[15])){
-			cout<<idHilo<<") "<<c[0]<<c[1]<<c[2]<<c[3]<<c[4]<<c[5]<<c[6]<<c[7]<<c[8]<<c[9]<<c[10]<<c[11]<<c[12]<<c[13]<<c[14]<<c[15]<<c[16]<<endl;
+			cout<<idHilo<<") "<<c[0]<<c[1]<<c[2]<<c[3]<<c[4]<<c[5]<<c[6]<<c[7]<<c[8]<<c[9]<<c[10]<<c[11]<<c[12]<<c[13]<<c[14]<<c[15]<<endl;
 			fflush(stdout);
 		}
 
