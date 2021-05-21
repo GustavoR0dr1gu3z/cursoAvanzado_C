@@ -1,5 +1,8 @@
 /* EJERCICIO 19 -> Circuito
 
+determina si un circuito es satisfactorio, es decir, 
+si hay una combinación de entradas que provoque que la salida del circuito sea 1
+
 Hecho por: Gustavo Rodriguez Calzada
 El dia: 17 de Abril del 2021
 
