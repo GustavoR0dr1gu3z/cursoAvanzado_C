@@ -1,5 +1,8 @@
 /* EJERCICIO 20 -> GAUSS 
 
+es un algoritmo que se usa para determinar 
+la inversa de una matriz y las soluciones de un sistema de ecuaciones lineales.​
+
 Hecho por: Gustavo Rodriguez Calzada
 El dia: 17 de Abril del 2021
 
