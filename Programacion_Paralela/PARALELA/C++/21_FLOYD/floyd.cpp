@@ -1,5 +1,8 @@
 /* EJERCICIO 21 -> ALGORITMO DE FLOYD
 
+es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos 
+
+
 Hecho por: Gustavo Rodriguez Calzada
 El dia: 17 de Abril del 2021
 
