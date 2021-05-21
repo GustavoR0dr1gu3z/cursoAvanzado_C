@@ -5,7 +5,7 @@ El dia: 17 de Abril del 2021
 
 
 Se compila como: g++ -o circuitoCompilado circuito.cpp -fopenmp
-Se ejecuta como: ./circuitoCompilado
+Se ejecuta como: ./circuitoCompilado 10000
 */
 #include <iostream>
 #include <stdio.h>
@@ -23,7 +23,9 @@ int main(int argc, char *argv[]){
 	int i;
 	int idHilos;
 	int numHilos;
-	omp_set_num_threads(10);
+	int nHilosT;
+	nHilosT = atoi(argv[1]);
+	omp_set_num_threads(nHilosT);
 	numHilos = omp_get_num_threads();
 	idHilos = omp_get_thread_num();
 	#pragma omp parallel for simd
