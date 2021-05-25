@@ -8,7 +8,7 @@ El dia: 17 de Abril del 2021
 
 
 Se compila como: g++ -o circuitoCompilado circuito.cpp -fopenmp
-Se ejecuta como: ./circuitoCompilado 10000
+Se ejecuta como: ./circuitoCompilado
 */
 #include <iostream>
 #include <stdio.h>
