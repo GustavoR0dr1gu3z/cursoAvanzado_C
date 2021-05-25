@@ -20,7 +20,7 @@ using namespace std;
 //0 si el bit i de n es 0
 #define EXTRACT_BIT(n, i) ((n&(1<<i))?1:0)
 
-void test_circuito(int, int);
+void test_circuito(int);
 
 int main(int argc, char *argv[]){
 	int i;
