@@ -32,8 +32,8 @@ int main(int argc, char *argv[]){
 	//omp_set_num_threads(nHilosT);
 	//numHilos = omp_get_num_threads();
 	//idHilos = omp_get_thread_num();
-	
-	
+	omp_set_num_threads(4);
+
 	cout<<"   abcdefghijklmnop"<<endl;
 	#pragma omp parallel for simd
 		for(i = 0; i < 65536; i += numHilos){
