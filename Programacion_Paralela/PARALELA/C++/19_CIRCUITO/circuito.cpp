@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
 
 	cout<<"   abcdefghijklmnop"<<endl;
 	#pragma omp parallel for simd
-		for(i = 0; i < 65536; i += numHilos){
+		for(i=0; i<65536; i++){
 			test_circuito(i);
 		}
 	cout<<"Proceso del Hilo: " <<idHilos<<" ya terminó"<<endl;
