@@ -34,12 +34,12 @@ int main(int argc, char *argv[]){
 	//idHilos = omp_get_thread_num();
 	omp_set_num_threads(4);
 
-	cout<<"   abcdefghijklmnop"<<endl;
+	cout<<"abcdefghijklmnop"<<endl;
 	#pragma omp parallel for simd
 		for(i=0; i<65536; i++){
 			test_circuito(i);
 		}
-	cout<<"Proceso del Hilo: " <<idHilos<<" ya terminó"<<endl;
+	cout<<"Proceso Del Hilo Ya Terminó"<<endl;
 	fflush(stdout);
 	return 0;
 
