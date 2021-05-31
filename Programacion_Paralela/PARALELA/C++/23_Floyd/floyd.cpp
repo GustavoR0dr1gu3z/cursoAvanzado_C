@@ -18,8 +18,10 @@ int main(int argc, char*argv[]){
 
     tam = atoi(argv[1]);
     nomArc = argv[2];
-    M = crea_mat(tam,tam);
-    A = crea_mat(tam,tam);
-    A = lee_mat(nomArc,tam,tam);    
+    M = crea_mat(tam, tam);
+    A = crea_mat(tam, tam);
+    A = lee_mat(nomArc,tam , tam);    
     M = A;
+
+    muestra_mat(A, tam, tam);
 }
