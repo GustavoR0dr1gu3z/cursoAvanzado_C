@@ -48,11 +48,22 @@ int main(int argc, char*argv[]){
 
 float** lee_mat2(char* nomArc, int m, int n){
     int i, j;
-    float **MM, numm, M;
+    float **MM, num, M;
 
     MM = crea_mat(m,n);
     fstream fd1;
     cout.precision(15);
     fd1.open (nomArc, ios::in);
-    
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            fd1>>num;
+            if(num==M){
+                num=10000;
+                MM[i][j] = num;
+            }
+            else{
+                
+            }
+        }
+    }
 }
