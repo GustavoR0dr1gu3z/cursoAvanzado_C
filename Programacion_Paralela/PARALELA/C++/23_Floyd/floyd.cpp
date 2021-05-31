@@ -45,3 +45,7 @@ int main(int argc, char*argv[]){
     return 0;
 }
 
+
+float** lee_mat2(char* nomArc, int m, int n){
+
+}
