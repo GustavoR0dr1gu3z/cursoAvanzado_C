@@ -27,4 +27,13 @@ int main(int argc, char*argv[]){
     omp_set_num_threads(4);
 
     t1 = omp_get_wtime();
+
+
+    for (k=0; k<tam; k++){
+        for(i=0; i<tam; i++){
+            for(j=0; j<tam; j++){
+
+            }
+        }
+    }
 }
