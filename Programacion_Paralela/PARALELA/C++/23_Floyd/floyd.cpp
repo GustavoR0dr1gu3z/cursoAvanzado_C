@@ -21,4 +21,5 @@ int main(int argc, char*argv[]){
     M = crea_mat(tam,tam);
     A = crea_mat(tam,tam);
     A = lee_mat(nomArc,tam,tam);    
+    M = A;
 }
