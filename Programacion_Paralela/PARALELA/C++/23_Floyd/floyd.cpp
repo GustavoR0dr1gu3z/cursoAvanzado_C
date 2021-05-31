@@ -62,8 +62,11 @@ float** lee_mat2(char* nomArc, int m, int n){
                 MM[i][j] = num;
             }
             else{
-                
+                MM[i][j] = num;
             }
         }
     }
+    fd1.close();
+    cout<<"Matriz Leída"<<endl;
+    return MM;
 }
