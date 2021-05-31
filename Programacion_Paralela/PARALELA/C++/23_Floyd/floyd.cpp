@@ -47,5 +47,12 @@ int main(int argc, char*argv[]){
 
 
 float** lee_mat2(char* nomArc, int m, int n){
+    int i, j;
+    float **MM, numm, M;
 
+    MM = crea_mat(m,n);
+    fstream fd1;
+    cout.precision(15);
+    fd1.open (nomArc, ios::in);
+    
 }
