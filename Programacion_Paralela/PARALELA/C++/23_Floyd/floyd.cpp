@@ -24,4 +24,7 @@ int main(int argc, char*argv[]){
     M = A;
 
     muestra_mat(A, tam, tam);
+    omp_set_num_threads(4);
+
+    t1 = omp_get_wtime();
 }
