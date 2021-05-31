@@ -13,6 +13,11 @@ float **M, **A;
 char *nomArc;
 
 int main(int argc, char*argv[]){
-    int i,j,k,dt;
+    int i,j,k,tam;
     float t1, t2, m;
+
+    tam = atoi(argv[1]);
+    nomArc = argv[2];
+    M = crea_mat(tam,tam);
+    
 }
