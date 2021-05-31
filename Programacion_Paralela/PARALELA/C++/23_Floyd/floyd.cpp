@@ -10,8 +10,9 @@ using namespace std;
 
 float **lee_mat2(char*, int, int);
 float **M, **A;
-char *nomArc
+char *nomArc;
 
-int main(){
-    
+int main(int argc, char*argv[]){
+    int i,j,k,dt;
+    float t1, t2, m;
 }
