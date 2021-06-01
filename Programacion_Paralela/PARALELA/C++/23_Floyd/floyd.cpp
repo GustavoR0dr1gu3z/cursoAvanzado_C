@@ -7,6 +7,7 @@
 #include "func_omp.h"
 
 using namespace std;
+#define min(a,b) ((a<b)?a:b)
 
 float **lee_mat2(char*, int, int);
 float **M, **A;
