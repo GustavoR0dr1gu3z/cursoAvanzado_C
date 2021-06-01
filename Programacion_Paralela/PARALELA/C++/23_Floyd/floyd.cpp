@@ -23,7 +23,7 @@ int main(int argc, char*argv[]){
     omp_set_num_threads(4);
 
     t1 = omp_get_wtime();
-    
+
     #pragma omp parallel sections
     {
         #pragma omp section
@@ -40,15 +40,15 @@ int main(int argc, char*argv[]){
 
 
     muestra_mat(A, tam, tam);    
-
-    for (k=0; k<tam; k++){
-        for(i=0; i<tam; i++){
-            for(j=0; j<tam; j++){
-                M[i][j] = min(A[i][j], (A[i][k]+A[k][j]) );
-                A[i][j] = M[i][j];
+    #pragma omp parallel for collapse(3)   
+        for (k=0; k<tam; k++){
+            for(i=0; i<tam; i++){
+                for(j=0; j<tam; j++){
+                    M[i][j] = min(A[i][j], (A[i][k]+A[k][j]) );
+                    A[i][j] = M[i][j];
+                }
             }
         }
-    }
 
     t2 = omp_get_wtime();
     cout<<"Tiempo de ejecución en paralelo: "<<t2-t1<<endl<<endl;
