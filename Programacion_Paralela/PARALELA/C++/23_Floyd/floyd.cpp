@@ -52,7 +52,8 @@ int main(int argc, char*argv[]){
 
     t2 = omp_get_wtime();
     cout<<"Tiempo de ejecución en paralelo: "<<t2-t1<<endl<<endl;
-
+    cout<<"\n\nRESULTADO: "<<endl;
+    muestra_mat(A, tam, tam);
     return 0;
 }
 
