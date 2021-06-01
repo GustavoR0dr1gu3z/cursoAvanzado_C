@@ -74,7 +74,10 @@ int main(int argc, char*argv[]){
         }
     // Conocer el tiempo para la ejecución en paralelo
     t2 = omp_get_wtime();
+    // Imprimiendo el tiempo
     cout<<"Tiempo de ejecución en paralelo: "<<t2-t1<<endl<<endl;
+    
+    // Imprimiendo el resultado de la matriz con el método floyd
     cout<<"\n\nRESULTADO: "<<endl;
     muestra_mat(A, tam, tam);
     return 0;
