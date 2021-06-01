@@ -22,8 +22,10 @@ Se ejecuta como: ./floydCompilado 8 mat2.txt
 #include "func_omp.h"
 
 using namespace std;
+// Se define min para conocer el minimo numero
 #define min(a,b) ((a<b)?a:b)
 
+// Se crea esta funcion para la matriz con los infinitos
 float **lee_mat2(char*, int, int);
 float **M, **A;
 char *nomArc;
