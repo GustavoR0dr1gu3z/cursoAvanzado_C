@@ -71,3 +71,57 @@ float** lee_mat2(char* nomArc, int m, int n){
     cout<<"Matriz Leída"<<endl;
     return MM;
 }
+
+//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
+//----------------------------CREA LA MATRIZ----------
+float** crea_mat(int m, int n){
+    int j;
+    float **M;
+    M = new float*[m]; // Arreglo a M de m elementos
+    for(j=0; j<m; j++){
+        M[j] = new float[n]; // Le asignamos a ese arreglo las columnas
+    }
+    return M;
+}
+
+//-----------------------------LEE LA MATRIZ------------
+float** lee_mat(char *nom_arch, int m, int n){
+    int i, j;
+    float **M;
+    M = crea_mat(m,n);
+    fstream fd1;
+    fd1.open(nom_arch, ios::in);
+    while(!fd1.eof()){
+        int i, j;
+        for(i=0;i<m;i++){
+            for (j=0;j<n;j++){
+                fd1>>M[i][j];
+            }            
+        }
+    }
+    fd1.close();
+
+    for(i=0;i<m;i++){
+        for(j=0;j<m;j++){
+            if(i==j){
+                M[i][j] = 0;
+            }
+        }
+    }
+
+    cout<<"Matriz Leida"<<endl;
+    muestra_mat(M,m,n);
+    cout<<endl;
+    return M;
+}
+
+int muestra_mat(float **M, int m, int n){
+    int i, j;
+    for(i=0; i<m; i++){
+        for(j=0; j<n; j++){
+            cout<<M[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
