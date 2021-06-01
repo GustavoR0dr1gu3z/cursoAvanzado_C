@@ -66,12 +66,13 @@ int main(int argc, char*argv[]){
         for (k=0; k<tam; k++){
             for(i=0; i<tam; i++){
                 for(j=0; j<tam; j++){
+                    // Operacion para Floyd, escogiendo el mínimo siempre
                     M[i][j] = min(A[i][j], (A[i][k]+A[k][j]) );
                     A[i][j] = M[i][j];
                 }
             }
         }
-
+    // Conocer el tiempo para la ejecución en paralelo
     t2 = omp_get_wtime();
     cout<<"Tiempo de ejecución en paralelo: "<<t2-t1<<endl<<endl;
     cout<<"\n\nRESULTADO: "<<endl;
