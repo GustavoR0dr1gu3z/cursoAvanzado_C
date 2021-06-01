@@ -57,10 +57,7 @@ int main(int argc, char*argv[]){
             A = crea_mat(tam, tam);
             A = lee_mat(nomArc,tam , tam); 
         }
-    }
-
-    // Se muestra la matriz originla
-    muestra_mat(A, tam, tam);    
+    }  
 
     // Se paralelizan los 3 for anidados
     #pragma omp parallel for collapse(3)   
