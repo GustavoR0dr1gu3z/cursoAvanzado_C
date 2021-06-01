@@ -28,17 +28,19 @@ using namespace std;
 // Se crea esta funcion para la matriz con los infinitos
 float **lee_mat2(char*, int, int);
 float **M, **A;
+// Variable para el archivo
 char *nomArc;
 
 int main(int argc, char*argv[]){
     int i,j,k,tam;
     float t1, t2, m;
-
+    // Variables para tamaño y nombre del archivo
     tam = atoi(argv[1]);
     nomArc = argv[2];
-
+    // Asignación de 4 hilos
     omp_set_num_threads(4);
 
+    // Conocer el tiempo para la ejecución en paralelo
     t1 = omp_get_wtime();
 
     #pragma omp parallel sections
