@@ -43,6 +43,7 @@ int main(int argc, char*argv[]){
     // Conocer el tiempo para la ejecución en paralelo
     t1 = omp_get_wtime();
 
+    // Sections, para crear matrices y leerlas
     #pragma omp parallel sections
     {
         #pragma omp section
@@ -57,8 +58,10 @@ int main(int argc, char*argv[]){
         }
     }
 
-
+    // Se muestra la matriz originla
     muestra_mat(A, tam, tam);    
+
+    // Se hace para los 3 for en paralelo
     #pragma omp parallel for collapse(3)   
         for (k=0; k<tam; k++){
             for(i=0; i<tam; i++){
