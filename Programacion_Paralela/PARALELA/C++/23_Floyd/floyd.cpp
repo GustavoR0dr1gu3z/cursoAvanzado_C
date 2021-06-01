@@ -62,7 +62,7 @@ int main(int argc, char*argv[]){
     // Se muestra la matriz originla
     muestra_mat(A, tam, tam);    
 
-    // Se hace para los 3 for en paralelo
+    // Se paralelizan los 3 for anidados
     #pragma omp parallel for collapse(3)   
         for (k=0; k<tam; k++){
             for(i=0; i<tam; i++){
