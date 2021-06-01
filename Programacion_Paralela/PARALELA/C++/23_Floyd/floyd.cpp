@@ -1,6 +1,6 @@
 /* EJERCICIO 23 -> ALGORITMO DE FLOYD
 
-Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos 
+Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo 
 
 
 Hecho por: Gustavo Rodriguez Calzada
