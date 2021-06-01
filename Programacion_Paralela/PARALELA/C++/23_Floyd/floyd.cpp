@@ -8,7 +8,7 @@ El dia: 17 de Abril del 2021
 
 
 Se compila como: g++ -o floydCompilado floyd.cpp -fopenmp
-Se ejecuta como: ./floydCompilado 10 10
+Se ejecuta como: ./floydCompilado 8 mat2.txt
 */
 
 
