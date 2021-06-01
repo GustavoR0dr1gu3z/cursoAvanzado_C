@@ -44,6 +44,7 @@ int main(int argc, char*argv[]){
     t1 = omp_get_wtime();
 
     // Sections, para crear matrices y leerlas
+    // Se identificas las secciones que hay y se dividen entre los subprocesos
     #pragma omp parallel sections
     {
         #pragma omp section
