@@ -1,3 +1,18 @@
+/* EJERCICIO 23 -> ALGORITMO DE FLOYD
+
+Es un algoritmo de análisis sobre grafos para encontrar el camino mínimo en grafos dirigidos 
+
+
+Hecho por: Gustavo Rodriguez Calzada
+El dia: 17 de Abril del 2021
+
+
+Se compila como: g++ -o floydCompilado floyd.cpp -fopenmp
+Se ejecuta como: ./floydCompilado 10 10
+*/
+
+
+
 #include <iostream>
 #include <fstream>
 #include <omp.h>
