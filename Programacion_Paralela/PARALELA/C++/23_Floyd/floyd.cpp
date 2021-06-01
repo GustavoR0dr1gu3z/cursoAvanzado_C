@@ -33,7 +33,7 @@ int main(int argc, char*argv[]){
     for (k=0; k<tam; k++){
         for(i=0; i<tam; i++){
             for(j=0; j<tam; j++){
-                M[i][j] = min(A[i][j], (A[i][k],A[k][j]) );
+                M[i][j] = min(A[i][j], (A[i][k]+A[k][j]) );
                 A[i][j] = M[i][j];
             }
         }
