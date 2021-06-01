@@ -53,10 +53,10 @@ int main(int argc, char*argv[]){
     t2 = omp_get_wtime();
     cout<<"Tiempo de ejecución en paralelo: "<<t2-t1<<endl<<endl;
 
-    muestra_mat(A, tam, tam);
     return 0;
 }
 
+//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
 
 float** lee_mat2(char* nomArc, int m, int n){
     int i, j;
@@ -83,7 +83,6 @@ float** lee_mat2(char* nomArc, int m, int n){
     return MM;
 }
 
-//--------------------------------------------------------------MATRIZ----------------------------------------------------------------
 //----------------------------CREA LA MATRIZ----------
 float** crea_mat(int m, int n){
     int j;
