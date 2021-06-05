@@ -12,7 +12,6 @@ Se ejecuta como: ./floydCompilado 8 mat2.txt
 */
 
 
-
 #include <iostream>
 #include <fstream>
 #include <omp.h>
